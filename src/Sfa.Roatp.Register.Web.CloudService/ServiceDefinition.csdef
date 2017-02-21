@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<ServiceDefinition name="Sfa.Roatp.Registry.Web.CloudService" xmlns="http://schemas.microsoft.com/ServiceHosting/2008/10/ServiceDefinition" schemaVersion="2015-04.2.6">
+<ServiceDefinition name="Sfa.Roatp.Register.Web.CloudService" xmlns="http://schemas.microsoft.com/ServiceHosting/2008/10/ServiceDefinition" schemaVersion="2015-04.2.6">
   <WebRole name="Sfa.Roatp.Register.Web" vmsize="Small">
     <Sites>
       <Site name="Web">
