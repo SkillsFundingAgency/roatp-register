@@ -1,5 +1,5 @@
 // --------------------------------------------------------------------------------------------------------------------
-// <copyright file="StructuremapWebApi.cs" company="Web Advanced">
+// <copyright file="IoC.cs" company="Web Advanced">
 // Copyright 2012 Web Advanced (www.webadvanced.com)
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
@@ -15,16 +15,19 @@
 // </copyright>
 // --------------------------------------------------------------------------------------------------------------------
 
-using System.Web.Http;
-using Sfa.Roatp.Register.Web.DependencyResolution;
 
-[assembly: WebActivatorEx.PostApplicationStartMethod(typeof(Sfa.Roatp.Register.Web.App_Start.StructuremapWebApi), "Start")]
+namespace Sfa.Roatp.Register.Web.DependencyResolution {
+    using Infrastructure.DependencyResolution;
+    using StructureMap;
 
-namespace Sfa.Roatp.Register.Web.App_Start {
-    public static class StructuremapWebApi {
-        public static void Start() {
-			var container = StructuremapMvc.StructureMapDependencyScope.Container;
-            GlobalConfiguration.Configuration.DependencyResolver = new StructureMapWebApiDependencyResolver(container);
+    public static class IoC {
+        public static IContainer Initialize() {
+            return new Container(c =>
+            {
+                c.AddRegistry<DefaultRegistry>();
+                c.AddRegistry<WebRegistry>();
+                c.AddRegistry<InfrastructureRegistry>();
+            });
         }
     }
 }

@@ -4,14 +4,13 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{550F1317-A3F9-4426-86C8-C23804701724}</ProjectGuid>
+    <ProjectGuid>{FCE4DB1C-BE42-48AC-8015-B3D07BABF010}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>SFA.ROATP.Types</RootNamespace>
-    <AssemblyName>SFA.ROATP.Types</AssemblyName>
-    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <RootNamespace>Sfa.Roatp.Register.Core</RootNamespace>
+    <AssemblyName>Sfa.Roatp.Register.Core</AssemblyName>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
-    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -41,10 +40,15 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ProviderType.cs" />
-    <Compile Include="Exceptions\EntityNotFoundException.cs" />
+    <Compile Include="Configuration\IConfigurationSettings.cs" />
+    <Compile Include="Logging\IRequestContext.cs" />
+    <Compile Include="Logging\ILog.cs" />
+    <Compile Include="Logging\ILogEntry.cs" />
+    <Compile Include="Models\Address.cs" />
+    <Compile Include="Models\ProviderType.cs" />
+    <Compile Include="Models\RoatpProvider.cs" />
+    <Compile Include="Services\IGetProviders.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="RoatpProvider.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace SFA.ROATP.Types
+namespace Sfa.Roatp.Register.Core.Models
 {
     public class RoatpProvider
     {
