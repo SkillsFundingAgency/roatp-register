@@ -23,7 +23,7 @@ namespace Sfa.Roatp.Register.Web.Controllers
             return View();
         }
 
-        public ActionResult Registry()
+        public ActionResult Register()
         {
             return View();
         }

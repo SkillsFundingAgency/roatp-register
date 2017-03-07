@@ -306,7 +306,7 @@
     <Content Include="Content\src\styles\_govuk-elements.scss" />
     <Content Include="Content\src\styles\_govuk-templates.scss" />
     <Content Include="Views\_ViewStart.cshtml" />
-    <Content Include="Views\Home\Registry.cshtml" />
+    <Content Include="Views\Home\Register.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
