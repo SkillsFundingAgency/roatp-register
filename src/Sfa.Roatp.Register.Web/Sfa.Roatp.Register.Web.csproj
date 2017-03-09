@@ -183,6 +183,7 @@
     <Content Include="Content\dist\images\icons\status\orange_16.png" />
     <Content Include="Content\dist\images\icons\status\red_16.png" />
     <Content Include="Content\dist\images\open-government-licence.png" />
+    <Content Include="Content\dist\images\pub-cover-csv.png" />
     <Content Include="Content\dist\images\pub-cover-html.png" />
     <Content Include="Content\dist\js\prism.js" />
     <Content Include="Content\favicons\android-chrome-144x144.png" />
