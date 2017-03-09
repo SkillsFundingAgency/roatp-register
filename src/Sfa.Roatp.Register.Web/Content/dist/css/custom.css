@@ -58,8 +58,18 @@ dl.meta dd {
 
 .document-list {
     margin-top: 50px;
+    margin-bottom: 30px;
 }
 
 .document-list h2 {
     margin-top: 0;
 }
+
+h3.heading-small {
+    margin-bottom: 0;
+}
+
+h3.heading-small + p {
+    margin-top: 0;
+}
+
