@@ -1,18 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ServiceConfiguration serviceName="Sfa.Das.Console.Web.CloudService" xmlns="http://schemas.microsoft.com/ServiceHosting/2008/10/ServiceConfiguration" osFamily="4" osVersion="*" schemaVersion="2015-04.2.6">
-  <Role name="Sfa.Das.Console.Web">
+<ServiceConfiguration serviceName="Sfa.Roatp.Register.Web.CloudService" xmlns="http://schemas.microsoft.com/ServiceHosting/2008/10/ServiceConfiguration" osFamily="4" osVersion="*" schemaVersion="2015-04.2.6">
+  <Role name="Sfa.Roatp.Register.Web">
     <Instances count="2" />
     <ConfigurationSettings>
       <Setting name="Microsoft.WindowsAzure.Plugins.Diagnostics.ConnectionString" value="UseDevelopmentStorage=true" />
     </ConfigurationSettings>
     <Certificates>
-      <Certificate name="WebSslCert" thumbprint="87A28DF77BBA73983918DF4288A132588AE820F4" thumbprintAlgorithm="sha1" />
+      <Certificate name="WebSslCert" thumbprint="70D3D5B34CF61D744353145A04B9C6F6FBA724B3" thumbprintAlgorithm="sha1" />
     </Certificates>
   </Role>
   <NetworkConfiguration>
     <VirtualNetworkSite name="__vnet__" />
     <AddressAssignments>
-      <InstanceAddress roleName="Sfa.Das.Console.Web">
+      <InstanceAddress roleName="Sfa.Roatp.Register.Web">
         <Subnets>
           <Subnet name="__subnet__" />
         </Subnets>
@@ -20,7 +20,7 @@
     </AddressAssignments>
     <LoadBalancers>
       <LoadBalancer name="__ilbname__">
-        <FrontendIPConfiguration type="private" subnet="__subnet__" staticVirtualNetworkIPAddress="10.78.124.126" />
+        <FrontendIPConfiguration type="private" subnet="__subnet__" staticVirtualNetworkIPAddress="10.78.124.252" />
       </LoadBalancer>
     </LoadBalancers>
   </NetworkConfiguration>
