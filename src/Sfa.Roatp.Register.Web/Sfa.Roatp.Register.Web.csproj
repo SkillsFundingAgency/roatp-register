@@ -234,6 +234,7 @@
     <Compile Include="App_Start\SwaggerConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Attributes\ExceptionHandlingAttribute.cs" />
+    <Compile Include="Controllers\DownloadController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ProvidersController.cs" />
     <Compile Include="DependencyResolution\DefaultRegistry.cs" />
@@ -314,7 +315,7 @@
     <Content Include="Content\src\styles\_govuk-elements.scss" />
     <Content Include="Content\src\styles\_govuk-templates.scss" />
     <Content Include="Views\_ViewStart.cshtml" />
-    <Content Include="Views\Home\Register.cshtml" />
+    <Content Include="Views\Download\Index.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

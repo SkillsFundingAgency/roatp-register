@@ -22,50 +22,5 @@ namespace Sfa.Roatp.Register.Web.Controllers
         {
             return View();
         }
-
-        public ActionResult Register()
-        {
-            return View();
-        }
-
-        public ActionResult GetExportFileContentResult()
-        {
-            try
-            {
-                var providers = _getProviders.GetAllProviders();
-
-                foreach (var roatpProvider in providers)
-                {
-                    if (roatpProvider.StartDate == default(DateTime))
-                    {
-                        roatpProvider.StartDate = null;
-                    }
-
-                    if (roatpProvider.EndDate == default(DateTime))
-                    {
-                        roatpProvider.EndDate = null;
-                    }
-                }
-
-                using (var memoryStream = new MemoryStream())
-                {
-                    using (var streamWriter = new StreamWriter(memoryStream))
-                    {
-                        using (var csvWriter = new CsvWriter(streamWriter))
-                        {
-                            csvWriter.WriteRecords(providers);
-                            streamWriter.Flush();
-                            memoryStream.Position = 0;
-                            return File(memoryStream.ToArray(), "text/csv", "patata.csv");
-                        }
-                    }
-                }
-            }
-            catch (Exception e)
-            {
-                Console.WriteLine(e);
-                throw;
-            }
-        }
     }
 }
