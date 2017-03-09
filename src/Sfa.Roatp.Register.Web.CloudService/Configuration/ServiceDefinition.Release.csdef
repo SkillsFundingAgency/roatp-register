@@ -11,6 +11,10 @@
     </Sites>
     <ConfigurationSettings>
       <Setting name="Microsoft.WindowsAzure.Plugins.Diagnostics.ConnectionString" />
+      <Setting name="EnvironmentName" />
+      <Setting name="RoatpProviderIndexAlias" />
+      <Setting name="ElasticServerUrls" />
+      <Setting name="FeatureToggle.RobotsAllowFeature" />
     </ConfigurationSettings>
     <Endpoints>
       <InputEndpoint name="Endpoint1" protocol="https" port="443" certificate="WebSslCert" loadBalancer="roatp-ilb" />
