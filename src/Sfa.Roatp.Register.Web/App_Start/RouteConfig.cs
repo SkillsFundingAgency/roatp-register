@@ -11,7 +11,14 @@ namespace Sfa.Roatp.Registry.Web
     {
         public static void RegisterRoutes(RouteCollection routes)
         {
+            routes.LowercaseUrls = true;
+
             routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
+
+            routes.MapRoute(
+                name: "GetRobotsText",
+                url: "robots.txt",
+                defaults: new { controller = "Home", action = "RobotsText", id = UrlParameter.Optional });
 
             routes.MapRoute(
                 name: "Default",
