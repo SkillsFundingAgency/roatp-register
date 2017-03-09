@@ -16,11 +16,11 @@
 // --------------------------------------------------------------------------------------------------------------------
 
 using System.Web.Http;
-using Sfa.Das.ApprenticeshipInfoService.Api.DependencyResolution;
+using Sfa.Roatp.Register.Web.DependencyResolution;
 
-[assembly: WebActivatorEx.PostApplicationStartMethod(typeof(Sfa.Das.ApprenticeshipInfoService.Api.App_Start.StructuremapWebApi), "Start")]
+[assembly: WebActivatorEx.PostApplicationStartMethod(typeof(Sfa.Roatp.Register.Web.App_Start.StructuremapWebApi), "Start")]
 
-namespace Sfa.Das.ApprenticeshipInfoService.Api.App_Start {
+namespace Sfa.Roatp.Register.Web.App_Start {
     public static class StructuremapWebApi {
         public static void Start() {
 			var container = StructuremapMvc.StructureMapDependencyScope.Container;

@@ -15,19 +15,19 @@
 // </copyright>
 // --------------------------------------------------------------------------------------------------------------------
 
-using Sfa.Das.ApprenticeshipInfoService.Api.App_Start;
+using Sfa.Roatp.Register.Web.App_Start;
 
 using WebActivatorEx;
 
 [assembly: PreApplicationStartMethod(typeof(StructuremapMvc), "Start")]
 [assembly: ApplicationShutdownMethod(typeof(StructuremapMvc), "End")]
 
-namespace Sfa.Das.ApprenticeshipInfoService.Api.App_Start {
+namespace Sfa.Roatp.Register.Web.App_Start {
 	using System.Web.Mvc;
 
     using Microsoft.Web.Infrastructure.DynamicModuleHelper;
 
-	using Sfa.Das.ApprenticeshipInfoService.Api.DependencyResolution;
+	using Sfa.Roatp.Register.Web.DependencyResolution;
 
     using StructureMap;
     

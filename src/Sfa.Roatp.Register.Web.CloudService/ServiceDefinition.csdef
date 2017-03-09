@@ -10,9 +10,16 @@
     </Sites>
     <ConfigurationSettings>
       <Setting name="Microsoft.WindowsAzure.Plugins.Diagnostics.ConnectionString" />
+      <Setting name="EnvironmentName" />
+      <Setting name="RoatpProviderIndexAlias" />
+      <Setting name="ElasticServerUrls" />
+      <Setting name="FeatureToggle.RobotsAllowFeature" />
     </ConfigurationSettings>
     <Endpoints>
       <InputEndpoint name="Endpoint1" protocol="http" port="80" />
     </Endpoints>
+    <Certificates>
+      <Certificate name="WebSslCert" storeLocation="LocalMachine" storeName="My" />
+    </Certificates>
   </WebRole>
 </ServiceDefinition>

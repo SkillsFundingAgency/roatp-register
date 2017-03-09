@@ -55,6 +55,11 @@
       <RoleName>Sfa.Roatp.Register.Web</RoleName>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup>
+    <Content Include="Configuration\ServiceDefinition.Cloud.csdef">
+      <SubType>Content</SubType>
+    </Content>
+  </ItemGroup>
   <!-- Import the target files for this project template -->
   <PropertyGroup>
     <VisualStudioVersion Condition=" '$(VisualStudioVersion)' == '' ">10.0</VisualStudioVersion>

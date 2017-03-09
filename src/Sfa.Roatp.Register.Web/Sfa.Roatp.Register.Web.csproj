@@ -48,6 +48,14 @@
       <HintPath>..\packages\CsvHelper.2.16.3.0\lib\net45\CsvHelper.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="FeatureToggle, Version=3.3.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\FeatureToggle.3.5.0\lib\net40\FeatureToggle.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="FeatureToggle.Core, Version=3.3.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\FeatureToggle.Core.3.5.0\lib\portable-net40+sl50+wp81+wpa+win\FeatureToggle.Core.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="Microsoft.Azure.KeyVault.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.Azure.KeyVault.Core.1.0.0\lib\net40\Microsoft.Azure.KeyVault.Core.dll</HintPath>
       <Private>True</Private>
@@ -69,6 +77,10 @@
       <HintPath>..\packages\Microsoft.Data.Services.Client.5.7.0\lib\net40\Microsoft.Data.Services.Client.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="Microsoft.Practices.ServiceLocation, Version=1.3.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\CommonServiceLocator.1.3\lib\portable-net4+sl5+netcore45+wpa81+wp8\Microsoft.Practices.ServiceLocation.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="Microsoft.WindowsAzure.Diagnostics, Version=2.8.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35">
       <Private>True</Private>
     </Reference>
@@ -79,8 +91,16 @@
       <HintPath>..\packages\WindowsAzure.Storage.7.0.0\lib\net40\Microsoft.WindowsAzure.Storage.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="Newtonsoft.Json, Version=8.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
-      <HintPath>..\packages\Newtonsoft.Json.8.0.2\lib\net45\Newtonsoft.Json.dll</HintPath>
+    <Reference Include="Newtonsoft.Json, Version=9.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.9.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="StructureMap, Version=4.3.0.449, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\StructureMap.4.4.0\lib\net45\StructureMap.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="StructureMap.Web, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\structuremap.web.4.0.0.315\lib\net40\StructureMap.Web.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="Swashbuckle.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=cd1bb07a5ac7c7bc, processorArchitecture=MSIL">
@@ -109,7 +129,7 @@
     <Reference Include="System.Web.Services" />
     <Reference Include="System.EnterpriseServices" />
     <Reference Include="WebActivatorEx, Version=2.0.0.0, Culture=neutral, PublicKeyToken=7b26dc2a43f6a0d4, processorArchitecture=MSIL">
-      <HintPath>..\packages\WebActivatorEx.2.0\lib\net40\WebActivatorEx.dll</HintPath>
+      <HintPath>..\packages\WebActivatorEx.2.0.5\lib\net40\WebActivatorEx.dll</HintPath>
       <Private>True</Private>
     </Reference>
   </ItemGroup>
@@ -150,11 +170,17 @@
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\dist\css\custom.css" />
     <Content Include="Content\dist\css\external-links\external-link-24x24.png" />
     <Content Include="Content\dist\css\external-links\external-link.png" />
+    <Content Include="Content\dist\css\fonts.css" />
+    <Content Include="Content\dist\css\govuk-template.css" />
     <Content Include="Content\dist\css\images\open-government-licence.png" />
     <Content Include="Content\dist\css\screen.css" />
     <Content Include="Content\dist\css\screen.min.css" />
+    <Content Include="Content\dist\css\screenie6.css" />
+    <Content Include="Content\dist\css\screenie7.css" />
+    <Content Include="Content\dist\css\screenie8.css" />
     <Content Include="Content\dist\images\gov.uk_logotype_crown.svg" />
     <Content Include="Content\dist\images\govuk-crest.svg" />
     <Content Include="Content\dist\images\icons\icon-important-2x.png" />
@@ -165,6 +191,8 @@
     <Content Include="Content\dist\images\icons\status\orange_16.png" />
     <Content Include="Content\dist\images\icons\status\red_16.png" />
     <Content Include="Content\dist\images\open-government-licence.png" />
+    <Content Include="Content\dist\images\pub-cover-csv.png" />
+    <Content Include="Content\dist\images\pub-cover-html.png" />
     <Content Include="Content\dist\js\prism.js" />
     <Content Include="Content\favicons\android-chrome-144x144.png" />
     <Content Include="Content\favicons\android-chrome-192x192.png" />
@@ -209,14 +237,25 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="App_Start\StructuremapMvc.cs" />
+    <Compile Include="App_Start\StructuremapWebApi.cs" />
     <Compile Include="App_Start\SwaggerConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Attributes\ExceptionHandlingAttribute.cs" />
+    <Compile Include="Controllers\DownloadController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ProvidersController.cs" />
+    <Compile Include="DependencyResolution\DefaultRegistry.cs" />
+    <Compile Include="DependencyResolution\IoC.cs" />
+    <Compile Include="DependencyResolution\StructureMapDependencyScope.cs" />
+    <Compile Include="DependencyResolution\StructureMapScopeModule.cs" />
+    <Compile Include="DependencyResolution\StructureMapWebApiDependencyResolver.cs" />
+    <Compile Include="DependencyResolution\StructureMapWebApiDependencyScope.cs" />
+    <Compile Include="DependencyResolution\WebRegistry.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Logging\RequestContext.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="WebRole.cs" />
   </ItemGroup>
@@ -284,6 +323,7 @@
     <Content Include="Content\src\styles\_govuk-elements.scss" />
     <Content Include="Content\src\styles\_govuk-templates.scss" />
     <Content Include="Views\_ViewStart.cshtml" />
+    <Content Include="Views\Download\Index.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -296,9 +336,13 @@
     <Folder Include="Models\" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\SFA.ROATP.Types\SFA.ROATP.Types.csproj">
-      <Project>{550f1317-a3f9-4426-86c8-c23804701724}</Project>
-      <Name>SFA.ROATP.Types</Name>
+    <ProjectReference Include="..\Sfa.Roatp.Register.Core\Sfa.Roatp.Register.Core.csproj">
+      <Project>{fce4db1c-be42-48ac-8015-b3d07babf010}</Project>
+      <Name>Sfa.Roatp.Register.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Sfa.Roatp.Register.Infrastructure\Sfa.Roatp.Register.Infrastructure.csproj">
+      <Project>{3aae3727-fb7e-4f2a-854c-e95bac1fae1a}</Project>
+      <Name>Sfa.Roatp.Register.Infrastructure</Name>
     </ProjectReference>
   </ItemGroup>
   <PropertyGroup>

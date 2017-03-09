@@ -2,19 +2,21 @@
     <div class="grid-row">
         <div class="column-full">
 
-            <h3 class="large">API Documentation</h3>
+            <h3 class="large">API Documentation <i>coming soon</i></h3>
+            
+            <a href="https://www.gov.uk/government/collections/register-of-apprenticeship-training-providers">More information</a>
             <div class="swagger-section">
                 <!--<div id='header'>
-                <div class="swagger-ui-wrap">
-                    <a id="logo" href="http://swagger.io">swagger</a>
-                    <form id='api_selector'>
-                        <div class='input'><input placeholder="http://example.com/api" id="input_baseUrl" name="baseUrl" type="text"/></div>
-                        <div class='input'><input placeholder="api_key" id="input_apiKey" name="apiKey" type="text"/></div>
-                        <div class='input'><a id="explore" href="#" data-sw-translate>Explore</a></div>
-                    </form>
+                    <div class="swagger-ui-wrap">
+                        <a id="logo" href="http://swagger.io">swagger</a>
+                        <form id='api_selector'>
+                            <div class='input'><input placeholder="http://example.com/api" id="input_baseUrl" name="baseUrl" type="text"/></div>
+                            <div class='input'><input placeholder="api_key" id="input_apiKey" name="apiKey" type="text"/></div>
+                            <div class='input'><a id="explore" href="#" data-sw-translate>Explore</a></div>
+                        </form>
+                    </div>
                 </div>
-            </div>
-            <div id="message-bar" class="swagger-ui-wrap" data-sw-translate>&nbsp;</div>-->
+                <div id="message-bar" class="swagger-ui-wrap" data-sw-translate>&nbsp;</div>-->
                 <div id="swagger-ui-container" class="swagger-ui-wrap"></div>
             </div>
 
@@ -27,6 +29,126 @@
                     <a href="https://www.gov.uk/call-charges">Find out about call charges</a>
                 </p>
             </div>*@
+            <div>
+                @Html.ActionLink("Download export", "Index", "Download", null, null)
+            </div>
         </div>
     </div>
 </main>
+
+@section footerJS
+{
+    <script type="text/javascript">
+        $(function () {
+
+            var url = window.location.search.match(/url=([^&]+)/);
+
+            if (url && url.length > 1) {
+                url = decodeURIComponent(url[1]);
+            } else {
+                url = "http://petstore.swagger.io/v2/swagger.json";
+            }
+
+            // Get Swashbuckle config into JavaScript
+            function arrayFrom(configString) {
+                return (configString !== "") ? configString.split('|') : [];
+            }
+
+            function stringOrNullFrom(configString) {
+                return (configString !== "null") ? configString : null;
+            }
+
+            window.swashbuckleConfig = {
+                rootUrl: 'http://' + document.location.host,
+                discoveryPaths: arrayFrom('swagger/docs/v1'),
+                booleanValues: arrayFrom('true|false'),
+                validatorUrl: stringOrNullFrom(''),
+                customScripts: arrayFrom(''),
+                docExpansion: 'none',
+                oAuth2Enabled: ('false' == 'true'),
+                oAuth2ClientId: '',
+                oAuth2ClientSecret: '',
+                oAuth2Realm: '',
+                oAuth2AppName: '',
+                oAuth2ScopeSeperator: ' ',
+                oAuth2AdditionalQueryStringParams: JSON.parse('{}')
+            };
+
+            // Pre load translate...
+            if (window.SwaggerTranslator) {
+                window.SwaggerTranslator.translate();
+            }
+            window.swaggerUi = new SwaggerUi({
+                url: swashbuckleConfig.rootUrl + "/" + swashbuckleConfig.discoveryPaths[0],
+                dom_id: "swagger-ui-container",
+                booleanValues: swashbuckleConfig.booleanValues,
+                onComplete: function (swaggerApi, swaggerUi) {
+                    if (typeof initOAuth == "function" && swashbuckleConfig.oAuth2Enabled) {
+                        initOAuth({
+                            clientId: swashbuckleConfig.oAuth2ClientId,
+                            clientSecret: swashbuckleConfig.oAuth2ClientSecret,
+                            realm: swashbuckleConfig.oAuth2Realm,
+                            appName: swashbuckleConfig.oAuth2AppName,
+                            scopeSeparator: swashbuckleConfig.oAuth2ScopeSeperator,
+                            additionalQueryStringParams: swashbuckleConfig.oAuth2AdditionalQueryStringParams
+                        });
+                    }
+
+                    if (window.SwaggerTranslator) {
+                        window.SwaggerTranslator.translate();
+                    }
+
+                    $('pre code')
+                        .each(function (i, e) {
+                            hljs.highlightBlock(e)
+                        });
+
+                    //addApiKeyAuthorization();
+
+                    window.swaggerApi = swaggerApi;
+                    _.each(swashbuckleConfig.customScripts,
+                        function (script) {
+                            $.getScript(script);
+                        });
+                },
+                onFailure: function (data) {
+                    log("Unable to Load SwaggerUI");
+                },
+                docExpansion: swashbuckleConfig.docExpansion,
+                jsonEditor: false,
+                apisSorter: null, // default to server
+                defaultModelRendering: 'schema',
+                showRequestHeaders: false
+            });
+
+            if (window.swashbuckleConfig.validatorUrl !== '')
+                window.swaggerUi.options.validatorUrl = window.swashbuckleConfig.validatorUrl;
+
+            function addApiKeyAuthorization() {
+                var key = encodeURIComponent($('#input_apiKey')[0].value);
+                if (key && key.trim() != "") {
+                    var apiKeyAuth = new SwaggerClient.ApiKeyAuthorization("api_key", key, "query");
+                    window.swaggerUi.api.clientAuthorizations.add("api_key", apiKeyAuth);
+                    log("added key " + key);
+                }
+            }
+
+            $('#input_apiKey').change(addApiKeyAuthorization);
+
+            // if you have an apiKey you would like to pre-populate on the page for demonstration purposes...
+            /*
+              var apiKey = "myApiKeyXXXX123456789";
+              $('#input_apiKey').val(apiKey);
+            */
+
+            window.swaggerUi.load();
+
+            function log() {
+                if ('console' in window) {
+                    console.log.apply(console, arguments);
+                }
+            }
+        });
+</script>
+}
+
