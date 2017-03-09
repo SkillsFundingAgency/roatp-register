@@ -9,13 +9,13 @@ namespace Sfa.Roatp.Register.Infrastructure.Settings
 {
     public sealed class ApplicationSettings : IConfigurationSettings
     {
-        public string RoatpProviderIndexAlias => ConfigurationManager.AppSettings["RoatpProviderIndexAlias"];
+        public string RoatpProviderIndexAlias => CloudConfigurationManager.GetSetting("RoatpProviderIndexAlias");
 
         public IEnumerable<Uri> ElasticServerUrls => GetElasticSearchIps();
 
-        public string EnvironmentName => ConfigurationManager.AppSettings["EnvironmentName"];
+        public string EnvironmentName => CloudConfigurationManager.GetSetting("EnvironmentName");
 
-        public string ApplicationName => ConfigurationManager.AppSettings["ApplicationName"];
+        public string ApplicationName => CloudConfigurationManager.GetSetting("ApplicationName");
 
         private IEnumerable<Uri> GetElasticSearchIps()
         {
