@@ -7,6 +7,9 @@ using System.Web.Routing;
 using System.Web.Security;
 using System.Web.SessionState;
 using System.Web.Http;
+using Sfa.Roatp.Register.Web;
+using Microsoft.ApplicationInsights.Extensibility;
+using Microsoft.Azure;
 
 namespace Sfa.Roatp.Registry.Web
 {
@@ -17,6 +20,7 @@ namespace Sfa.Roatp.Registry.Web
             // Code that runs on application startup
             GlobalConfiguration.Configure(WebApiConfig.Register);
             RouteConfig.RegisterRoutes(RouteTable.Routes);
+            TelemetryConfiguration.Active.InstrumentationKey = CloudConfigurationManager.GetSetting("InstrumentationKey");
         }
     }
 }

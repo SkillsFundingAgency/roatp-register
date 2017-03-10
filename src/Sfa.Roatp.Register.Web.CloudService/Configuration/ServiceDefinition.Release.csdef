@@ -15,6 +15,7 @@
       <Setting name="RoatpProviderIndexAlias" />
       <Setting name="ElasticServerUrls" />
       <Setting name="FeatureToggle.RobotsAllowFeature" />
+      <Setting name="InstrumentationKey" />
     </ConfigurationSettings>
     <Endpoints>
       <InputEndpoint name="Endpoint1" protocol="https" port="443" certificate="WebSslCert" loadBalancer="roatp-ilb" />

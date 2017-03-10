@@ -8,6 +8,7 @@
       <Setting name="RoatpProviderIndexAlias" value="__RoatpProviderIndexAlias__" />
       <Setting name="ElasticServerUrls" value="__ElasticServerUrls__" />
       <Setting name="FeatureToggle.RobotsAllowFeature" value="false" />
+      <Setting name="InstrumentationKey"  value="__InstrumentationKey__"/>
     </ConfigurationSettings>
     <Certificates>
       <Certificate name="WebSslCert" thumbprint="E280E23D933FE3A62AF335BE9768A2C9D65CCC9A" thumbprintAlgorithm="sha1" />
