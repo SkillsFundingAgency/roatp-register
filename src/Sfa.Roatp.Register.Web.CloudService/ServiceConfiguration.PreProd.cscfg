@@ -9,6 +9,8 @@
       <Setting name="ElasticServerUrls" value="__ElasticServerUrls__" />
       <Setting name="FeatureToggle.RobotsAllowFeature" value="false" />
       <Setting name="InstrumentationKey"  value="__InstrumentationKey__"/>
+      <Setting name="LoggingRedisConnectionString" value="__LoggingRedisConnectionString__"/>
+      <Setting name="LoggingRedisKey" value="__LoggingRedisKey__" />
     </ConfigurationSettings>
     <Certificates>
       <Certificate name="WebSslCert" thumbprint="70D3D5B34CF61D744353145A04B9C6F6FBA724B3" thumbprintAlgorithm="sha1" />
