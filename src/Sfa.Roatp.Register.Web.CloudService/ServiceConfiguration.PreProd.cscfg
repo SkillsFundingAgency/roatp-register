@@ -4,6 +4,10 @@
     <Instances count="2" />
     <ConfigurationSettings>
       <Setting name="Microsoft.WindowsAzure.Plugins.Diagnostics.ConnectionString" value="UseDevelopmentStorage=true" />
+      <Setting name="EnvironmentName" value="__EnvironmentName__" />
+      <Setting name="RoatpProviderIndexAlias" value="__RoatpProviderIndexAlias__" />
+      <Setting name="ElasticServerUrls" value="__ElasticServerUrls__" />
+      <Setting name="FeatureToggle.RobotsAllowFeature" value="false" />
     </ConfigurationSettings>
     <Certificates>
       <Certificate name="WebSslCert" thumbprint="70D3D5B34CF61D744353145A04B9C6F6FBA724B3" thumbprintAlgorithm="sha1" />
