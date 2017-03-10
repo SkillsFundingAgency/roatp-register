@@ -8,9 +8,7 @@ namespace Sfa.Roatp.Register.Core.Models
         public long Ukprn { get; set; }
 
         public ProviderType ProviderType { get; set; }
-
-        public bool ContractedForNonLeviedEmployers { get; set; }
-
+        
         public bool ParentCompanyGuarantee { get; set; }
 
         public bool NewOrganisationWithoutFinancialTrackRecord { get; set; }
