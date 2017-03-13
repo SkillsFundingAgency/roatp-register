@@ -33,10 +33,14 @@
                     </div>
                     <div class="attachment-details">
                         <h2 class="title">
-                            @Html.ActionLink("SFA register of apprenticeship training providers", "Csv", "Download", null, null)
+                            SFA register of apprenticeship training providers
                         </h2>
+                        <span class="type">@Html.ActionLink("Download CSV", "Csv", "Download", null, null)</span>
                         <p class="metadata">
-                            <span class="type">CSV</span>
+                            This file may not be suitable for users of assistive technology. <a id="lnkReqMore" href="#content">Request an accessible format</a>
+                        </p>
+                        <p id="requestMore">
+                            If you use assistive technology (such as a screen reader) and need a version of this document in a more accessible format, please email <a href="mailto:info@sfa.bis.gov.uk?body=Details%20of%20document%20required%3A%0A%0A%20%20Title%3A%20SFA%20register%20of%20training%20organisations%20%0A%20%20Original%20format%3A%20csv%0A%0APlease%20tell%20us%3A%0A%0A%20%201.%20What%20makes%20this%20format%20unsuitable%20for%20you%3F%0A%20%202.%20What%20format%20you%20would%20prefer%3F%0A%20%20%20%20%20%20&subject=Request%20for%20%27SFA%20register%20of%20training%20organisations%20%27%20in%20an%20alternative%20format">info@sfa.bis.gov.uk</a>. Please tell us what format you need. It will help us if you say what assistive technology you use.
                         </p>
                     </div>
                 </section>
@@ -51,7 +55,8 @@
             <p>The register lists the organisations that are approved to deliver apprenticeship training.</p>
 
             <h3 class="heading-small">UKPRN</h3>
-            <p>This is the organisation's UK Provider Reference Number (UKPRN). More information about the UKPRN can be found at <a href="https://www.ukrlp.co.uk" target="_blank">https://www.ukrlp.co.uk</a>.</p>
+            <p>This is the organisation's UK Provider Reference Number (UKPRN). More information about the UKPRN can be found at <a href="https://www.ukrlp.co.uk" target="_blank">https://www.ukrlp.co.uk</a>.
+            </p>
 
             <h3 class="heading-small">Organisation Name</h3>
             <p>This is the legal name from UK Register of Learning Providers (UKRLP). For sole traders and partnerships, we list the name on UKRLP and trading name. Organisation names displayed in digital accounts will also be sourced from UKRLP.</p>
@@ -71,9 +76,26 @@
             <h3 class="heading-small">New Organisation Without Financial Track Record</h3>
             <p>If this field is set to 'TRUE', then the organisation has not been trading for a sufficient period to provide a fully complete set of financial statements as part of the RoATP application process. A financial health judgement was based on management accounts and forecasts (where applicable).</p>
 
-            <p>For any further information see the register of apprenticeship training providers information on <a href="https://www.gov.uk/government/publications/register-of-training-organisations">GOV.UK</a></p>
+            <p>For any further information see the register of apprenticeship training providers information on <a href="https://www.gov.uk/government/publications/register-of-training-organisations">GOV.UK</a>
+            </p>
         </div>
 
 
     </div>
 </main>
+
+
+@section footerJS {
+    <script>
+        var reqMore = document.getElementById('requestMore'),
+            lnkReqMore = document.getElementById('lnkReqMore');
+
+        reqMore.style.display = 'none';
+        reqMore.style.visibility = 'hidden';
+
+        lnkReqMore.addEventListener('click', function () {
+            reqMore.style.visibility = reqMore.style.visibility === 'hidden' ? 'visible' : 'hidden';
+            reqMore.style.display = reqMore.style.display === 'none' ? 'block' : 'none';
+        });
+    </script>
+}
