@@ -25,7 +25,9 @@ namespace Sfa.Roatp.Register.Web.Controllers
         // GET: Home
         public ActionResult Index()
         {
-            return View();
+            // redirect to download page for the moment
+            return RedirectToAction("Index", "Download");
+            //return View();
         }
 
         [OutputCache(Duration = 86400)]
