@@ -2,6 +2,7 @@
 using Nest;
 using Sfa.Roatp.Register.Core.Configuration;
 using Sfa.Roatp.Register.Core.Models;
+using SFA.ROATP.Types;
 
 namespace Sfa.Roatp.Register.Infrastructure.Elasticsearch
 {

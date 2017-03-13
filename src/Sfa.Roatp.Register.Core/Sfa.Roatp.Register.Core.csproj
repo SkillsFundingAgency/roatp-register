@@ -45,10 +45,14 @@
     <Compile Include="Logging\ILog.cs" />
     <Compile Include="Logging\ILogEntry.cs" />
     <Compile Include="Models\Address.cs" />
-    <Compile Include="Models\ProviderType.cs" />
-    <Compile Include="Models\RoatpProvider.cs" />
     <Compile Include="Services\IGetProviders.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\SFA.ROATP.Types\SFA.ROATP.Types.csproj">
+      <Project>{550F1317-A3F9-4426-86C8-C23804701724}</Project>
+      <Name>SFA.ROATP.Types</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

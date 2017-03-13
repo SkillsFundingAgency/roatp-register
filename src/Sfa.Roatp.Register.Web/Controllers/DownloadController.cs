@@ -29,19 +29,6 @@ namespace Sfa.Roatp.Register.Web.Controllers
             {
                 var providers = _getProviders.GetAllProviders();
 
-                foreach (var roatpProvider in providers)
-                {
-                    if (roatpProvider.StartDate == default(DateTime))
-                    {
-                        roatpProvider.StartDate = null;
-                    }
-
-                    if (roatpProvider.EndDate == default(DateTime))
-                    {
-                        roatpProvider.EndDate = null;
-                    }
-                }
-
                 using (var memoryStream = new MemoryStream())
                 {
                     using (var streamWriter = new StreamWriter(memoryStream))

@@ -5,6 +5,7 @@ using Sfa.Roatp.Register.Core.Configuration;
 using Sfa.Roatp.Register.Core.Logging;
 using Sfa.Roatp.Register.Core.Models;
 using Sfa.Roatp.Register.Core.Services;
+using SFA.ROATP.Types;
 
 namespace Sfa.Roatp.Register.Infrastructure.Elasticsearch
 {

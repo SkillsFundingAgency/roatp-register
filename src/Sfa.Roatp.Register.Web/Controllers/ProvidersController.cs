@@ -1,8 +1,8 @@
 ﻿using System.Collections.Generic;
 using System.Net;
 using System.Web.Http;
-using Sfa.Roatp.Register.Core.Models;
 using Sfa.Roatp.Register.Web.Attributes;
+using SFA.ROATP.Types;
 using Swashbuckle.Swagger.Annotations;
 
 namespace Sfa.Roatp.Register.Web.Controllers
