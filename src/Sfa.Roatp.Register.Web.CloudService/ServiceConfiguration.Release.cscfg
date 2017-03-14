@@ -7,7 +7,7 @@
       <Setting name="EnvironmentName" value="__EnvironmentName__" />
       <Setting name="RoatpProviderIndexAlias" value="__RoatpProviderIndexAlias__" />
       <Setting name="ElasticServerUrls" value="__ElasticServerUrls__" />
-      <Setting name="FeatureToggle.RobotsAllowFeature" value="true" />
+      <Setting name="FeatureToggle.RobotsAllowFeature" value="__RobotsAllowFeature__" />
       <Setting name="InstrumentationKey"  value="__InstrumentationKey__"/>
       <Setting name="LoggingRedisConnectionString" value="__LoggingRedisConnectionString__"/>
       <Setting name="LoggingRedisKey" value="__LoggingRedisKey__" />
