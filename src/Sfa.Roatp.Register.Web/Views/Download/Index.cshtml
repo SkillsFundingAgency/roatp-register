@@ -2,7 +2,6 @@
     <div class="grid-row">
         <div class="column-two-thirds">
             <h1 class="heading-xlarge">
-                <span class="heading-secondary">Guidance</span>
                 Apprenticeship training providers
             </h1>
             <dl class="meta">
@@ -52,22 +51,22 @@
 
             <h3 class="heading-medium">What is in the Register?</h3>
 
-            <p>The register lists the organisations that are approved to deliver apprenticeship training.</p>
+            <p>The register lists the organisations that are approved to deliver apprenticeship training to employers using the apprenticeship service.</p>
 
             <h3 class="heading-small">UKPRN</h3>
             <p>This is the organisation's UK Provider Reference Number (UKPRN). More information about the UKPRN can be found at <a href="https://www.ukrlp.co.uk" target="_blank">UKRLP</a>.
             </p>
 
             <h3 class="heading-small">Organisation Name</h3>
-            <p>This is the legal name from UK Register of Learning Providers (UKRLP). @*For sole traders and partnerships, we list the name on <a href="https://www.ukrlp.co.uk/" target="_blank">UKRLP</a> and trading name.*@ Organisation names for digital accounts can be sourced from <a href="https://www.ukrlp.co.uk/" target="_blank">UKRLP</a>.</p>
+            <p>This is the legal name from UK Register of Learning Providers (UKRLP). @*For sole traders and partnerships, we list the name on UKRLP and trading name.*@ Organisation names for digital accounts can be sourced from UKRLP.</p>
 
             <h3 class="heading-small">Provider Type</h3>
             <p>The 3 provider types are:</p>
 
             <ul class="list list-bullet">
-                <li>Main provider - can be selected by levied employers to deliver apprenticeship training, or selected by another main provider to work as a subcontractor</li>
-                <li>Employer provider – levy paying employers who provide training to their own staff or to apprentices of their connected companies</li>
-                <li>Supporting provider - organisations that only deliver as a subcontractor up to a value of £500,000 per year in total</li>
+                <li>main provider - organisations that can be selected by levy paying employers to deliver apprenticeship training, or selected by another main provider to work as a subcontractor if the contract value is greater than £500,000</li>
+                <li>employer provider – levy paying employers who are permitted to provide training to their own staff or to apprentices of their connected companies. They cannot deliver training to other unconnected organisations</li>
+                <li>supporting provider - organisations that only deliver as a subcontractor for contract values between £100,000 and £500,000 per year in total</li>
             </ul>
 
             <h3 class="heading-small">Parent Company Guarantee</h3>
@@ -76,17 +75,16 @@
             <h3 class="heading-small">New Organisation Without Financial Track Record</h3>
             <p>If this field is set to 'TRUE', then the organisation has not been trading for a sufficient period to provide a fully complete set of financial statements as part of the RoATP application process. A financial health judgement was based on management accounts and forecasts (where applicable).</p>
 
-            <p>For any further information see the register of apprenticeship training providers information on <a href="https://www.gov.uk/government/publications/register-of-training-organisations" target="_blank">GOV.UK</a>
+            <p>For any further information see the <a href="https://www.gov.uk/government/collections/register-of-apprenticeship-training-providers" target="_blank">register of apprenticeship training providers</a> information on GOV.UK
             </p>
         </div>
-
 
     </div>
 </main>
 
 
 @section footerJS {
-    <script>
+    @*<script>
         var reqMore = document.getElementById('requestMore'),
             lnkReqMore = document.getElementById('lnkReqMore');
 
@@ -98,5 +96,5 @@
             reqMore.style.display = reqMore.style.display === 'none' ? 'block' : 'none';
             return false;
         });
-    </script>
+    </script>*@
 }
