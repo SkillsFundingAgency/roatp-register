@@ -12,7 +12,6 @@ namespace Sfa.Roatp.Register.Web.Models
             {
                 Ukprn = provider.Ukprn,
                 ProviderType = Enumerations.GetEnumDescription(provider.ProviderType),
-                ContractedForNonLeviedEmployers = provider.ContractedForNonLeviedEmployers,
                 NewOrganisationWithoutFinancialTrackRecord = provider.NewOrganisationWithoutFinancialTrackRecord,
                 ParentCompanyGuarantee = provider.ParentCompanyGuarantee,
                 StartDate = FormatDate(provider.StartDate),

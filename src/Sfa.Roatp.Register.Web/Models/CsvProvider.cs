@@ -8,7 +8,6 @@ namespace Sfa.Roatp.Register.Web.Models
 
         public string ProviderType { get; set; }
 
-        public bool ContractedForNonLeviedEmployers { get; set; }
 
         public bool ParentCompanyGuarantee { get; set; }
 
