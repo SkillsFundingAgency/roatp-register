@@ -4,6 +4,7 @@ using System.IO;
 using System.Text;
 using System.Web.Mvc;
 using CsvHelper;
+using Microsoft.Azure;
 using Sfa.Roatp.Register.Core.Configuration;
 using Sfa.Roatp.Register.Core.Models;
 using Sfa.Roatp.Register.Core.Services;
@@ -37,11 +38,7 @@ namespace Sfa.Roatp.Register.Web.Controllers
 
             builder.AppendLine("User-agent: *");
 
-            if (!_settings.EnvironmentName.Equals("Prod", StringComparison.OrdinalIgnoreCase))
-            {
-                builder.AppendLine("Disallow: /");
-            }
-            else if (new RobotsAllowFeature().FeatureEnabled == false)
+            if (!bool.Parse(CloudConfigurationManager.GetSetting("FeatureToggle.RobotsAllowFeature")??"false"))
             {
                 builder.AppendLine("Disallow: /");
             }
