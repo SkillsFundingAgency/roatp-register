@@ -28,7 +28,18 @@
     <link rel="icon" type="image/png" href="/Content/favicons/favicon-32x32.png" sizes="32x32">
     <link rel="icon" type="image/png" href="/Content/favicons/favicon-96x96.png" sizes="96x96">
 
-    <script type = 'text/javascript' >
+
+    <!-- Google Tag Manager -->
+    <script>
+(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push(
+{'gtm.start': new Date().getTime(),event:'gtm.js'}
+);var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-T3CZC2');</script>
+    <!-- End Google Tag Manager -->
+
+        <script type='text/javascript'>
         var appInsights=window.appInsights||function(config)
         {
             function r(config){ t[config] = function(){ var i = arguments; t.queue.push(function(){ t[config].apply(t, i)})} }
@@ -39,18 +50,24 @@
 
         window.appInsights=appInsights;
         appInsights.trackPageView();
-    </script>
+        </script>
 </head>
 
 <body>
+    <!-- Google Tag Manager (noscript) -->
+    <noscript>
+        <iframe src="https://www.googletagmanager.com/ns.html?id=GTM-T3CZC2"
+                height="0" width="0" style="display:none;visibility:hidden"></iframe>
+    </noscript>
+    <!-- End Google Tag Manager (noscript) -->
 
-    @Html.Partial("_Header")
+@Html.Partial("_Header")
 
-    @RenderBody()
+@RenderBody()
 
-    @Html.Partial("_Footer")
+@Html.Partial("_Footer")
 
-    @RenderSection("footerJS", false)
+@RenderSection("footerJS", false)
 
 </body>
 </html>
