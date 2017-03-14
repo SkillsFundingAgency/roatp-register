@@ -11,6 +11,7 @@ namespace Sfa.Roatp.Register.Web.Models
             return new CsvProvider
             {
                 Ukprn = provider.Ukprn,
+                Name = provider.Name,
                 ProviderType = Enumerations.GetEnumDescription(provider.ProviderType),
                 NewOrganisationWithoutFinancialTrackRecord = provider.NewOrganisationWithoutFinancialTrackRecord,
                 ParentCompanyGuarantee = provider.ParentCompanyGuarantee,

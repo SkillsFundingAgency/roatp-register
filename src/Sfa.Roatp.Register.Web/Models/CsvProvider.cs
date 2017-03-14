@@ -6,8 +6,9 @@ namespace Sfa.Roatp.Register.Web.Models
     {
         public long Ukprn { get; set; }
 
-        public string ProviderType { get; set; }
+        public string Name { get; set; }
 
+        public string ProviderType { get; set; }
 
         public bool ParentCompanyGuarantee { get; set; }
 
