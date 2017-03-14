@@ -22,7 +22,7 @@ namespace Sfa.Roatp.Register.Web.Models
 
         private static string FormatDate(DateTime? date)
         {
-            return date?.ToShortDateString() ?? string.Empty;
+            return date?.ToString("dd/MM/yyyy") ?? string.Empty;
         }
     }
 }
