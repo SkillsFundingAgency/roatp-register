@@ -5,11 +5,11 @@ namespace SFA.ROATP.Types
     public enum ProviderType
     {
         Unknown = 0,
-        [Description("Main Provider")]
+        [Description("Main provider")]
         MainProvider = 1,
-        [Description("Supporting Provider")]
+        [Description("Supporting provider")]
         SupportingProvider = 2,
-        [Description("Employer Provider")]
+        [Description("Employer provider")]
         EmployerProvider = 3
     }
 }
