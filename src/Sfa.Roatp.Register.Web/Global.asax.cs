@@ -20,7 +20,7 @@ namespace Sfa.Roatp.Registry.Web
             // Code that runs on application startup
             GlobalConfiguration.Configure(WebApiConfig.Register);
             RouteConfig.RegisterRoutes(RouteTable.Routes);
-            TelemetryConfiguration.Active.InstrumentationKey = CloudConfigurationManager.GetSetting("InstrumentationKey");
+            TelemetryConfiguration.Active.InstrumentationKey = CloudConfigurationManager.GetSetting("InstrumentationKey") ?? string.Empty;
         }
     }
 }
