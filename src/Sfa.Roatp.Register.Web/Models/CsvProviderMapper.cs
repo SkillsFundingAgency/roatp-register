@@ -13,8 +13,8 @@ namespace Sfa.Roatp.Register.Web.Models
                 Ukprn = provider.Ukprn,
                 Name = provider.Name,
                 ProviderType = Enumerations.GetEnumDescription(provider.ProviderType),
-                NewOrganisationWithoutFinancialTrackRecord = provider.ParentCompanyGuarantee,
-                ParentCompanyGuarantee = provider.NewOrganisationWithoutFinancialTrackRecord,
+                NewOrganisationWithoutFinancialTrackRecord = provider.NewOrganisationWithoutFinancialTrackRecord,
+                ParentCompanyGuarantee = provider.ParentCompanyGuarantee,
                 StartDate = FormatDate(provider.StartDate),
                 EndDate = FormatDate(provider.EndDate)
             };
