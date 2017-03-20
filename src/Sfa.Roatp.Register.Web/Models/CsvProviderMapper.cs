@@ -8,7 +8,7 @@ namespace Sfa.Roatp.Register.Web.Models
     {
         public static CsvProvider Map(RoatpProvider provider)
         {
-            return new CsvProvider
+            var csvProvider = new CsvProvider
             {
                 Ukprn = provider.Ukprn,
                 Name = provider.Name,
@@ -18,6 +18,13 @@ namespace Sfa.Roatp.Register.Web.Models
                 StartDate = FormatDate(provider.StartDate),
                 EndDate = FormatDate(provider.EndDate)
             };
+
+            if (provider.IsTransposed)
+            {
+                csvProvider.NewOrganisationWithoutFinancialTrackRecord = provider.ParentCompanyGuarantee;
+                csvProvider.ParentCompanyGuarantee = provider.NewOrganisationWithoutFinancialTrackRecord;
+            }
+            return csvProvider;
         }
 
         private static string FormatDate(DateTime? date)

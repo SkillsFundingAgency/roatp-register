@@ -21,5 +21,7 @@ namespace SFA.ROATP.Types
         public DateTime? StartDate { get; set; }
 
         public DateTime? EndDate { get; set; }
+        [Obsolete("This is a temporary field")]
+        public bool IsTransposed { get; set; }
     }
 }
