@@ -1,13 +1,8 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Web;
-using System.Web.Mvc;
 using System.Web.Routing;
-using System.Web.Security;
-using System.Web.SessionState;
 using System.Web.Http;
-using Sfa.Roatp.Register.Web;
+using System.Web.Mvc;
 using Microsoft.ApplicationInsights.Extensibility;
 using Microsoft.Azure;
 using SFA.DAS.NLog.Logger;
@@ -31,19 +26,6 @@ namespace Sfa.Roatp.Registry.Web
             logger.Info("Web Role started");
         }
 
-        protected void Application_Error(object sender, EventArgs e)
-        {
-            Exception ex = Server.GetLastError().GetBaseException();
-            var logger = DependencyResolver.Current.GetService<SFA.DAS.NLog.Logger.ILog>();
-
-            if (ex is HttpException
-                && ((HttpException)ex).GetHttpCode() != 404
-                && !UrlContains("findatrainingorganisation.nas.apprenticeships.org.uk"))
-            {
-                logger.Error(ex, "App_Error");
-            }
-        }
-
         private bool UrlContains(string text)
         {
             var url = HttpContext.Current.Request.RequestContext.HttpContext.Request.Url;
@@ -61,5 +43,14 @@ namespace Sfa.Roatp.Registry.Web
 
             TelemetryConfiguration.Active.TelemetryInitializers.Add(new ApplicationInsightsInitializer());
         }
+
+        protected void Application_Error(object sender, EventArgs e)
+        {
+            Exception ex = Server.GetLastError().GetBaseException();
+            var logger = DependencyResolver.Current.GetService<ILog>();
+            
+            logger.Error(ex, "App_Error");
+        }
+
     }
 }
