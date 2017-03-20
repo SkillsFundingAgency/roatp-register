@@ -4,9 +4,9 @@
     <Instances count="1" />
     <ConfigurationSettings>
       <Setting name="Microsoft.WindowsAzure.Plugins.Diagnostics.ConnectionString" value="UseDevelopmentStorage=true" />
-      <Setting name="EnvironmentName" value="__EnvironmentName__" />
-      <Setting name="RoatpProviderIndexAlias" value="__RoatpProviderIndexAlias__" />
-      <Setting name="ElasticServerUrls" value="__ElasticServerUrls__" />
+      <Setting name="EnvironmentName" value="local" />
+      <Setting name="RoatpProviderIndexAlias" value="localroatpproviderindexalias" />
+      <Setting name="ElasticServerUrls" value="http://127.0.0.1:9200,http://192.168.99.100:9200,http://docker.local:9200" />
       <Setting name="FeatureToggle.RobotsAllowFeature" value="false" />
       <Setting name="InstrumentationKey"  value="AAA"/>
       <Setting name="LoggingRedisConnectionString" value=""/>
