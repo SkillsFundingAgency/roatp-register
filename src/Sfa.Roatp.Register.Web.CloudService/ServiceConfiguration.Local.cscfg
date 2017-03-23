@@ -10,7 +10,6 @@
       <Setting name="FeatureToggle.RobotsAllowFeature" value="true" />
       <Setting name="InstrumentationKey"  value="AAA"/>
       <Setting name="LoggingRedisConnectionString" value=""/>
-      <Setting name="LoggingRedisKey" value="" />
     </ConfigurationSettings>
     <Certificates>
       <Certificate name="WebSslCert" thumbprint="AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA1A" thumbprintAlgorithm="sha1" />
