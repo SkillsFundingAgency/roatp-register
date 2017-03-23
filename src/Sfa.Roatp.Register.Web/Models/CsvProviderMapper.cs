@@ -19,11 +19,6 @@ namespace Sfa.Roatp.Register.Web.Models
                 EndDate = FormatDate(provider.EndDate)
             };
 
-            if (provider.IsTransposed)
-            {
-                csvProvider.NewOrganisationWithoutFinancialTrackRecord = provider.ParentCompanyGuarantee;
-                csvProvider.ParentCompanyGuarantee = provider.NewOrganisationWithoutFinancialTrackRecord;
-            }
             return csvProvider;
         }
 
