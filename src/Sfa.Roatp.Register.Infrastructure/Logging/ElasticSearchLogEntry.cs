@@ -1,5 +1,5 @@
 ﻿using Newtonsoft.Json;
-using Sfa.Roatp.Register.Core.Logging;
+using SFA.DAS.NLog.Logger;
 using SFA.DAS.NLog.Targets.AzureEventHub;
 
 namespace Sfa.Roatp.Register.Infrastructure.Logging

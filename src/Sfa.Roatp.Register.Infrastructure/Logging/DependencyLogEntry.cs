@@ -1,4 +1,4 @@
-﻿using Sfa.Roatp.Register.Core.Logging;
+﻿using SFA.DAS.NLog.Logger;
 
 namespace Sfa.Roatp.Register.Infrastructure.Logging
 {

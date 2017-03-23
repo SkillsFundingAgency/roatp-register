@@ -1,6 +1,6 @@
-﻿using Sfa.Roatp.Register.Core.Logging;
-using Sfa.Roatp.Register.Infrastructure.Elasticsearch;
+﻿using Sfa.Roatp.Register.Infrastructure.Elasticsearch;
 using Sfa.Roatp.Register.Infrastructure.Logging;
+using SFA.DAS.NLog.Logger;
 
 namespace Sfa.Das.ApprenticeshipInfoService.Infrastructure.Elasticsearch
 {

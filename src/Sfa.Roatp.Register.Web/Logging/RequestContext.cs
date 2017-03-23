@@ -1,5 +1,5 @@
 ﻿using System.Web;
-using Sfa.Roatp.Register.Core.Logging;
+using SFA.DAS.NLog.Logger;
 
 namespace Sfa.Roatp.Register.Web.Logging
 {

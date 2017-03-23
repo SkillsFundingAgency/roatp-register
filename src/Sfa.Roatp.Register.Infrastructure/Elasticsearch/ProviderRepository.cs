@@ -2,8 +2,6 @@
 using System.Collections.Generic;
 using Nest;
 using Sfa.Roatp.Register.Core.Configuration;
-using Sfa.Roatp.Register.Core.Logging;
-using Sfa.Roatp.Register.Core.Models;
 using Sfa.Roatp.Register.Core.Services;
 using SFA.ROATP.Types;
 
@@ -12,16 +10,13 @@ namespace Sfa.Roatp.Register.Infrastructure.Elasticsearch
     public sealed class ProviderRepository : IGetProviders
     {
         private readonly IElasticsearchCustomClient _elasticsearchCustomClient;
-        private readonly ILog _applicationLogger;
         private readonly IConfigurationSettings _applicationSettings;
 
         public ProviderRepository(
             IElasticsearchCustomClient elasticsearchCustomClient,
-            ILog applicationLogger,
             IConfigurationSettings applicationSettings)
         {
             _elasticsearchCustomClient = elasticsearchCustomClient;
-            _applicationLogger = applicationLogger;
             _applicationSettings = applicationSettings;
         }
 
