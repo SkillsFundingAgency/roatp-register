@@ -31,7 +31,7 @@ namespace sfa.Roatp.Register.IntegrationTests.Features
         public virtual void FeatureSetup()
         {
             testRunner = TechTalk.SpecFlow.TestRunnerManager.GetTestRunner();
-            TechTalk.SpecFlow.FeatureInfo featureInfo = new TechTalk.SpecFlow.FeatureInfo(new System.Globalization.CultureInfo("en-US"), "Roatpregister", null, ProgrammingLanguage.CSharp, ((string[])(null)));
+            TechTalk.SpecFlow.FeatureInfo featureInfo = new TechTalk.SpecFlow.FeatureInfo(new System.Globalization.CultureInfo("en-US"), "Roatpregister", "\tAs a user\r\n\tI would like to download a roatp register in csv format", ProgrammingLanguage.CSharp, ((string[])(null)));
             testRunner.OnFeatureStart(featureInfo);
         }
         
@@ -68,14 +68,31 @@ namespace sfa.Roatp.Register.IntegrationTests.Features
         public virtual void CanDownloadRoatpRegisterCsvFile()
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Can download Roatp Register csv file", ((string[])(null)));
-#line 3
-this.ScenarioSetup(scenarioInfo);
-#line 4
-testRunner.Given("I can open roatp website", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line 5
-testRunner.When("I request for SFA Roatp csv file", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+this.ScenarioSetup(scenarioInfo);
 #line 6
-testRunner.Then("I should have a csv file with contents.", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+testRunner.Given("I can open roatp website", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line 7
+testRunner.When("I request for SFA Roatp csv file", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 8
+testRunner.Then("I should have a csv file with more than 5 Kb contents", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line hidden
+            this.ScenarioCleanup();
+        }
+        
+        [NUnit.Framework.TestAttribute()]
+        [NUnit.Framework.DescriptionAttribute("All link on Roatp Register Page should be accessible")]
+        [NUnit.Framework.IgnoreAttribute("Ignored scenario")]
+        public virtual void AllLinkOnRoatpRegisterPageShouldBeAccessible()
+        {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("All link on Roatp Register Page should be accessible", new string[] {
+                        "Ignore"});
+#line 13
+this.ScenarioSetup(scenarioInfo);
+#line 14
+testRunner.Given("I can open roatp website", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line 15
+testRunner.Then("All links should be accessible", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             this.ScenarioCleanup();
         }

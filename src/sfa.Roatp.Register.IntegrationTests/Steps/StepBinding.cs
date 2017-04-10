@@ -4,6 +4,8 @@ using sfa.Roatp.Register.IntegrationTests.Pages;
 using System.Net;
 using TechTalk.SpecFlow;
 using NUnit.Framework;
+using System.Collections.Generic;
+using System;
 
 namespace sfa.Roatp.Register.IntegrationTests.Steps
 {
@@ -35,12 +37,21 @@ namespace sfa.Roatp.Register.IntegrationTests.Steps
 
         }
 
-        [Then(@"I should have a csv file with contents\.")]
-        public void ThenIShouldHaveACsvFileWithContents_()
+        [Then(@"I should have a csv file with more than (.*) Kb contents")]
+        public void ThenIShouldHaveACsvFileWithMoreThanKbContents(int contentlength)
         {
             var responce = _objectContainer.Resolve<HttpWebResponse>();
             StringAssert.AreEqualIgnoringCase("text/csv", responce.ContentType, "Content Type is not text/csv");
-            Assert.GreaterOrEqual(responce.ContentLength, 5000);
+            Assert.Greater(responce.ContentLength, contentlength);
+        }
+        
+        [Then(@"All links should be accessible")]
+        public void ThenAllLinksShouldBeAccessible()
+        {
+            List<string> brokenlinks = null;
+            var roatpwebdriver = _objectContainer.Resolve<IRoatpWebDriver>();
+            RoatpRegisterPage roatpregisterPage = new RoatpRegisterPage(roatpwebdriver);
+            Assert.IsTrue(roatpregisterPage.ArePageLinksWorking(out brokenlinks), "{0} links are broken", string.Join(Environment.NewLine, brokenlinks));
         }
     }
 }

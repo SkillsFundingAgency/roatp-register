@@ -3,10 +3,10 @@ using sfa.Roatp.Register.IntegrationTests.Driver;
 
 namespace sfa.Roatp.Register.IntegrationTests.Pages
 {
-    public abstract class Base
+    public abstract class PageBase
     {
         public IRoatpWebDriver Driver;
-        public Base(IRoatpWebDriver driver)
+        public PageBase(IRoatpWebDriver driver)
         {
             Driver = driver;
             PageFactory.InitElements(Driver.webDriver, this);

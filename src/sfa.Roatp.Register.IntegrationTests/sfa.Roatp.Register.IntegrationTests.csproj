@@ -62,14 +62,14 @@
   <ItemGroup>
     <Compile Include="Driver\IRoatpWebDriver.cs" />
     <Compile Include="Driver\PhantomJSRoatpWebDriver.cs" />
-    <Compile Include="Driver\ResolveAppConfig.cs" />
+    <Compile Include="Driver\Settings.cs" />
     <Compile Include="Driver\RoatpWebDriver.cs" />
     <Compile Include="Features\Roatpregister.feature.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Roatpregister.feature</DependentUpon>
     </Compile>
-    <Compile Include="Pages\Base.cs" />
+    <Compile Include="Pages\PageBase.cs" />
     <Compile Include="Pages\RoatpRegisterPage.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Steps\Hooks.cs" />

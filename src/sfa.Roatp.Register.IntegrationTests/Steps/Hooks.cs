@@ -23,9 +23,9 @@ namespace sfa.Roatp.Register.IntegrationTests.Steps
         [BeforeTestRun]
         public static void BeforeTestRun()
         {
-            _url = ResolveAppConfig.GetSiteUrl();
-            _RemoteDriverUri = ResolveAppConfig.GetBrowserStackUri();
-            _defaultTimeoutinSec = ResolveAppConfig.GetDefaultTimeoutinSec();
+            _url = Settings.GetAutUrl();
+            _RemoteDriverUri = Settings.GetBrowserStackUri();
+            _defaultTimeoutinSec = Settings.GetDefaultTimeoutinSec();
         }
         [BeforeScenario]
         public void BeforeScenario()

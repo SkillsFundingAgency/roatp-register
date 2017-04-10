@@ -1,17 +1,16 @@
-﻿using System.ComponentModel;
-using System.Configuration;
+﻿using System.Configuration;
 
 namespace sfa.Roatp.Register.IntegrationTests.Driver
 {
     /// <summary>
     /// Resolves application setting configuration items
     /// </summary>
-    public static class ResolveAppConfig
+    public static class Settings
     {
         /// <summary>
         /// Gets the Application Under Test URL from App.config.
         /// </summary>
-        public static string GetSiteUrl()
+        public static string GetAutUrl()
         {
             return ConfigurationManager.AppSettings["AUT.URL"];
         }
@@ -23,7 +22,7 @@ namespace sfa.Roatp.Register.IntegrationTests.Driver
 
         public static int GetDefaultTimeoutinSec()
         {
-            return (int)(TypeDescriptor.GetConverter(typeof(int))).ConvertFromString(ConfigurationManager.AppSettings["AUT.URL.DefaultTimeoutinSec"]);
+            return int.Parse(ConfigurationManager.AppSettings["AUT.URL.DefaultTimeoutinSec"]);
         }
     }
 }
