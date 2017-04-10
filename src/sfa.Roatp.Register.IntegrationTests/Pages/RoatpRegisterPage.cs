@@ -29,20 +29,23 @@ namespace sfa.Roatp.Register.IntegrationTests.Pages
             return (HttpWebResponse)csvHttpWebRequest.GetResponse();
         }
 
-        public bool ArePageLinksWorking(out List<string> brokenHref)
+        public List<string> ArePageLinksWorking()
         {
-            var hrefs = links.Where(x => !(string.IsNullOrEmpty(x.GetAttribute("href")))).Select(y => y.GetAttribute("href")).ToList();
-            brokenHref = null;
+            var hrefs = links.Where(x => !string.IsNullOrEmpty(x.GetAttribute("href"))).Select(y => y.GetAttribute("href")).ToList();
+            var brokenHrefs = new List<string>();
+
             foreach (var href in hrefs)
             {
-                var webrequest = (HttpWebRequest)WebRequest.Create(new Uri(href));
-                var webresponce = (HttpWebResponse)webrequest.GetResponse();
-                if(webresponce.StatusCode != HttpStatusCode.OK)
+                var webReq = (HttpWebRequest)WebRequest.Create(new Uri(href));
+                var webResponse = (HttpWebResponse)webReq.GetResponse();
+
+                if (webResponse.StatusCode != HttpStatusCode.OK)
                 {
-                    brokenHref.Add(href);
+                    brokenHrefs.Add(href);
                 }
             }
-            return brokenHref == null ? true : false;
+
+            return brokenHrefs;
         }
     }
 }

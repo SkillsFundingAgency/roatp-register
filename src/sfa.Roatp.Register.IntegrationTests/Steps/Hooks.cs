@@ -1,4 +1,5 @@
-﻿using TechTalk.SpecFlow;
+﻿using System;
+using TechTalk.SpecFlow;
 using BoDi;
 using sfa.Roatp.Register.IntegrationTests.Driver;
 using System.Reflection;
@@ -14,19 +15,20 @@ namespace sfa.Roatp.Register.IntegrationTests.Steps
         private static string _url;
         public static string _RemoteDriverUri;
         public static int _defaultTimeoutinSec;
+
         public Hooks(IObjectContainer objectContainer)
         {
             _objectContainer = objectContainer;
-
         }
 
         [BeforeTestRun]
         public static void BeforeTestRun()
         {
-            _url = Settings.GetAutUrl();
-            _RemoteDriverUri = Settings.GetBrowserStackUri();
-            _defaultTimeoutinSec = Settings.GetDefaultTimeoutinSec();
+            _url = Settings.AutUrl;
+            _RemoteDriverUri = Settings.BrowserStackUri;
+            _defaultTimeoutinSec = Settings.DefaultTimeoutinSec;
         }
+
         [BeforeScenario]
         public void BeforeScenario()
         {

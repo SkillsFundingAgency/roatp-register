@@ -10,19 +10,10 @@ namespace sfa.Roatp.Register.IntegrationTests.Driver
         /// <summary>
         /// Gets the Application Under Test URL from App.config.
         /// </summary>
-        public static string GetAutUrl()
-        {
-            return ConfigurationManager.AppSettings["AUT.URL"];
-        }
+        public static string AutUrl => ConfigurationManager.AppSettings["AUT.URL"];
 
-        public static string GetBrowserStackUri()
-        {
-            return ConfigurationManager.AppSettings["BrowserStack.URI"];
-        }
+        public static string BrowserStackUri => ConfigurationManager.AppSettings["BrowserStack.URI"];
 
-        public static int GetDefaultTimeoutinSec()
-        {
-            return int.Parse(ConfigurationManager.AppSettings["AUT.URL.DefaultTimeoutinSec"]);
-        }
+        public static int DefaultTimeoutinSec => int.Parse(ConfigurationManager.AppSettings["AUT.URL.DefaultTimeoutinSec"]);
     }
 }

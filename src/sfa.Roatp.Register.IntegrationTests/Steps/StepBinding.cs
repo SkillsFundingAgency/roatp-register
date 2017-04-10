@@ -4,7 +4,6 @@ using sfa.Roatp.Register.IntegrationTests.Pages;
 using System.Net;
 using TechTalk.SpecFlow;
 using NUnit.Framework;
-using System.Collections.Generic;
 using System;
 
 namespace sfa.Roatp.Register.IntegrationTests.Steps
@@ -48,10 +47,11 @@ namespace sfa.Roatp.Register.IntegrationTests.Steps
         [Then(@"All links should be accessible")]
         public void ThenAllLinksShouldBeAccessible()
         {
-            List<string> brokenlinks = null;
             var roatpwebdriver = _objectContainer.Resolve<IRoatpWebDriver>();
             RoatpRegisterPage roatpregisterPage = new RoatpRegisterPage(roatpwebdriver);
-            Assert.IsTrue(roatpregisterPage.ArePageLinksWorking(out brokenlinks), "{0} links are broken", string.Join(Environment.NewLine, brokenlinks));
+            var brokenLinks = roatpregisterPage.ArePageLinksWorking();
+
+            Assert.AreEqual(0, brokenLinks.Count, $"{string.Join(Environment.NewLine, brokenLinks)} links are broken");
         }
     }
 }
