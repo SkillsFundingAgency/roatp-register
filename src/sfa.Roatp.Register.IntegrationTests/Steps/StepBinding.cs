@@ -2,9 +2,12 @@
 using sfa.Roatp.Register.IntegrationTests.Driver;
 using sfa.Roatp.Register.IntegrationTests.Pages;
 using System.Net;
+using System.Linq;
+using System.Collections.Generic;
 using TechTalk.SpecFlow;
 using NUnit.Framework;
 using System;
+using System.IO;
 
 namespace sfa.Roatp.Register.IntegrationTests.Steps
 {
@@ -52,6 +55,17 @@ namespace sfa.Roatp.Register.IntegrationTests.Steps
             var brokenLinks = roatpregisterPage.ArePageLinksWorking();
 
             Assert.AreEqual(0, brokenLinks.Count, $"{string.Join(Environment.NewLine, brokenLinks)} links are broken");
+        }
+        
+        [Then(@"csv file should contain following information")]
+        public void ThenCsvFileShouldContainFollowingInformation(Table table)
+        {
+            var responce = _objectContainer.Resolve<HttpWebResponse>();
+            var webresponce = new StreamReader(responce.GetResponseStream()).ReadToEnd();
+            List<string> content = webresponce.Replace(Environment.NewLine, ",").Split(',').ToList();
+            List<string> tableList = table.Rows.Select(x => x["UKPRN"] as string).ToList();
+            var NotindownloadedCsv = tableList.Except(content).ToList();
+            Assert.IsTrue(!NotindownloadedCsv.Any(), $"{string.Join(Environment.NewLine, NotindownloadedCsv)} is/are not found in the downloadable csv");
         }
     }
 }

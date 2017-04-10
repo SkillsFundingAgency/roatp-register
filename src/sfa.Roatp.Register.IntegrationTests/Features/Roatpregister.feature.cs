@@ -96,6 +96,54 @@ testRunner.Then("All links should be accessible", ((string)(null)), ((TechTalk.S
 #line hidden
             this.ScenarioCleanup();
         }
+        
+        [NUnit.Framework.TestAttribute()]
+        [NUnit.Framework.DescriptionAttribute("Roatp Register csv file has updated information")]
+        public virtual void RoatpRegisterCsvFileHasUpdatedInformation()
+        {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Roatp Register csv file has updated information", ((string[])(null)));
+#line 18
+this.ScenarioSetup(scenarioInfo);
+#line 19
+testRunner.Given("I can open roatp website", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line 20
+testRunner.When("I request for SFA Roatp csv file", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 21
+testRunner.Then("I should have a csv file with more than 5 Kb contents", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line hidden
+            TechTalk.SpecFlow.Table table1 = new TechTalk.SpecFlow.Table(new string[] {
+                        "UKPRN"});
+            table1.AddRow(new string[] {
+                        "10001457"});
+            table1.AddRow(new string[] {
+                        "10011332"});
+            table1.AddRow(new string[] {
+                        "10058010"});
+            table1.AddRow(new string[] {
+                        "10037375"});
+            table1.AddRow(new string[] {
+                        "10007407"});
+            table1.AddRow(new string[] {
+                        "10005410"});
+            table1.AddRow(new string[] {
+                        "10001196"});
+            table1.AddRow(new string[] {
+                        "10042241"});
+            table1.AddRow(new string[] {
+                        "10004663"});
+            table1.AddRow(new string[] {
+                        "10004736"});
+            table1.AddRow(new string[] {
+                        "10024177"});
+            table1.AddRow(new string[] {
+                        "10030573"});
+            table1.AddRow(new string[] {
+                        "10005967"});
+#line 22
+testRunner.And("csv file should contain following information", ((string)(null)), table1, "And ");
+#line hidden
+            this.ScenarioCleanup();
+        }
     }
 }
 #pragma warning restore
