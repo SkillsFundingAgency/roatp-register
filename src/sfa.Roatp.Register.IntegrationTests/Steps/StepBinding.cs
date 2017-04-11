@@ -61,11 +61,18 @@ namespace sfa.Roatp.Register.IntegrationTests.Steps
         [Then(@"csv file should contain following information")]
         public void ThenCsvFileShouldContainFollowingInformation(Table table)
         {
-            List<string[]> roatpProviders = GetDtoFromCsv();
-            List<string> content = roatpProviders.Select(x => x[0] as string).ToList();
-            List<string> tableList = table.Rows.Select(x => x["UKPRN"] as string).ToList();
-            var NotindownloadedCsv = tableList.Except(content).ToList();
+            var NotindownloadedCsv = CompareUkprnwithCsv(table);
             Assert.IsTrue(!NotindownloadedCsv.Any(), $"{string.Join(Environment.NewLine, NotindownloadedCsv)} is/are not found in the downloadable csv");
+        }
+
+        [Then(@"csv file should not contain following information")]
+        public void ThenCsvFileShouldNotContainFollowingInformation(Table table)
+        {
+            
+            var NotindownloadedCsv = CompareUkprnwithCsv(table);
+            List<string> tableList = table.Rows.Select(x => x["UKPRN"] as string).ToList();
+            Assert.IsTrue((NotindownloadedCsv.All(tableList.Contains) && NotindownloadedCsv.Count == tableList.Count),
+                $"{ string.Join(Environment.NewLine, tableList.Except(NotindownloadedCsv).ToList())} is/are found in the downloadable csv");
         }
 
         [Then(@"I should have total (.*) Providers")]
@@ -74,6 +81,14 @@ namespace sfa.Roatp.Register.IntegrationTests.Steps
             List<string[]> roatpProviders = GetDtoFromCsv();
             int noOfRoatpProviders = roatpProviders.Count - 1; // Remove 1 for the header;
             Assert.AreEqual(totalprovider, noOfRoatpProviders, $"We expect {totalprovider} in the downloadable csv but it is {noOfRoatpProviders}");
+        }
+
+        private List<string> CompareUkprnwithCsv(Table table)
+        {
+            List<string[]> roatpProviders = GetDtoFromCsv();
+            List<string> content = roatpProviders.Select(x => x[0] as string).ToList();
+            List<string> tableList = table.Rows.Select(x => x["UKPRN"] as string).ToList();
+            return tableList.Except(content).ToList();
         }
 
         private List<string[]> GetDtoFromCsv()
