@@ -21,5 +21,21 @@ namespace SFA.ROATP.Types
         public DateTime? StartDate { get; set; }
 
         public DateTime? EndDate { get; set; }
+
+        public bool IsDateValid(DateTime currenDate)
+        {
+            if (StartDate == null)
+            {
+                return false;
+            }
+
+            if (StartDate?.Date <= currenDate.Date && currenDate.Date <= EndDate)
+            {
+                return true;
+            }
+
+            return StartDate?.Date <= currenDate.Date && EndDate == null;
+        }
+
     }
 }

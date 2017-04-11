@@ -9,6 +9,7 @@ using CsvHelper;
 using Sfa.Roatp.Register.Core.Models;
 using Sfa.Roatp.Register.Core.Services;
 using Sfa.Roatp.Register.Web.Models;
+using SFA.ROATP.Types;
 
 namespace Sfa.Roatp.Register.Web.Controllers
 {
@@ -31,7 +32,7 @@ namespace Sfa.Roatp.Register.Web.Controllers
         {
             try
             {
-                var providers = _getProviders.GetAllProviders();
+                var providers = _getProviders.GetAllProviders().Where(x => x.IsDateValid(DateTime.Now));
                 var result = providers.Select(CsvProviderMapper.Map);
 
                 using (var memoryStream = new MemoryStream())
