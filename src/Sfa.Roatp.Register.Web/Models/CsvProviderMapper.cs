@@ -14,9 +14,7 @@ namespace Sfa.Roatp.Register.Web.Models
                 Name = provider.Name,
                 ProviderType = Enumerations.GetEnumDescription(provider.ProviderType),
                 NewOrganisationWithoutFinancialTrackRecord = provider.NewOrganisationWithoutFinancialTrackRecord,
-                ParentCompanyGuarantee = provider.ParentCompanyGuarantee,
-                StartDate = FormatDate(provider.StartDate),
-                EndDate = FormatDate(provider.EndDate)
+                ParentCompanyGuarantee = provider.ParentCompanyGuarantee
             };
 
             return csvProvider;

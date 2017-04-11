@@ -13,9 +13,5 @@ namespace Sfa.Roatp.Register.Web.Models
         public bool ParentCompanyGuarantee { get; set; }
 
         public bool NewOrganisationWithoutFinancialTrackRecord { get; set; }
-
-        public string StartDate { get; set; }
-
-        public string EndDate { get; set; }
     }
 }
