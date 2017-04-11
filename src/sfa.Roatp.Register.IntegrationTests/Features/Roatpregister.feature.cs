@@ -82,9 +82,11 @@ testRunner.Then("I should have a csv file with more than 5 Kb contents", ((strin
         
         [NUnit.Framework.TestAttribute()]
         [NUnit.Framework.DescriptionAttribute("All link on Roatp Register Page should be accessible")]
+        [NUnit.Framework.IgnoreAttribute("Ignored scenario")]
         public virtual void AllLinkOnRoatpRegisterPageShouldBeAccessible()
         {
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("All link on Roatp Register Page should be accessible", ((string[])(null)));
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("All link on Roatp Register Page should be accessible", new string[] {
+                        "Ignore"});
 #line 13
 this.ScenarioSetup(scenarioInfo);
 #line 14
@@ -139,6 +141,25 @@ testRunner.Then("I should have a csv file with more than 5 Kb contents", ((strin
                         "10005967"});
 #line 22
 testRunner.And("csv file should contain following information", ((string)(null)), table1, "And ");
+#line hidden
+            this.ScenarioCleanup();
+        }
+        
+        [NUnit.Framework.TestAttribute()]
+        [NUnit.Framework.DescriptionAttribute("Roatp Register csv file should have right no of Providers")]
+        public virtual void RoatpRegisterCsvFileShouldHaveRightNoOfProviders()
+        {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Roatp Register csv file should have right no of Providers", ((string[])(null)));
+#line 39
+this.ScenarioSetup(scenarioInfo);
+#line 40
+testRunner.Given("I can open roatp website", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line 41
+testRunner.When("I request for SFA Roatp csv file", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 42
+testRunner.Then("I should have a csv file with more than 5 Kb contents", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line 43
+testRunner.And("I should have total 1714 Providers", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             this.ScenarioCleanup();
         }
