@@ -30,29 +30,21 @@ namespace Sfa.Roatp.Register.Web.Controllers
 
         public ActionResult Csv()
         {
-            try
-            {
-                var providers = _getProviders.GetAllProviders().Where(x => x.IsDateValid(DateTime.Now));
-                var result = providers.Select(CsvProviderMapper.Map);
+            var providers = _getProviders.GetAllProviders().Where(x => x.IsDateValid(DateTime.UtcNow));
+            var result = providers.Select(CsvProviderMapper.Map);
 
-                using (var memoryStream = new MemoryStream())
+            using (var memoryStream = new MemoryStream())
+            {
+                using (var streamWriter = new StreamWriter(memoryStream))
                 {
-                    using (var streamWriter = new StreamWriter(memoryStream))
+                    using (var csvWriter = new CsvWriter(streamWriter))
                     {
-                        using (var csvWriter = new CsvWriter(streamWriter))
-                        {
-                            csvWriter.WriteRecords(result);
-                            streamWriter.Flush();
-                            memoryStream.Position = 0;
-                            return File(memoryStream.ToArray(), "text/csv", $"roatp-{DateTime.Today.ToString("yyyy-MM-dd")}.csv");
-                        }
+                        csvWriter.WriteRecords(result);
+                        streamWriter.Flush();
+                        memoryStream.Position = 0;
+                        return File(memoryStream.ToArray(), "text/csv", $"roatp-{DateTime.UtcNow.ToString("yyyy-MM-dd")}.csv");
                     }
                 }
-            }
-            catch (Exception e)
-            {
-                Console.WriteLine(e);
-                throw;
             }
         }
     }
