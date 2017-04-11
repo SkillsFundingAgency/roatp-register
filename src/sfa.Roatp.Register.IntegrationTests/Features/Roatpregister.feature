@@ -9,7 +9,7 @@ Then I should have a csv file with more than 5 Kb contents
 
 #Ignored the scenario as the web request are timing out causing the test to fail
 #TODO : implement asyc request and responce.
-@Ignore
+#@Ignore
 Scenario: All link on Roatp Register Page should be accessible
 Given I can open roatp website 
 Then All links should be accessible

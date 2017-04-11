@@ -82,11 +82,9 @@ testRunner.Then("I should have a csv file with more than 5 Kb contents", ((strin
         
         [NUnit.Framework.TestAttribute()]
         [NUnit.Framework.DescriptionAttribute("All link on Roatp Register Page should be accessible")]
-        [NUnit.Framework.IgnoreAttribute("Ignored scenario")]
         public virtual void AllLinkOnRoatpRegisterPageShouldBeAccessible()
         {
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("All link on Roatp Register Page should be accessible", new string[] {
-                        "Ignore"});
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("All link on Roatp Register Page should be accessible", ((string[])(null)));
 #line 13
 this.ScenarioSetup(scenarioInfo);
 #line 14

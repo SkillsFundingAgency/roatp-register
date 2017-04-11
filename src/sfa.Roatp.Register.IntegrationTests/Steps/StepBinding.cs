@@ -25,7 +25,7 @@ namespace sfa.Roatp.Register.IntegrationTests.Steps
         {
             var roatpwebdriver = _objectContainer.Resolve<IRoatpWebDriver>();
             var roatpUri = _objectContainer.Resolve<RoatpUri>();
-            roatpwebdriver.GoToURL(roatpUri.MainUrl);
+            roatpwebdriver.webDriver.GoToUrl(roatpUri.MainUrl);
         }
 
         [When(@"I request for SFA Roatp csv file")]

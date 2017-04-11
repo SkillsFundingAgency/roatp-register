@@ -35,8 +35,6 @@ namespace sfa.Roatp.Register.IntegrationTests.Steps
             var roatpWebDriver = new PhantomJSRoatpWebDriver(_assemblyFolder, _defaultTimeoutinSec);
             _objectContainer.RegisterInstanceAs<IRoatpWebDriver>(roatpWebDriver);
             _objectContainer.RegisterInstanceAs(new RoatpUri { MainUrl = _url });
-            roatpWebDriver.GoToURL(_url);
-
         }
 
         [AfterScenario]

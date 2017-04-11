@@ -64,6 +64,7 @@
     <Compile Include="Driver\PhantomJSRoatpWebDriver.cs" />
     <Compile Include="Driver\Settings.cs" />
     <Compile Include="Driver\RoatpWebDriver.cs" />
+    <Compile Include="Driver\WebDriverExtension.cs" />
     <Compile Include="Features\Roatpregister.feature.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -73,7 +74,7 @@
     <Compile Include="Pages\RoatpRegisterPage.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Steps\Hooks.cs" />
-    <Compile Include="Driver\RoatpUri.cs" />
+    <Compile Include="Steps\RoatpUri.cs" />
     <Compile Include="Steps\StepBinding.cs" />
   </ItemGroup>
   <ItemGroup>
