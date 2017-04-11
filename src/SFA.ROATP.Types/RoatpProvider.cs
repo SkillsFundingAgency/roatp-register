@@ -29,12 +29,12 @@ namespace SFA.ROATP.Types
                 return false;
             }
 
-            if (StartDate?.Date <= currenDate.Date && currenDate.Date <= EndDate)
+            if (StartDate.Value.Date <= currenDate.Date && currenDate.Date <= EndDate)
             {
                 return true;
             }
 
-            return StartDate?.Date <= currenDate.Date && EndDate == null;
+            return StartDate.Value.Date <= currenDate.Date && EndDate == null;
         }
 
     }
