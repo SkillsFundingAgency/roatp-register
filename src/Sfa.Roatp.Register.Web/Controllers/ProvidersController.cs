@@ -45,6 +45,24 @@ namespace Sfa.Roatp.Register.Web.Controllers
             }
         }
 
+        /// <summary>
+        /// Provider exists?
+        /// </summary>
+        /// <param name="ukprn">UKPRN</param>
+        [SwaggerResponse(HttpStatusCode.NoContent)]
+        [SwaggerResponse(HttpStatusCode.NotFound)]
+        [ExceptionHandling]
+        public void Head(long ukprn)
+        {
+            if (_providerRepo.GetProvider(ukprn) != null)
+            {
+                return;
+            }
+
+            throw HttpResponseFactory.RaiseException(HttpStatusCode.NotFound,
+                $"No provider with Ukprn {ukprn} found");
+        }
+
         [SwaggerOperation("Get")]
         [SwaggerResponse(HttpStatusCode.OK, "OK", typeof(RoatpProvider))]
         [ExceptionHandling]
