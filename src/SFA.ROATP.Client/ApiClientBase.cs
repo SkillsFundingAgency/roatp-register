@@ -19,7 +19,7 @@ namespace SFA.ROATP.Client
 
         protected ApiClientBase(string baseUri = null)
         {
-            _httpClient = new HttpClient { BaseAddress = new Uri(baseUri ?? "https://roatp.apprenticeships.sfa.bis.gov.uk/api/") };
+            _httpClient = new HttpClient { BaseAddress = new Uri(baseUri ?? "https://roatp.apprenticeships.sfa.bis.gov.uk/api") };
         }
 
         protected static void RaiseResponseError(string message, HttpRequestMessage failedRequest, HttpResponseMessage failedResponse)
