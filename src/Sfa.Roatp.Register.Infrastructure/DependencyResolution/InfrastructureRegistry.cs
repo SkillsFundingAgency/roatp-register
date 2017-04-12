@@ -1,11 +1,9 @@
 ﻿using System.Collections.Generic;
 using System.Diagnostics;
 using System.Reflection;
-using Sfa.Das.ApprenticeshipInfoService.Infrastructure.Elasticsearch;
 using Sfa.Roatp.Register.Core.Configuration;
 using Sfa.Roatp.Register.Core.Services;
 using Sfa.Roatp.Register.Infrastructure.Elasticsearch;
-using Sfa.Roatp.Register.Infrastructure.Logging;
 using Sfa.Roatp.Register.Infrastructure.Settings;
 using SFA.DAS.NLog.Logger;
 using StructureMap;
