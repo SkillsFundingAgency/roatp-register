@@ -28,6 +28,7 @@ namespace Sfa.Roatp.Register.Web.Controllers
             return View();
         }
 
+        [OutputCache(Duration = 600)]
         public ActionResult Csv()
         {
             var providers = _getProviders.GetAllProviders().Where(x => x.IsDateValid(DateTime.UtcNow));
