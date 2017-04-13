@@ -105,7 +105,7 @@
       <Project>{496B0F28-936C-4FBE-BB63-B848B5569F65}</Project>
       <Name>Sfa.Roatp.Register.Web</Name>
     </ProjectReference>
-    <ProjectReference Include="..\SFA.ROATP.Types\SFA.Roatp.Api.Types.csproj">
+    <ProjectReference Include="..\SFA.Roatp.Api.Types\SFA.Roatp.Api.Types.csproj">
       <Project>{550F1317-A3F9-4426-86C8-C23804701724}</Project>
       <Name>SFA.Roatp.Api.Types</Name>
     </ProjectReference>

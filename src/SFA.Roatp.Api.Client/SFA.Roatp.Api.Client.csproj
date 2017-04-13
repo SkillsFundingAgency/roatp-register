@@ -51,7 +51,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\SFA.ROATP.Types\SFA.Roatp.Api.Types.csproj">
+    <ProjectReference Include="..\SFA.Roatp.Api.Types\SFA.Roatp.Api.Types.csproj">
       <Project>{550f1317-a3f9-4426-86c8-c23804701724}</Project>
       <Name>SFA.Roatp.Api.Types</Name>
     </ProjectReference>

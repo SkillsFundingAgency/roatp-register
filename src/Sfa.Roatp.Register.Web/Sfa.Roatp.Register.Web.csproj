@@ -390,7 +390,7 @@
       <Project>{3aae3727-fb7e-4f2a-854c-e95bac1fae1a}</Project>
       <Name>Sfa.Roatp.Register.Infrastructure</Name>
     </ProjectReference>
-    <ProjectReference Include="..\SFA.ROATP.Types\SFA.Roatp.Api.Types.csproj">
+    <ProjectReference Include="..\SFA.Roatp.Api.Types\SFA.Roatp.Api.Types.csproj">
       <Project>{550F1317-A3F9-4426-86C8-C23804701724}</Project>
       <Name>SFA.Roatp.Api.Types</Name>
     </ProjectReference>
