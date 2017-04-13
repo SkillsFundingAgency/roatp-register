@@ -3,9 +3,9 @@ using System.Net;
 using System.Net.Http;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Serialization;
-using SFA.ROATP.Types.Exceptions;
+using SFA.Roatp.Api.Types.Exceptions;
 
-namespace SFA.ROATP.Client
+namespace SFA.Roatp.Api.Client
 {
     public abstract class ApiClientBase : IDisposable
     {

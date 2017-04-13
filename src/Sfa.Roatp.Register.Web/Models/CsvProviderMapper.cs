@@ -1,6 +1,6 @@
 using System;
 using Sfa.Roatp.Register.Infrastructure.Utility;
-using SFA.ROATP.Types;
+using SFA.Roatp.Api.Types;
 
 namespace Sfa.Roatp.Register.Web.Models
 {

@@ -1,4 +1,4 @@
-﻿namespace SFA.ROATP.Client
+﻿namespace SFA.Roatp.Api.Client
 {
     public interface IRoatpClient
     {

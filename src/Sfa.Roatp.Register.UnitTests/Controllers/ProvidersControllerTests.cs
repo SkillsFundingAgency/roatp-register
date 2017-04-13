@@ -8,7 +8,7 @@ using NUnit.Framework;
 using Sfa.Roatp.Register.Core.Services;
 using Sfa.Roatp.Register.Web.Controllers;
 using SFA.DAS.NLog.Logger;
-using SFA.ROATP.Types;
+using SFA.Roatp.Api.Types;
 
 namespace Sfa.Roatp.Register.UnitTests.Controllers
 {

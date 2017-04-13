@@ -5,7 +5,7 @@ using Nest;
 using Sfa.Roatp.Register.Core.Configuration;
 using Sfa.Roatp.Register.Core.Services;
 using SFA.DAS.NLog.Logger;
-using SFA.ROATP.Types;
+using SFA.Roatp.Api.Types;
 
 namespace Sfa.Roatp.Register.Infrastructure.Elasticsearch
 {

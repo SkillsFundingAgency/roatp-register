@@ -6,7 +6,7 @@ using Sfa.Roatp.Register.Core.Services;
 using Sfa.Roatp.Register.Web.Attributes;
 using Sfa.Roatp.Register.Web.Helpers;
 using SFA.DAS.NLog.Logger;
-using SFA.ROATP.Types;
+using SFA.Roatp.Api.Types;
 using Swashbuckle.Swagger.Annotations;
 
 namespace Sfa.Roatp.Register.Web.Controllers

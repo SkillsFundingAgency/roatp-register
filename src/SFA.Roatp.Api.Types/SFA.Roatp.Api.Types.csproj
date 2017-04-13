@@ -7,8 +7,8 @@
     <ProjectGuid>{550F1317-A3F9-4426-86C8-C23804701724}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>SFA.ROATP.Types</RootNamespace>
-    <AssemblyName>SFA.ROATP.Types</AssemblyName>
+    <RootNamespace>SFA.Roatp.Api.Types</RootNamespace>
+    <AssemblyName>SFA.Roatp.Api.Types</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <TargetFrameworkProfile />

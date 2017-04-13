@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace SFA.ROATP.Types
+namespace SFA.Roatp.Api.Types
 {
     public class RoatpProvider
     {

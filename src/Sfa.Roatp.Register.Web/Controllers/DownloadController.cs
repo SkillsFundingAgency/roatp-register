@@ -1,15 +1,10 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-using System.Runtime.InteropServices;
-using System.Security.Cryptography;
 using System.Web.Mvc;
 using CsvHelper;
-using Sfa.Roatp.Register.Core.Models;
 using Sfa.Roatp.Register.Core.Services;
 using Sfa.Roatp.Register.Web.Models;
-using SFA.ROATP.Types;
 
 namespace Sfa.Roatp.Register.Web.Controllers
 {

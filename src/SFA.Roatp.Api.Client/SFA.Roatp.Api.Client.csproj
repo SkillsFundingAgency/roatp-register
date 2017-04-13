@@ -7,8 +7,8 @@
     <ProjectGuid>{94C651AE-76DA-47E7-AAB4-149600DFEACB}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>SFA.ROATP.Client</RootNamespace>
-    <AssemblyName>SFA.ROATP.Client</AssemblyName>
+    <RootNamespace>SFA.Roatp.Api.Client</RootNamespace>
+    <AssemblyName>SFA.Roatp.Api.Client</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <TargetFrameworkProfile />

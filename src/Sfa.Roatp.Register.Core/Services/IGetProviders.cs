@@ -1,5 +1,5 @@
 ﻿using System.Collections.Generic;
-using SFA.ROATP.Types;
+using SFA.Roatp.Api.Types;
 
 namespace Sfa.Roatp.Register.Core.Services
 {

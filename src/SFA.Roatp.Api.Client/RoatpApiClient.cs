@@ -2,9 +2,9 @@
 using System.Net;
 using System.Net.Http;
 using Newtonsoft.Json;
-using SFA.ROATP.Types;
+using SFA.Roatp.Api.Types;
 
-namespace SFA.ROATP.Client
+namespace SFA.Roatp.Api.Client
 {
     public class RoatpApiClient : ApiClientBase, IRoatpClient
     {
