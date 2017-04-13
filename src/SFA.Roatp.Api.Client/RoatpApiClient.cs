@@ -20,7 +20,7 @@ namespace SFA.Roatp.Api.Client
         /// <returns>a provider details based on ukprn</returns>
         public RoatpProvider Get(long providerUkprn)
         {
-            using (var request = new HttpRequestMessage(HttpMethod.Get, $"/providers/{providerUkprn}"))
+            using (var request = new HttpRequestMessage(HttpMethod.Get, $"/api/providers/{providerUkprn}"))
             {
                 request.Headers.Add("Accept", "application/json");
 
@@ -52,7 +52,7 @@ namespace SFA.Roatp.Api.Client
         /// <returns>bool</returns>
         public bool Exists(long providerUkprn)
         {
-            using (var request = new HttpRequestMessage(HttpMethod.Head, $"/providers/{providerUkprn}"))
+            using (var request = new HttpRequestMessage(HttpMethod.Head, $"/api/providers/{providerUkprn}"))
             {
                 request.Headers.Add("Accept", "application/json");
 
@@ -77,7 +77,7 @@ namespace SFA.Roatp.Api.Client
 
         public IEnumerable<RoatpProvider> FindAll()
         {
-            using (var request = new HttpRequestMessage(HttpMethod.Get, "/providers"))
+            using (var request = new HttpRequestMessage(HttpMethod.Get, "/api/providers"))
             {
                 request.Headers.Add("Accept", "application/json");
 
