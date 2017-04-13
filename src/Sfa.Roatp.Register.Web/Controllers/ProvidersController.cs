@@ -11,6 +11,7 @@ using Swashbuckle.Swagger.Annotations;
 
 namespace Sfa.Roatp.Register.Web.Controllers
 {
+    [RoutePrefix("api")]
     public class ProvidersController : ApiController
     {
         private readonly IGetProviders _providerRepo;
@@ -22,8 +23,47 @@ namespace Sfa.Roatp.Register.Web.Controllers
             _log = log;
         }
 
+        /// <summary>
+        /// Provider exists?
+        /// </summary>
+        /// <param name="ukprn">UKPRN</param>
+        [SwaggerResponse(HttpStatusCode.NoContent)]
+        [SwaggerResponse(HttpStatusCode.NotFound)]
+        [Route("providers/{ukprn}")]
+        [ExceptionHandling]
+        public void Head(long ukprn)
+        {
+            if (_providerRepo.GetProvider(ukprn) != null)
+            {
+                return;
+            }
+
+            throw HttpResponseFactory.RaiseException(HttpStatusCode.NotFound,
+                $"No provider with Ukprn {ukprn} found");
+        }
+
+        [SwaggerOperation("Get")]
+        [SwaggerResponse(HttpStatusCode.OK, "OK", typeof(RoatpProvider))]
+        [Route("providers/{ukprn}")]
+        [ExceptionHandling]
+        public RoatpProvider Get(long ukprn)
+        {
+            var response = _providerRepo.GetProvider(ukprn);
+
+            if (response == null)
+            {
+                throw HttpResponseFactory.RaiseException(HttpStatusCode.NotFound,
+                    $"No provider with Ukprn {ukprn} found");
+            }
+
+            response.Uri = Resolve(response.Ukprn);
+
+            return response;
+        }
+
         [SwaggerOperation("GetAll")]
         [SwaggerResponse(HttpStatusCode.OK, "OK", typeof(IEnumerable<RoatpProvider>))]
+        [Route("providers")]
         [ExceptionHandling]
         public IEnumerable<RoatpProvider> Get()
         {
@@ -44,43 +84,7 @@ namespace Sfa.Roatp.Register.Web.Controllers
                 throw;
             }
         }
-
-        /// <summary>
-        /// Provider exists?
-        /// </summary>
-        /// <param name="ukprn">UKPRN</param>
-        [SwaggerResponse(HttpStatusCode.NoContent)]
-        [SwaggerResponse(HttpStatusCode.NotFound)]
-        [ExceptionHandling]
-        public void Head(long ukprn)
-        {
-            if (_providerRepo.GetProvider(ukprn) != null)
-            {
-                return;
-            }
-
-            throw HttpResponseFactory.RaiseException(HttpStatusCode.NotFound,
-                $"No provider with Ukprn {ukprn} found");
-        }
-
-        [SwaggerOperation("Get")]
-        [SwaggerResponse(HttpStatusCode.OK, "OK", typeof(RoatpProvider))]
-        [ExceptionHandling]
-        public RoatpProvider Get(long ukprn)
-        {
-            var response = _providerRepo.GetProvider(ukprn);
-
-            if (response == null)
-            {
-                throw HttpResponseFactory.RaiseException(HttpStatusCode.NotFound,
-                    $"No provider with Ukprn {ukprn} found");
-            }
-
-            response.Uri = Resolve(response.Ukprn);
-
-            return response;
-        }
-
+        
         private string Resolve(long ukprn)
         {
             return Url.Link("DefaultApi", new { controller = "providers", id = ukprn });
