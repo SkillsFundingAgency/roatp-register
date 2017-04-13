@@ -87,7 +87,7 @@ namespace Sfa.Roatp.Register.Web.Controllers
         
         private string Resolve(long ukprn)
         {
-            return Url.Link("DefaultApi", new { controller = "providers", id = ukprn });
+            return Url.Link("DefaultApi", new { controller = "Providers", id = ukprn });
         }
     }
 }
