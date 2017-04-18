@@ -31,7 +31,7 @@ namespace Sfa.Roatp.Register.Web.Controllers
         [OutputCache(Duration = 600)]
         public ActionResult Csv()
         {
-            var providers = _getProviders.GetAllProviders().Where(x => x.IsDateValid(DateTime.UtcNow));
+            var providers = _getProviders.GetAllProviders().Where(x => x.IsDateValid(DateTime.UtcNow) && x.ProviderType != ProviderType.Unknown);
             var result = providers.Select(CsvProviderMapper.Map);
 
             using (var memoryStream = new MemoryStream())
