@@ -21,6 +21,12 @@ namespace Sfa.Roatp.Registry.Web
                 defaults: new { controller = "Home", action = "RobotsText", id = UrlParameter.Optional });
 
             routes.MapRoute(
+                name: "ApiPage",
+                url: "api",
+                defaults: new { controller = "Home", action = "Api" }
+            );
+
+            routes.MapRoute(
                 name: "Default",
                 url: "{controller}/{action}/{id}",
                 defaults: new { controller = "Home", action = "Index", id = UrlParameter.Optional }

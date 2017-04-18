@@ -27,6 +27,7 @@ namespace Sfa.Roatp.Register.Web.Controllers
         /// Provider exists?
         /// </summary>
         /// <param name="ukprn">UKPRN</param>
+        [SwaggerOperation("Head")]
         [SwaggerResponse(HttpStatusCode.NoContent)]
         [SwaggerResponse(HttpStatusCode.NotFound)]
         [Route("providers/{ukprn}")]
