@@ -18,7 +18,7 @@ namespace SFA.Roatp.Api.Client
         /// </summary>
         /// <param name="providerUkprn">an integer for the provider ukprn</param>
         /// <returns>a provider details based on ukprn</returns>
-        public RoatpProvider Get(long providerUkprn)
+        public RoatpProvider Get(string providerUkprn)
         {
             using (var request = new HttpRequestMessage(HttpMethod.Get, $"/api/providers/{providerUkprn}"))
             {
@@ -50,7 +50,7 @@ namespace SFA.Roatp.Api.Client
         /// </summary>
         /// <param name="providerUkprn">an integer for the provider ukprn</param>
         /// <returns>bool</returns>
-        public bool Exists(long providerUkprn)
+        public bool Exists(string providerUkprn)
         {
             using (var request = new HttpRequestMessage(HttpMethod.Head, $"/api/providers/{providerUkprn}"))
             {
