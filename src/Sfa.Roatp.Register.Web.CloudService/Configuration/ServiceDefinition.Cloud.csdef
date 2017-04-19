@@ -20,7 +20,7 @@
     </ConfigurationSettings>
     <Endpoints>
       <InputEndpoint name="Endpoint1" protocol="http" port="80" />
-      <inputendpoint name="endpoint2" protocol="https" port="443" certificate="websslcert" />
+      <InputEndpoint name="Endpoint2" protocol="https" port="443" certificate="WebSslCert" />
     </Endpoints>
     <Certificates>
       <Certificate name="WebSslCert" storeLocation="LocalMachine" storeName="My" />
