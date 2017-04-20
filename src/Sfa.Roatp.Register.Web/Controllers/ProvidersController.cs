@@ -32,9 +32,9 @@ namespace Sfa.Roatp.Register.Web.Controllers
         [SwaggerResponse(HttpStatusCode.NotFound)]
         [Route("providers/{ukprn}")]
         [ExceptionHandling]
-        public void Head(string ukprn)
+        public void Head(int ukprn)
         {
-            if (_providerRepo.GetProvider(long.Parse(ukprn)) != null)
+            if (_providerRepo.GetProvider(ukprn) != null)
             {
                 return;
             }
@@ -47,9 +47,9 @@ namespace Sfa.Roatp.Register.Web.Controllers
         [SwaggerResponse(HttpStatusCode.OK, "OK", typeof(RoatpProvider))]
         [Route("providers/{ukprn}")]
         [ExceptionHandling]
-        public RoatpProvider Get(string ukprn)
+        public RoatpProvider Get(int ukprn)
         {
-            var response = _providerRepo.GetProvider(long.Parse(ukprn));
+            var response = _providerRepo.GetProvider(ukprn);
 
             if (response == null)
             {

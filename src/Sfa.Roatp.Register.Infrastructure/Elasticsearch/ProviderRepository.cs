@@ -47,7 +47,7 @@ namespace Sfa.Roatp.Register.Infrastructure.Elasticsearch
             return results.Documents;
         }
 
-        public RoatpProvider GetProvider(long ukprn)
+        public RoatpProvider GetProvider(int ukprn)
         {
             var take = GetProvidersTotalAmount();
             var results =
