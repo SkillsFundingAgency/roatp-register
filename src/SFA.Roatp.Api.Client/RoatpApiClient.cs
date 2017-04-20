@@ -49,6 +49,11 @@ namespace SFA.Roatp.Api.Client
             return Get(providerUkprn.ToString());
         }
 
+        public RoatpProvider Get(int providerUkprn)
+        {
+            return Get(providerUkprn.ToString());
+        }
+
         /// <summary>
         /// Check if a provider exists
         /// HEAD /providers/{provider-ukprn}

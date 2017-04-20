@@ -7,6 +7,7 @@ namespace SFA.Roatp.Api.Client
     {
         RoatpProvider Get(string providerUkprn);
         RoatpProvider Get(long providerUkprn);
+        RoatpProvider Get(int providerUkprn);
         bool Exists(string providerUkprn);
         IEnumerable<RoatpProvider> FindAll();
     }
