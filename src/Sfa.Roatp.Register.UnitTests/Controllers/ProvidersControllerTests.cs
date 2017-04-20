@@ -44,6 +44,7 @@ namespace Sfa.Roatp.Register.UnitTests.Controllers
                 name: "DefaultApi",
                 routeTemplate: "{controller}/{id}",
                 defaults: new { id = RouteParameter.Optional });
+
             _sut.RequestContext.RouteData = new HttpRouteData(
                 route: new HttpRoute(),
                 values: new HttpRouteValueDictionary { { "controller", "providers" } });
@@ -55,7 +56,7 @@ namespace Sfa.Roatp.Register.UnitTests.Controllers
             var actual = _sut.Get(1);
 
             actual.ShouldBeEquivalentTo(expected);
-            actual.Uri.Should().Be("http://localhost/providers/1");
+            actual.Uri.Should().Be("http://localhost/Providers/1");
         }
     }
 }

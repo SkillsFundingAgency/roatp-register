@@ -5,6 +5,7 @@ using System.Web.Mvc;
 using CsvHelper;
 using Sfa.Roatp.Register.Core.Services;
 using Sfa.Roatp.Register.Web.Models;
+using SFA.Roatp.Api.Types;
 
 namespace Sfa.Roatp.Register.Web.Controllers
 {
