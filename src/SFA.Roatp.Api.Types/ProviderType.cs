@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel;
 
-namespace SFA.ROATP.Types
+namespace SFA.Roatp.Api.Types
 {
     public enum ProviderType
     {

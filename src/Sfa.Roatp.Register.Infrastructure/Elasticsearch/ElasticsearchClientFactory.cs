@@ -1,8 +1,7 @@
 ﻿using Elasticsearch.Net;
 using Nest;
 using Sfa.Roatp.Register.Core.Configuration;
-using Sfa.Roatp.Register.Core.Models;
-using SFA.ROATP.Types;
+using SFA.Roatp.Api.Types;
 
 namespace Sfa.Roatp.Register.Infrastructure.Elasticsearch
 {

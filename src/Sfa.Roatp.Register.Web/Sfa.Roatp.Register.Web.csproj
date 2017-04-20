@@ -17,7 +17,7 @@
     <AssemblyName>Sfa.Roatp.Register.Web</AssemblyName>
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <UseIISExpress>true</UseIISExpress>
-    <IISExpressSSLPort />
+    <IISExpressSSLPort>44313</IISExpressSSLPort>
     <IISExpressAnonymousAuthentication />
     <IISExpressWindowsAuthentication />
     <IISExpressUseClassicPipelineMode />
@@ -144,7 +144,7 @@
       <Private>True</Private>
     </Reference>
     <Reference Include="Swashbuckle.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=cd1bb07a5ac7c7bc, processorArchitecture=MSIL">
-      <HintPath>..\packages\Swashbuckle.Core.5.5.3\lib\net40\Swashbuckle.Core.dll</HintPath>
+      <HintPath>..\packages\Swashbuckle.Core.5.3.1\lib\net40\Swashbuckle.Core.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="System.IO.Compression" />
@@ -277,6 +277,8 @@
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="FeatureToggles\RobotsAllowFeature.cs" />
+    <Compile Include="Helpers\HttpResponseFactory.cs" />
     <Compile Include="Logging\ApplicationInsightsInitializer.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\StructuremapMvc.cs" />
@@ -306,7 +308,7 @@
   <ItemGroup>
     <Content Include="Views\web.config" />
     <Content Include="packages.config" />
-    <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\Home\Api.cshtml" />
     <Content Include="Views\Shared\_Footer.cshtml" />
     <Content Include="Views\Shared\_Header.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
@@ -388,9 +390,9 @@
       <Project>{3aae3727-fb7e-4f2a-854c-e95bac1fae1a}</Project>
       <Name>Sfa.Roatp.Register.Infrastructure</Name>
     </ProjectReference>
-    <ProjectReference Include="..\SFA.ROATP.Types\SFA.ROATP.Types.csproj">
+    <ProjectReference Include="..\SFA.Roatp.Api.Types\SFA.Roatp.Api.Types.csproj">
       <Project>{550F1317-A3F9-4426-86C8-C23804701724}</Project>
-      <Name>SFA.ROATP.Types</Name>
+      <Name>SFA.Roatp.Api.Types</Name>
     </ProjectReference>
   </ItemGroup>
   <PropertyGroup>

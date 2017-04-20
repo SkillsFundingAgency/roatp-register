@@ -8,5 +8,8 @@ namespace Sfa.Roatp.Register.Infrastructure.Elasticsearch
     {
         ISearchResponse<T> Search<T>(Func<SearchDescriptor<T>, ISearchRequest> selector, [CallerMemberName] string callerName = "")
             where T : class;
+
+        ICountResponse Count<T>(Func<CountDescriptor<T>, ICountRequest> selector, [CallerMemberName] string callerName = "") 
+            where T : class;
     }
 }

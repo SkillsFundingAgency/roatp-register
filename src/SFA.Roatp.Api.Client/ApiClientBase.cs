@@ -3,9 +3,9 @@ using System.Net;
 using System.Net.Http;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Serialization;
-using SFA.ROATP.Types.Exceptions;
+using SFA.Roatp.Api.Types.Exceptions;
 
-namespace SFA.ROATP.Client
+namespace SFA.Roatp.Api.Client
 {
     public abstract class ApiClientBase : IDisposable
     {
@@ -19,7 +19,7 @@ namespace SFA.ROATP.Client
 
         protected ApiClientBase(string baseUri = null)
         {
-            _httpClient = new HttpClient { BaseAddress = new Uri(baseUri ?? "http://das-prd-apprenticeshipinfoservice.cloudapp.net") };
+            _httpClient = new HttpClient { BaseAddress = new Uri(baseUri ?? "https://roatp.apprenticeships.sfa.bis.gov.uk") };
         }
 
         protected static void RaiseResponseError(string message, HttpRequestMessage failedRequest, HttpResponseMessage failedResponse)

@@ -32,7 +32,7 @@ namespace Sfa.Roatp.Register.Web
                         // hold additional metadata for an API. Version and title are required but you can also provide
                         // additional fields by chaining methods off SingleApiVersion.
                         //
-                        c.SingleApiVersion("v1", "Sfa.Roatp.Register.Web");
+                        c.SingleApiVersion("v1", "Roatp API");
 
                         // If your API has multiple versions, use "MultipleApiVersions" instead of "SingleApiVersion".
                         // In this case, you must provide a lambda that tells Swashbuckle which actions should be
@@ -96,7 +96,7 @@ namespace Sfa.Roatp.Register.Web
                         // those comments into the generated docs and UI. You can enable this by providing the path to one or
                         // more Xml comment files.
                         //
-                        //c.IncludeXmlComments(GetXmlCommentsPath());
+                        c.IncludeXmlComments(GetXmlCommentsPath());
 
                         // Swashbuckle makes a best attempt at generating Swagger compliant JSON schemas for the various types
                         // exposed in your API. However, there may be occasions when more control of the output is needed.
@@ -122,7 +122,7 @@ namespace Sfa.Roatp.Register.Web
                         // Swagger docs and UI. However, if you have multiple types in your API with the same class name, you'll
                         // need to opt out of this behavior to avoid Schema Id conflicts.
                         //
-                        //c.UseFullTypeNameInSchemaIds();
+                        c.UseFullTypeNameInSchemaIds();
 
                         // Alternatively, you can provide your own custom strategy for inferring SchemaId's for
                         // describing "complex" types in your API.
@@ -202,7 +202,7 @@ namespace Sfa.Roatp.Register.Web
                         // It can be set to "None" (default), "List" (shows operations for each resource),
                         // or "Full" (fully expanded: shows operations and their details).
                         //
-                        //c.DocExpansion(DocExpansion.List);
+                        c.DocExpansion(DocExpansion.Full);
 
                         // Use the CustomAsset option to provide your own version of assets used in the swagger-ui.
                         // It's typically used to instruct Swashbuckle to return your version instead of the default
@@ -224,6 +224,12 @@ namespace Sfa.Roatp.Register.Web
                         //
                         //c.EnableOAuth2Support("test-client-id", "test-realm", "Swagger UI");
                     });
+        }
+
+        private static string GetXmlCommentsPath()
+        {
+            return string.Format(@"{0}\bin\Sfa.Roatp.Register.Web.XML",
+                System.AppDomain.CurrentDomain.BaseDirectory);
         }
     }
 }

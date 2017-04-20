@@ -1,7 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
 
-namespace SFA.ROATP.Types
+namespace SFA.Roatp.Api.Types
 {
     public class RoatpProvider
     {
@@ -22,20 +21,21 @@ namespace SFA.ROATP.Types
 
         public DateTime? EndDate { get; set; }
 
-        public bool IsDateValid(DateTime currenDate)
+        public string Uri { get; set; }
+
+        public bool IsDateValid(DateTime currentDate)
         {
             if (StartDate == null)
             {
                 return false;
             }
 
-            if (StartDate.Value.Date <= currenDate.Date && currenDate.Date <= EndDate)
+            if (StartDate.Value.Date <= currentDate.Date && currentDate.Date <= EndDate)
             {
                 return true;
             }
 
-            return StartDate.Value.Date <= currenDate.Date && EndDate == null;
+            return StartDate.Value.Date <= currentDate.Date && EndDate == null;
         }
-
     }
 }

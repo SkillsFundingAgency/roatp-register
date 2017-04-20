@@ -2,9 +2,27 @@
     <div class="grid-row">
         <div class="column-full">
 
-            <h3 class="large">API Documentation <i>coming soon</i></h3>
-            
+            <h2 class="heading-large">Register</h2>
+            <div>
+                @Html.ActionLink("Download export", "Index", "Download", null, null)
+            </div>
+
             <a href="https://www.gov.uk/government/collections/register-of-apprenticeship-training-providers">More information</a>
+
+
+
+
+            <table>
+                <tbody>
+                <tr>
+                    <th>Swagger API definition</th>
+                    <td><a href="http://das-prd-apprenticeshipinfoservice.cloudapp.net/swagger/docs/v1"><img src="http://online.swagger.io/validator?url=http://das-prd-apprenticeshipinfoservice.cloudapp.net:80/swagger/docs/v1"/></a></td>
+                </tr>
+                </tbody>
+            </table>
+
+
+            <h2 class="heading-large">Query the API</h2>
             <div class="swagger-section">
                 <!--<div id='header'>
                     <div class="swagger-ui-wrap">
@@ -20,7 +38,34 @@
                 <div id="swagger-ui-container" class="swagger-ui-wrap"></div>
             </div>
 
-            @*<h2 class="heading-medium">Help</h2>
+            <h2 class="heading-large"> </h2>
+            <h2 class="heading-large">C# client usage</h2>
+            <table>
+                <tbody>
+                <tr>
+                    <th><a href="https://www.nuget.org/packages/Sfa.Roatp.Api.Client">SFA.Roatp.Api.Client</a></th>
+                    <td><a href="https://www.nuget.org/packages/Sfa.Roatp.Api.Client"><img src="https://img.shields.io/nuget/v/Sfa.Roatp.Api.Client.svg"/></a></td>
+                </tr>
+                </tbody>
+            </table>
+            <h3 class="heading-medium">Basic</h3>
+            <pre>
+            <code class="language-csharp">
+using(var client = new RoatpApiClient())
+{
+    var provider = client.Get(11112222);
+}
+                </code>
+            </pre>
+
+            <h3 class="heading-medium">Using StructureMap</h3>
+            <pre>
+            <code class="language-csharp">
+For&lt;IRoatpApiClient&gt;().Use&lt;RoatpApiClient&gt;();
+                </code>
+            </pre>
+
+            <h2 class="heading-medium">Help</h2>
             <p>You can contact the National Apprenticeship Service for advice or help using the service.</p>
             <div class="contact">
                 <p>
@@ -28,14 +73,10 @@
                     Telephone: 0800 015 0600
                     <a href="https://www.gov.uk/call-charges">Find out about call charges</a>
                 </p>
-            </div>*@
-            <div>
-                @Html.ActionLink("Download export", "Index", "Download", null, null)
             </div>
         </div>
     </div>
 </main>
-
 @section footerJS
 {
     <script type="text/javascript">
@@ -64,7 +105,7 @@
                 booleanValues: arrayFrom('true|false'),
                 validatorUrl: stringOrNullFrom(''),
                 customScripts: arrayFrom(''),
-                docExpansion: 'none',
+                docExpansion: 'list',
                 oAuth2Enabled: ('false' == 'true'),
                 oAuth2ClientId: '',
                 oAuth2ClientSecret: '',
@@ -149,6 +190,5 @@
                 }
             }
         });
-</script>
+    </script>
 }
-

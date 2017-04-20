@@ -21,27 +21,8 @@ namespace Sfa.Roatp.Registry.Web
 
             GlobalConfiguration.Configure(WebApiConfig.Register);
             RouteConfig.RegisterRoutes(RouteTable.Routes);
-            SetupApplicationInsights();
 
             logger.Info("Web Role started");
-        }
-
-        private bool UrlContains(string text)
-        {
-            var url = HttpContext.Current.Request.RequestContext.HttpContext.Request.Url;
-            if (url == null)
-            {
-                return false;
-            }
-
-            return url.OriginalString.Contains(text);
-        }
-
-        private void SetupApplicationInsights()
-        {
-            TelemetryConfiguration.Active.InstrumentationKey = CloudConfigurationManager.GetSetting("InstrumentationKey");
-
-            TelemetryConfiguration.Active.TelemetryInitializers.Add(new ApplicationInsightsInitializer());
         }
 
         protected void Application_Error(object sender, EventArgs e)

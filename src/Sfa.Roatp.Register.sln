@@ -19,9 +19,9 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sfa.Roatp.Register.UnitTest
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Client", "Client", "{74F4B9AD-BC27-4025-9929-3098CA4051A8}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SFA.ROATP.Client", "SFA.ROATP.Client\SFA.ROATP.Client.csproj", "{94C651AE-76DA-47E7-AAB4-149600DFEACB}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SFA.Roatp.Api.Client", "SFA.Roatp.Api.Client\SFA.Roatp.Api.Client.csproj", "{94C651AE-76DA-47E7-AAB4-149600DFEACB}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SFA.ROATP.Types", "SFA.ROATP.Types\SFA.ROATP.Types.csproj", "{550F1317-A3F9-4426-86C8-C23804701724}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SFA.Roatp.Api.Types", "SFA.Roatp.Api.Types\SFA.Roatp.Api.Types.csproj", "{550F1317-A3F9-4426-86C8-C23804701724}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sfa.Roatp.Register.Core", "Sfa.Roatp.Register.Core\Sfa.Roatp.Register.Core.csproj", "{FCE4DB1C-BE42-48AC-8015-B3D07BABF010}"
 EndProject

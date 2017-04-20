@@ -1,7 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web.Http;
+﻿using System.Web.Http;
+using Newtonsoft.Json;
 
 namespace Sfa.Roatp.Registry.Web
 {
@@ -13,6 +11,11 @@ namespace Sfa.Roatp.Registry.Web
 
             // Web API routes
             config.MapHttpAttributeRoutes();
+            config.Formatters.JsonFormatter.SerializerSettings = new JsonSerializerSettings {
+                NullValueHandling = NullValueHandling.Ignore,
+                DateFormatHandling = DateFormatHandling.IsoDateFormat,
+                DateTimeZoneHandling = DateTimeZoneHandling.Local
+            };
 
             config.Routes.MapHttpRoute(
                 name: "DefaultApi",
