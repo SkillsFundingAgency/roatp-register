@@ -1,5 +1,9 @@
 ﻿@using Microsoft.ApplicationInsights.Extensibility
 
+@{
+    var protocol = Request.IsSecureConnection ? "https" : "http";
+}
+
 <!DOCTYPE html>
 <html lang="en" class="no-js">
 <head>
@@ -81,7 +85,7 @@
             }
 
             window.swashbuckleConfig = {
-                rootUrl: 'http://' + document.location.host,
+                rootUrl: '@protocol://' + document.location.host,
                 discoveryPaths: arrayFrom('swagger/docs/v1'),
                 booleanValues: arrayFrom('true|false'),
                 validatorUrl: stringOrNullFrom(''),
