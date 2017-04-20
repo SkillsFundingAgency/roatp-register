@@ -1,4 +1,8 @@
-﻿<main id="content" role="main">
+﻿@{
+    var protocol = Request.IsSecureConnection ? "https" : "http";
+}
+
+<main id="content" role="main">
     <div class="grid-row">
         <div class="column-full">
 
@@ -16,7 +20,7 @@
                 <tbody>
                 <tr>
                     <th>Swagger API definition</th>
-                    <td><a href="http://das-prd-apprenticeshipinfoservice.cloudapp.net/swagger/docs/v1"><img src="http://online.swagger.io/validator?url=http://das-prd-apprenticeshipinfoservice.cloudapp.net:80/swagger/docs/v1"/></a></td>
+                    <td><a href="https://roatp.apprenticeships.sfa.bis.gov.uk/swagger/docs/v1"><img src="http://online.swagger.io/validator?url=https://roatp.apprenticeships.sfa.bis.gov.uk:80/swagger/docs/v1"/></a></td>
                 </tr>
                 </tbody>
             </table>
@@ -100,7 +104,7 @@ For&lt;IRoatpApiClient&gt;().Use&lt;RoatpApiClient&gt;();
             }
 
             window.swashbuckleConfig = {
-                rootUrl: 'http://' + document.location.host,
+                rootUrl: '@protocol://' + document.location.host,
                 discoveryPaths: arrayFrom('swagger/docs/v1'),
                 booleanValues: arrayFrom('true|false'),
                 validatorUrl: stringOrNullFrom(''),
