@@ -2,11 +2,14 @@
 using PactNet;
 using PactNet.Mocks.MockHttpService;
 
-namespace Sfa.Roatp.Register.PactTests
+namespace sfa.Roatp.Register.ApiConsumerTests
 {
     public abstract class PactApiConsumerTestBase
     {
-        public int MockServerPort => 88;
+        private string _providerName => PactAttribute.GetName<PactProviderAttribute>(this).ProviderName;
+        private string _consumerName => PactAttribute.GetName<PactConsumerAttribute>(this).ConsumerName;
+
+        public int MockServerPort => 8080;
 
         public string MockServiceProviderBaseUri => $"http://localhost:{MockServerPort}";
 
@@ -17,9 +20,13 @@ namespace Sfa.Roatp.Register.PactTests
         [OneTimeSetUp]
         public void OneTimeTestSetUp()
         {
-            PactBuilder = new PactBuilder(new PactConfig { LogDir = "../logs", PactDir = "../pacts"})
-                              .ServiceConsumer("Roatp API .Net Client")
-                              .HasPactWith("Roatp API");
+
+            System.Console.WriteLine($"Pact between Provider {_providerName} and Consumer {_consumerName}");
+
+            PactBuilder = new PactBuilder(new PactConfig { LogDir = "../logs", PactDir = "../pacts" })
+                              .ServiceConsumer(_consumerName)
+                              .HasPactWith(_providerName);
+                              
 
             MockServiceProvider = PactBuilder.MockService(MockServerPort);
 
@@ -30,7 +37,6 @@ namespace Sfa.Roatp.Register.PactTests
         public void OneTimeTestTearDown()
         {
             PactBuilder.Build();
-
         }
 
     }

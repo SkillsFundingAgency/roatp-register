@@ -76,6 +76,7 @@
   </Choose>
   <ItemGroup>
     <Compile Include="PactApiConsumerTestBase.cs" />
+    <Compile Include="PactAttributes.cs" />
     <Compile Include="RoatpAPIConsumerTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
