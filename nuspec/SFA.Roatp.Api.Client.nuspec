@@ -7,7 +7,7 @@
 		<licenseUrl>https://github.com/SkillsFundingAgency/roatp-register/blob/master/LICENSE</licenseUrl>
 		<projectUrl>https://github.com/SkillsFundingAgency/roatp-register</projectUrl>
         <requireLicenseAcceptance>false</requireLicenseAcceptance>
-		<description>a client to call the the Register of Active Training Providers (RoATP) service</description>
+		<description>A .Net Client to call the Register of Active Training Providers (RoATP) Rest Api service</description>
 		<summary>SFA RoATP API Client</summary>
         <copyright>Copyright 2017</copyright>
         <dependencies>
