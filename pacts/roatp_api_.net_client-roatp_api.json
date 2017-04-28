@@ -1,0 +1,142 @@
+{
+  "provider": {
+    "name": "Roatp API"
+  },
+  "consumer": {
+    "name": "Roatp API .Net Client"
+  },
+  "interactions": [
+    {
+      "description": "A GET request to retrive all roatp providers",
+      "provider_state": "There are Roatp providers",
+      "request": {
+        "method": "get",
+        "path": "/api/providers",
+        "headers": {
+          "Accept": "application/json"
+        }
+      },
+      "response": {
+        "status": 200,
+        "headers": {
+          "Content-Type": "application/json; charset=utf-8"
+        },
+        "body": [
+          {
+            "Ukprn": 10000020,
+            "Name": "5 E LTD.",
+            "ProviderType": 1,
+            "ContractedForNonLeviedEmployers": false,
+            "ParentCompanyGuarantee": false,
+            "NewOrganisationWithoutFinancialTrackRecord": false,
+            "Uri": "https://ci-roatp.apprenticeships.sfa.bis.gov.uk/api/providers/10000020\\"
+          },
+          {
+            "Ukprn": 10000028,
+            "Name": "WOODSPEEN TRAINING LIMITED",
+            "ProviderType": 1,
+            "ContractedForNonLeviedEmployers": false,
+            "ParentCompanyGuarantee": false,
+            "NewOrganisationWithoutFinancialTrackRecord": false,
+            "Uri": "https://ci-roatp.apprenticeships.sfa.bis.gov.uk/api/providers/10000028\\"
+          }
+        ]
+      }
+    },
+    {
+      "description": "A GET request to retrive a roatp provider",
+      "provider_state": "There is a Roatp providers having Ukprn as 10002145",
+      "request": {
+        "method": "get",
+        "path": "/api/providers/10002145",
+        "headers": {
+          "Accept": "application/json"
+        }
+      },
+      "response": {
+        "status": 200,
+        "headers": {
+          "Content-Type": "application/json; charset=utf-8"
+        },
+        "body": {
+          "Ukprn": 10002145,
+          "ProviderType": 1,
+          "Name": "Coventry Provider"
+        }
+      }
+    },
+    {
+      "description": "A HEAD request to look for a roatp provider",
+      "provider_state": "There is a Roatp providers exists with Ukprn as 10005555",
+      "request": {
+        "method": "head",
+        "path": "/api/providers/10005555",
+        "headers": {
+          "Accept": "application/json"
+        }
+      },
+      "response": {
+        "status": 204,
+        "headers": {},
+        "body": null
+      }
+    },
+    {
+      "description": "A GET request to retrive a roatp providers",
+      "provider_state": "That Ukprn ABCDEF is bad ukprn",
+      "request": {
+        "method": "get",
+        "path": "/api/providers/ABCDEF",
+        "headers": {
+          "Accept": "application/json"
+        }
+      },
+      "response": {
+        "status": 400,
+        "headers": {
+          "Content-Type": "application/json; charset=utf-8"
+        },
+        "body": "\"Message\":\"The request is invalid.\""
+      }
+    },
+    {
+      "description": "A GET request to retrive a roatp providers",
+      "provider_state": "That Ukprn 12345678 is not found",
+      "request": {
+        "method": "get",
+        "path": "/api/providers/12345678",
+        "headers": {
+          "Accept": "application/json"
+        }
+      },
+      "response": {
+        "status": 404,
+        "headers": {
+          "Content-Type": "text/plain; charset=utf-8"
+        },
+        "body": "No provider with Ukprn 12345678 found"
+      }
+    },
+    {
+      "description": "A HEAD request to look for a roatp provider",
+      "provider_state": "There is a Roatp providers exists with Ukprn as 10005656",
+      "request": {
+        "method": "head",
+        "path": "/api/providers/10005656",
+        "headers": {
+          "Accept": "application/json"
+        }
+      },
+      "response": {
+        "status": 404,
+        "headers": {
+          "Content-Type": "text/plain; charset=utf-8"
+        },
+        "body": null
+      }
+    }
+  ],
+  "metadata": {
+    "pactSpecificationVersion": "1.1.0"
+  }
+}
