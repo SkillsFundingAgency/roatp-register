@@ -3,9 +3,9 @@ using System.IO;
 using System.Linq;
 using System.Web.Mvc;
 using CsvHelper;
-using Sfa.Roatp.Register.Core.Services;
+using Esfa.Roatp.ApplicationServices.Models.Elastic;
+using Esfa.Roatp.ApplicationServices.Services;
 using Sfa.Roatp.Register.Web.Models;
-using SFA.Roatp.Api.Types;
 
 namespace Sfa.Roatp.Register.Web.Controllers
 {

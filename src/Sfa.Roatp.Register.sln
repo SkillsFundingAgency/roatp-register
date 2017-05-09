@@ -29,6 +29,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sfa.Roatp.Register.Infrastr
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "sfa.Roatp.Register.IntegrationTests", "sfa.Roatp.Register.IntegrationTests\sfa.Roatp.Register.IntegrationTests.csproj", "{7846C93F-26AE-437E-A508-2555159A92D5}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Esfa.Roatp.ApplicationServices", "Esfa.Roatp.ApplicationServices\Esfa.Roatp.ApplicationServices.csproj", "{89A51F7A-5C18-4B64-91AC-2ACE445508FE}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -67,6 +69,10 @@ Global
 		{7846C93F-26AE-437E-A508-2555159A92D5}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7846C93F-26AE-437E-A508-2555159A92D5}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7846C93F-26AE-437E-A508-2555159A92D5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{89A51F7A-5C18-4B64-91AC-2ACE445508FE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{89A51F7A-5C18-4B64-91AC-2ACE445508FE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{89A51F7A-5C18-4B64-91AC-2ACE445508FE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{89A51F7A-5C18-4B64-91AC-2ACE445508FE}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -80,5 +86,6 @@ Global
 		{FCE4DB1C-BE42-48AC-8015-B3D07BABF010} = {2CCA15D3-1DB8-4080-9A2C-60AF8F8CF1A2}
 		{3AAE3727-FB7E-4F2A-854C-E95BAC1FAE1A} = {8B2D4C24-488F-4A0B-B95A-7A0A41FABF3E}
 		{7846C93F-26AE-437E-A508-2555159A92D5} = {F05ED0D6-CE7B-4CD7-A44B-08AA8580D05D}
+		{89A51F7A-5C18-4B64-91AC-2ACE445508FE} = {C27080AB-E18A-4A91-9B1E-948476EE8F60}
 	EndGlobalSection
 EndGlobal

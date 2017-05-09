@@ -18,7 +18,7 @@ namespace SFA.Roatp.Api.Client
         /// </summary>
         /// <param name="providerUkprn">an integer for the provider ukprn</param>
         /// <returns>a provider details based on ukprn</returns>
-        public RoatpProvider Get(string providerUkprn)
+        public Provider Get(string providerUkprn)
         {
             using (var request = new HttpRequestMessage(HttpMethod.Get, $"/api/providers/{providerUkprn}"))
             {
@@ -29,7 +29,7 @@ namespace SFA.Roatp.Api.Client
                     var result = response.Result;
                     if (result.StatusCode == HttpStatusCode.OK)
                     {
-                        return JsonConvert.DeserializeObject<RoatpProvider>(result.Content.ReadAsStringAsync().Result,
+                        return JsonConvert.DeserializeObject<Provider>(result.Content.ReadAsStringAsync().Result,
                             _jsonSettings);
                     }
                     if (result.StatusCode == HttpStatusCode.NotFound)
@@ -44,12 +44,12 @@ namespace SFA.Roatp.Api.Client
             }
         }
 
-        public RoatpProvider Get(long providerUkprn)
+        public Provider Get(long providerUkprn)
         {
             return Get(providerUkprn.ToString());
         }
 
-        public RoatpProvider Get(int providerUkprn)
+        public Provider Get(int providerUkprn)
         {
             return Get(providerUkprn.ToString());
         }
@@ -85,7 +85,7 @@ namespace SFA.Roatp.Api.Client
             }
         }
 
-        public IEnumerable<RoatpProvider> FindAll()
+        public IEnumerable<Provider> FindAll()
         {
             using (var request = new HttpRequestMessage(HttpMethod.Get, "/api/providers"))
             {
@@ -96,7 +96,7 @@ namespace SFA.Roatp.Api.Client
                     var result = response.Result;
                     if (result.StatusCode == HttpStatusCode.OK)
                     {
-                        return JsonConvert.DeserializeObject<IEnumerable<RoatpProvider>>(result.Content.ReadAsStringAsync().Result, _jsonSettings);
+                        return JsonConvert.DeserializeObject<IEnumerable<Provider>>(result.Content.ReadAsStringAsync().Result, _jsonSettings);
                     }
 
                     RaiseResponseError(request, result);

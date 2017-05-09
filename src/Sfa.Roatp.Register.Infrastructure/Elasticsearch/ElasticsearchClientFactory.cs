@@ -19,7 +19,7 @@ namespace Sfa.Roatp.Register.Infrastructure.Elasticsearch
             using (var settings = new ConnectionSettings(new StaticConnectionPool(_applicationSettings.ElasticServerUrls)))
             {
                 settings.DisableDirectStreaming();
-                settings.MapDefaultTypeNames(d => d.Add(typeof(RoatpProvider), "roatpproviderdocument"));
+                settings.MapDefaultTypeNames(d => d.Add(typeof(Provider), "roatpproviderdocument"));
 
                 return new ElasticClient(settings);
             }

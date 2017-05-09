@@ -1,14 +1,17 @@
 ﻿using System;
+using Newtonsoft.Json;
+using Newtonsoft.Json.Converters;
 
-namespace SFA.Roatp.Api.Types
+namespace Esfa.Roatp.ApplicationServices.Models.Elastic
 {
-    public class RoatpProvider
+    public class ProviderDocument
     {
         public long Ukprn { get; set; }
 
         [Obsolete("This value shouldn't be trusted as it should come from UKRLP")]
         public string Name { get; set; }
 
+        [JsonConverter(typeof(StringEnumConverter))]
         public ProviderType ProviderType { get; set; }
 
         public bool ContractedForNonLeviedEmployers { get; set; }
@@ -20,8 +23,6 @@ namespace SFA.Roatp.Api.Types
         public DateTime? StartDate { get; set; }
 
         public DateTime? EndDate { get; set; }
-
-        public string Uri { get; set; }
 
         public bool IsDateValid(DateTime currentDate)
         {

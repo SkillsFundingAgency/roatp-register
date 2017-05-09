@@ -1,9 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using Esfa.Roatp.ApplicationServices.Models;
+using Esfa.Roatp.ApplicationServices.Models.Elastic;
+using Esfa.Roatp.ApplicationServices.Services;
 using Nest;
 using Sfa.Roatp.Register.Core.Configuration;
-using Sfa.Roatp.Register.Core.Services;
 using SFA.DAS.NLog.Logger;
 using SFA.Roatp.Api.Types;
 
@@ -26,11 +28,11 @@ namespace Sfa.Roatp.Register.Infrastructure.Elasticsearch
             _log = log;
         }
 
-        public IEnumerable<RoatpProvider> GetAllProviders()
+        public IEnumerable<ProviderDocument> GetAllProviders()
         {
             var take = GetProvidersTotalAmount();
             var results =
-                _elasticsearchCustomClient.Search<RoatpProvider>(
+                _elasticsearchCustomClient.Search<ProviderDocument>(
                     s =>
                     s.Index(_applicationSettings.RoatpProviderIndexAlias)
                         .Type(Types.Parse(ProviderDocumentType))
@@ -47,11 +49,11 @@ namespace Sfa.Roatp.Register.Infrastructure.Elasticsearch
             return results.Documents;
         }
 
-        public RoatpProvider GetProvider(int ukprn)
+        public ProviderDocument GetProvider(int ukprn)
         {
             var take = GetProvidersTotalAmount();
             var results =
-                _elasticsearchCustomClient.Search<RoatpProvider>(
+                _elasticsearchCustomClient.Search<ProviderDocument>(
                     s =>
                     s.Index(_applicationSettings.RoatpProviderIndexAlias)
                         .Type(Types.Parse(ProviderDocumentType))
@@ -79,7 +81,7 @@ namespace Sfa.Roatp.Register.Infrastructure.Elasticsearch
         private int GetProvidersTotalAmount()
         {
             var results =
-                _elasticsearchCustomClient.Count<RoatpProvider>(
+                _elasticsearchCustomClient.Count<Provider>(
                     s =>
                     s.Index(_applicationSettings.RoatpProviderIndexAlias)
                         .Type(Types.Parse(ProviderDocumentType)));

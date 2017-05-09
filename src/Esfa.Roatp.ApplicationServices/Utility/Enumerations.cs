@@ -2,7 +2,7 @@
 using System.ComponentModel;
 using System.Reflection;
 
-namespace Sfa.Roatp.Register.Infrastructure.Utility
+namespace Esfa.Roatp.ApplicationServices.Utility
 {
     public static class Enumerations
     {

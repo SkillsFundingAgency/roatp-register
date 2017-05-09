@@ -5,10 +5,10 @@ namespace SFA.Roatp.Api.Client
 {
     public interface IRoatpClient
     {
-        RoatpProvider Get(string providerUkprn);
-        RoatpProvider Get(long providerUkprn);
-        RoatpProvider Get(int providerUkprn);
+        Provider Get(string providerUkprn);
+        Provider Get(long providerUkprn);
+        Provider Get(int providerUkprn);
         bool Exists(string providerUkprn);
-        IEnumerable<RoatpProvider> FindAll();
+        IEnumerable<Provider> FindAll();
     }
 }
