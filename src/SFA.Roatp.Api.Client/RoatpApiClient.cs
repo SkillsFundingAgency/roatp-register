@@ -1,6 +1,8 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Net;
 using System.Net.Http;
+using System.Threading.Tasks;
 using Newtonsoft.Json;
 using SFA.Roatp.Api.Types;
 
@@ -8,7 +10,19 @@ namespace SFA.Roatp.Api.Client
 {
     public class RoatpApiClient : ApiClientBase, IRoatpClient
     {
-        public RoatpApiClient(string baseUri = null) : base(baseUri)
+        /// <summary>
+        /// The constructor to optional set the api url for testing
+        /// </summary>
+        /// <param name="baseUri">ie: https://roatp.apprenticeships.sfa.bis.gov.uk</param>
+        [Obsolete("This is constructor used for testing upcoming versions of the API")]
+        public RoatpApiClient(string baseUri) : base(baseUri)
+        {
+        }
+
+        /// <summary>
+        /// The default constructor to connect to https://roatp.apprenticeships.sfa.bis.gov.uk
+        /// </summary>
+        public RoatpApiClient() : base("https://roatp.apprenticeships.sfa.bis.gov.uk")
         {
         }
 
