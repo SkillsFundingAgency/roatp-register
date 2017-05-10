@@ -5,6 +5,7 @@ using System.Net.Http;
 using System.Threading.Tasks;
 using Newtonsoft.Json;
 using SFA.Roatp.Api.Types;
+using SFA.Roatp.Api.Types.Exceptions;
 
 namespace SFA.Roatp.Api.Client
 {
@@ -28,13 +29,15 @@ namespace SFA.Roatp.Api.Client
 
         /// <summary>
         /// Get a provider details
-        /// GET /providers/{provider-ukprn}
+        /// GET /providers/{ukprn}
         /// </summary>
-        /// <param name="providerUkprn">an integer for the provider ukprn</param>
+        /// <param name="ukprn">the provider ukprn this should be 8 numbers long</param>
         /// <returns>a provider details based on ukprn</returns>
-        public Provider Get(string providerUkprn)
+        /// <exception cref="EntityNotFoundException">when the resource you requested doesn't exist</exception>
+        /// <exception cref="HttpRequestException">There was an unexpected error</exception>
+        public Provider Get(string ukprn)
         {
-            using (var request = new HttpRequestMessage(HttpMethod.Get, $"/api/providers/{providerUkprn}"))
+            using (var request = new HttpRequestMessage(HttpMethod.Get, $"/api/providers/{ukprn}"))
             {
                 request.Headers.Add("Accept", "application/json");
 
@@ -48,7 +51,7 @@ namespace SFA.Roatp.Api.Client
                     }
                     if (result.StatusCode == HttpStatusCode.NotFound)
                     {
-                        RaiseResponseError($"The provider {providerUkprn} could not be found", request, result);
+                        RaiseResponseError($"The provider {ukprn} could not be found", request, result);
                     }
 
                     RaiseResponseError(request, result);
@@ -58,25 +61,43 @@ namespace SFA.Roatp.Api.Client
             }
         }
 
-        public Provider Get(long providerUkprn)
+        /// <summary>
+        /// Get a provider details
+        /// GET /providers/{ukprn}
+        /// </summary>
+        /// <param name="ukprn">the provider ukprn this should be 8 numbers long</param>
+        /// <returns>a provider details based on ukprn</returns>
+        /// <exception cref="EntityNotFoundException">when the resource you requested doesn't exist</exception>
+        /// <exception cref="HttpRequestException">There was an unexpected error</exception>
+        public Provider Get(long ukprn)
         {
-            return Get(providerUkprn.ToString());
+            return Get(ukprn.ToString());
         }
 
-        public Provider Get(int providerUkprn)
+        /// <summary>
+        /// Get a provider details
+        /// GET /providers/{ukprn}
+        /// </summary>
+        /// <param name="ukprn">the provider ukprn this should be 8 numbers long</param>
+        /// <returns>a provider details based on ukprn</returns>
+        /// <exception cref="EntityNotFoundException">when the resource you requested doesn't exist</exception>
+        /// <exception cref="HttpRequestException">There was an unexpected error</exception>
+        public Provider Get(int ukprn)
         {
-            return Get(providerUkprn.ToString());
+            return Get(ukprn.ToString());
         }
 
         /// <summary>
         /// Check if a provider exists
-        /// HEAD /providers/{provider-ukprn}
+        /// HEAD /providers/{ukprn}
         /// </summary>
-        /// <param name="providerUkprn">an integer for the provider ukprn</param>
+        /// <param name="ukprn">the provider ukprn this should be 8 numbers long</param>
         /// <returns>bool</returns>
-        public bool Exists(string providerUkprn)
+        /// <exception cref="EntityNotFoundException">when the resource you requested doesn't exist</exception>
+        /// <exception cref="HttpRequestException">There was an unexpected error</exception>
+        public bool Exists(string ukprn)
         {
-            using (var request = new HttpRequestMessage(HttpMethod.Head, $"/api/providers/{providerUkprn}"))
+            using (var request = new HttpRequestMessage(HttpMethod.Head, $"/api/providers/{ukprn}"))
             {
                 request.Headers.Add("Accept", "application/json");
 
@@ -99,6 +120,40 @@ namespace SFA.Roatp.Api.Client
             }
         }
 
+        /// <summary>
+        /// Check if a provider exists
+        /// HEAD /providers/{ukprn}
+        /// </summary>
+        /// <param name="ukprn">the provider ukprn this should be 8 numbers long</param>
+        /// <returns>bool</returns>
+        /// <exception cref="EntityNotFoundException">when the resource you requested doesn't exist</exception>
+        /// <exception cref="HttpRequestException">There was an unexpected error</exception>
+        public bool Exists(int ukprn)
+        {
+            return Exists(ukprn.ToString());
+        }
+
+
+        /// <summary>
+        /// Check if a provider exists
+        /// HEAD /providers/{ukprn}
+        /// </summary>
+        /// <param name="ukprn">the provider ukprn this should be 8 numbers long</param>
+        /// <returns>bool</returns>
+        /// <exception cref="EntityNotFoundException">when the resource you requested doesn't exist</exception>
+        /// <exception cref="HttpRequestException">There was an unexpected error</exception>
+        public bool Exists(long ukprn)
+        {
+            return Exists(ukprn.ToString());
+        }
+
+        /// <summary>
+        /// Get a list of active providers on ROATP
+        /// GET /providers
+        /// </summary>
+        /// <returns>Active providers</returns>
+        /// <exception cref="EntityNotFoundException">when the resource you requested doesn't exist</exception>
+        /// <exception cref="HttpRequestException">There was an unexpected error</exception>
         public IEnumerable<Provider> FindAll()
         {
             using (var request = new HttpRequestMessage(HttpMethod.Get, "/api/providers"))
