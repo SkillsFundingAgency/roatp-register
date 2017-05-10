@@ -25,6 +25,12 @@ namespace Sfa.Roatp.Registry.Web
             logger.Info("Web Role started");
         }
 
+        protected void Application_BeginRequest(object sender, EventArgs e)
+        {
+            var application = sender as HttpApplication;
+            application?.Context?.Response.Headers.Remove("Server");
+        }
+
         protected void Application_Error(object sender, EventArgs e)
         {
             Exception ex = Server.GetLastError().GetBaseException();
