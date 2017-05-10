@@ -5,8 +5,6 @@ using System.Net;
 using System.Web.Http;
 using System.Web.Http.Description;
 using Esfa.Roatp.ApplicationServices.Services;
-using SourceProvider = Esfa.Roatp.ApplicationServices.Models.Elastic.ProviderDocument;
-using SourceType = Esfa.Roatp.ApplicationServices.Models.Elastic.ProviderType;
 using Sfa.Roatp.Register.Web.Attributes;
 using Sfa.Roatp.Register.Web.Helpers;
 using SFA.DAS.NLog.Logger;
@@ -28,7 +26,7 @@ namespace Sfa.Roatp.Register.Web.Controllers
         }
 
         /// <summary>
-        /// Provider exists?
+        /// Check if provider exists
         /// </summary>
         /// <param name="ukprn">UKPRN</param>
         [SwaggerOperation("Head")]
@@ -47,6 +45,11 @@ namespace Sfa.Roatp.Register.Web.Controllers
                 $"No provider with Ukprn {ukprn} found");
         }
 
+        /// <summary>
+        /// Get a provider
+        /// </summary>
+        /// <param name="ukprn"></param>
+        /// <returns></returns>
         [SwaggerOperation("Get")]
         [SwaggerResponse(HttpStatusCode.OK, "OK", typeof(Provider))]
         [Route("providers/{ukprn}")]
@@ -69,6 +72,10 @@ namespace Sfa.Roatp.Register.Web.Controllers
             return provider;
         }
 
+        /// <summary>
+        /// Get active providers
+        /// </summary>
+        /// <returns></returns>
         [SwaggerOperation("GetAll")]
         [SwaggerResponse(HttpStatusCode.OK, "OK", typeof(IEnumerable<Provider>))]
         [Route("providers")]
@@ -94,6 +101,9 @@ namespace Sfa.Roatp.Register.Web.Controllers
             }
         }
 
+        /// <summary>
+        /// Check if you can get active providers
+        /// </summary>
         [SwaggerOperation("GetAllOk")]
         [SwaggerResponse(HttpStatusCode.NoContent)]
         [ApiExplorerSettings(IgnoreApi = true)]
