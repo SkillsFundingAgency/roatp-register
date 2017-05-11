@@ -10,6 +10,7 @@ using Sfa.Roatp.Register.Web.Controllers;
 using sfa.Roatp.Register.ApiIntegrationTests.Infrastructure;
 using SFA.Roatp.Api.Types;
 using System.Web.Http;
+using Esfa.Roatp.ApplicationServices.Models.Elastic;
 
 namespace sfa.Roatp.Register.ApiIntegrationTests.StepBindings
 {
@@ -29,8 +30,8 @@ namespace sfa.Roatp.Register.ApiIntegrationTests.StepBindings
         public void GivenTheFollowingRoatpProvidersAreAvailable(Table table)
         {
             var stubrepo = _objectContainer.Resolve<StubProviderRepository>("StubRepo");
-            stubrepo.roatpProviders.AddRange(ToRoatpProviders(table));
-            var availableroatpdata = stubrepo.roatpProviders;
+            stubrepo.roatpProviderDocuments.AddRange(ToRoatpProviders(table));
+            var availableroatpdata = stubrepo.roatpProviderDocuments;
         }
 
         #endregion
@@ -41,7 +42,7 @@ namespace sfa.Roatp.Register.ApiIntegrationTests.StepBindings
         public void WhenIRequestForAllProviders()
         {
             var sut = _objectContainer.Resolve<ProvidersController>("sut");
-            IEnumerable<RoatpProvider> result = sut.Get();
+            IEnumerable<Provider> result = sut.Get();
             _objectContainer.RegisterInstanceAs(result, "result");
         }
 
@@ -58,7 +59,7 @@ namespace sfa.Roatp.Register.ApiIntegrationTests.StepBindings
         [Then(@"I should get All providers")]
         public void ThenIShouldGetAllProviders()
         {
-            var result = _objectContainer.Resolve<IEnumerable<RoatpProvider>>("result");
+            var result = _objectContainer.Resolve<IEnumerable<Provider>>("result");
             Assert.IsTrue(result.Count() == 3);
         }
 
@@ -99,18 +100,18 @@ namespace sfa.Roatp.Register.ApiIntegrationTests.StepBindings
 
         #region privatemethods
 
-        private List<RoatpProvider> ToRoatpProviders(Table table)
+        private List<ProviderDocument> ToRoatpProviders(Table table)
         {
             List<dynamic> tableData = table.CreateDynamicSet().ToList();
 
-            List<RoatpProvider> roatpProvider = new List<RoatpProvider>();
+            List<ProviderDocument> roatpProviderdocuments = new List<ProviderDocument>();
 
-            tableData.ForEach(x => roatpProvider.Add(CasttoRoatpProvider(x)));
+            tableData.ForEach(x => roatpProviderdocuments.Add(CasttoRoatpProvider(x)));
 
-            return roatpProvider;
+            return roatpProviderdocuments;
         }
 
-        private RoatpProvider CasttoRoatpProvider(dynamic x)
+        private ProviderDocument CasttoRoatpProvider(dynamic x)
         {
 
             Func<dynamic,DateTime?> convertString = d =>
@@ -123,11 +124,11 @@ namespace sfa.Roatp.Register.ApiIntegrationTests.StepBindings
                  return null;
              };
 
-            return new RoatpProvider
+            return new ProviderDocument
             {
                 Ukprn = x.Ukprn,
                 Name = x.Name,
-                ProviderType = Enum.Parse(typeof(ProviderType), x.ProviderType, true),
+                ProviderType = Enum.Parse(typeof(Esfa.Roatp.ApplicationServices.Models.Elastic.ProviderType), x.ProviderType, true),
                 ContractedForNonLeviedEmployers = x.ContractedForNonLeviedEmployers,
                 NewOrganisationWithoutFinancialTrackRecord = x.NewOrganisationWithoutFinancialTrackRecord,
                 ParentCompanyGuarantee = x.ParentCompanyGuarantee,

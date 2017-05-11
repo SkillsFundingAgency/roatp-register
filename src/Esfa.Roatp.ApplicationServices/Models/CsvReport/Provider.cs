@@ -1,8 +1,6 @@
-﻿using System;
-
-namespace Sfa.Roatp.Register.Web.Models
+﻿namespace Esfa.Roatp.ApplicationServices.Models.CsvReport
 {
-    public class CsvProvider
+    public class Provider
     {
         public long Ukprn { get; set; }
 

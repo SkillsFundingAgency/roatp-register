@@ -287,8 +287,6 @@
     <Compile Include="App_Start\SwaggerConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Attributes\ExceptionHandlingAttribute.cs" />
-    <Compile Include="Models\CsvProviderMapper.cs" />
-    <Compile Include="Models\CsvProvider.cs" />
     <Compile Include="Controllers\DownloadController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ProvidersController.cs" />
@@ -381,8 +379,13 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Models\" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Esfa.Roatp.ApplicationServices\Esfa.Roatp.ApplicationServices.csproj">
+      <Project>{89A51F7A-5C18-4B64-91AC-2ACE445508FE}</Project>
+      <Name>Esfa.Roatp.ApplicationServices</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Sfa.Roatp.Register.Core\Sfa.Roatp.Register.Core.csproj">
       <Project>{fce4db1c-be42-48ac-8015-b3d07babf010}</Project>
       <Name>Sfa.Roatp.Register.Core</Name>

@@ -119,9 +119,12 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="RobotsAllowFeature.cs" />
     <Compile Include="Settings\ApplicationSettings.cs" />
-    <Compile Include="Utility\Enumerations.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Esfa.Roatp.ApplicationServices\Esfa.Roatp.ApplicationServices.csproj">
+      <Project>{89a51f7a-5c18-4b64-91ac-2ace445508fe}</Project>
+      <Name>Esfa.Roatp.ApplicationServices</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Sfa.Roatp.Register.Core\Sfa.Roatp.Register.Core.csproj">
       <Project>{fce4db1c-be42-48ac-8015-b3d07babf010}</Project>
       <Name>Sfa.Roatp.Register.Core</Name>
@@ -133,6 +136,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Utility\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

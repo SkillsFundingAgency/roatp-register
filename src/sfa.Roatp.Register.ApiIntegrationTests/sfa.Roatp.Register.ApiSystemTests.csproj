@@ -104,6 +104,10 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Esfa.Roatp.ApplicationServices\Esfa.Roatp.ApplicationServices.csproj">
+      <Project>{89A51F7A-5C18-4B64-91AC-2ACE445508FE}</Project>
+      <Name>Esfa.Roatp.ApplicationServices</Name>
+    </ProjectReference>
     <ProjectReference Include="..\SFA.Roatp.Api.Client\SFA.Roatp.Api.Client.csproj">
       <Project>{94c651ae-76da-47e7-aab4-149600dfeacb}</Project>
       <Name>SFA.Roatp.Api.Client</Name>

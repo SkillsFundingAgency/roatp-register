@@ -1,8 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Net;
 using System.Web.Http;
-using Sfa.Roatp.Register.Core.Services;
+using System.Web.Http.Description;
+using Esfa.Roatp.ApplicationServices.Services;
 using Sfa.Roatp.Register.Web.Attributes;
 using Sfa.Roatp.Register.Web.Helpers;
 using SFA.DAS.NLog.Logger;
@@ -24,7 +26,7 @@ namespace Sfa.Roatp.Register.Web.Controllers
         }
 
         /// <summary>
-        /// Provider exists?
+        /// Check if provider exists
         /// </summary>
         /// <param name="ukprn">UKPRN</param>
         [SwaggerOperation("Head")]
@@ -43,34 +45,46 @@ namespace Sfa.Roatp.Register.Web.Controllers
                 $"No provider with Ukprn {ukprn} found");
         }
 
+        /// <summary>
+        /// Get a provider
+        /// </summary>
+        /// <param name="ukprn"></param>
+        /// <returns></returns>
         [SwaggerOperation("Get")]
-        [SwaggerResponse(HttpStatusCode.OK, "OK", typeof(RoatpProvider))]
+        [SwaggerResponse(HttpStatusCode.OK, "OK", typeof(Provider))]
         [Route("providers/{ukprn}")]
         [ExceptionHandling]
-        public RoatpProvider Get(int ukprn)
+        public Provider Get(int ukprn)
         {
             var response = _providerRepo.GetProvider(ukprn);
 
-            if (response == null)
+            if (response == null || !response.IsDateValid(DateTime.UtcNow))
             {
                 throw HttpResponseFactory.RaiseException(HttpStatusCode.NotFound,
                     $"No provider with Ukprn {ukprn} found");
             }
 
-            response.Uri = Resolve(response.Ukprn);
+            var provider = ApiProviderMapper.Map(response);
 
-            return response;
+
+            provider.Uri = Resolve(response.Ukprn);
+
+            return provider;
         }
 
+        /// <summary>
+        /// Get active providers
+        /// </summary>
+        /// <returns></returns>
         [SwaggerOperation("GetAll")]
-        [SwaggerResponse(HttpStatusCode.OK, "OK", typeof(IEnumerable<RoatpProvider>))]
+        [SwaggerResponse(HttpStatusCode.OK, "OK", typeof(IEnumerable<Provider>))]
         [Route("providers")]
         [ExceptionHandling]
-        public IEnumerable<RoatpProvider> Get()
+        public IEnumerable<Provider> Get()
         {
             try
             {
-                var response = _providerRepo.GetAllProviders();
+                var response = _providerRepo.GetAllProviders().Where(x => x.IsDateValid(DateTime.UtcNow)).Select(ApiProviderMapper.Map).ToList();
 
                 foreach (var provider in response)
                 {
@@ -78,6 +92,7 @@ namespace Sfa.Roatp.Register.Web.Controllers
                 }
 
                 return response;
+
             }
             catch (Exception e)
             {
@@ -85,7 +100,20 @@ namespace Sfa.Roatp.Register.Web.Controllers
                 throw;
             }
         }
-        
+
+        /// <summary>
+        /// Check if you can get active providers
+        /// </summary>
+        [SwaggerOperation("GetAllOk")]
+        [SwaggerResponse(HttpStatusCode.NoContent)]
+        [ApiExplorerSettings(IgnoreApi = true)]
+        [Route("providers")]
+        [ExceptionHandling]
+        public void Head()
+        {
+            _providerRepo.GetAllProviders().Where(x => x.IsDateValid(DateTime.UtcNow)).Select(ApiProviderMapper.Map);
+        }
+
         private string Resolve(long ukprn)
         {
             return Url.Link("DefaultApi", new { controller = "Providers", id = ukprn });

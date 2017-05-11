@@ -1,70 +1,71 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using Sfa.Roatp.Register.Core.Services;
 using SFA.Roatp.Api.Types;
+using Esfa.Roatp.ApplicationServices.Services;
+using Esfa.Roatp.ApplicationServices.Models.Elastic;
 
 namespace sfa.Roatp.Register.ApiIntegrationTests.Infrastructure
 {
     public class StubProviderRepository : IGetProviders
     {
-        public List<RoatpProvider> roatpProviders { get; set; }
+        public List<ProviderDocument> roatpProviderDocuments { get; set; }
 
         public StubProviderRepository()
         {
             // We can load default roatp provider data in to the repository if needed
             // roatpProviders = AdddefaultRoatpData();
-            roatpProviders = new List<RoatpProvider>();
+            roatpProviderDocuments = new List<ProviderDocument>();
         }
 
-        IEnumerable<RoatpProvider> IGetProviders.GetAllProviders()
+        IEnumerable<ProviderDocument> IGetProviders.GetAllProviders()
         {
-            return roatpProviders;
+            return roatpProviderDocuments;
         }
 
-        RoatpProvider IGetProviders.GetProvider(int ukprn)
+        ProviderDocument IGetProviders.GetProvider(int ukprn)
         {
-            return roatpProviders.FirstOrDefault(x => x.Ukprn == ukprn);
+            return roatpProviderDocuments.FirstOrDefault(x => x.Ukprn == ukprn);
         }
 
-        private List<RoatpProvider> AdddefaultRoatpData()
+        private List<ProviderDocument> AdddefaultRoatpData()
         {
-            roatpProviders = new List<RoatpProvider>() { 
-                new RoatpProvider
+            roatpProviderDocuments = new List<ProviderDocument>() { 
+                new ProviderDocument
                 {
                     Ukprn = 99992101,
                     Name = "EAST BERKSHIRE COLLEGE 1",
-                    ProviderType = ProviderType.MainProvider,
+                    ProviderType = Esfa.Roatp.ApplicationServices.Models.Elastic.ProviderType.MainProvider,
                     ContractedForNonLeviedEmployers = false,
                     NewOrganisationWithoutFinancialTrackRecord = true,
                     ParentCompanyGuarantee = true,
                     StartDate = DateTime.Now.AddDays(-100)
                 },
-                new RoatpProvider
+                new ProviderDocument
                 {
                     Ukprn = 99992102,
                     Name = "EAST BERKSHIRE COLLEGE 2",
-                    ProviderType = ProviderType.MainProvider,
+                    ProviderType = Esfa.Roatp.ApplicationServices.Models.Elastic.ProviderType.MainProvider,
                     ContractedForNonLeviedEmployers = false,
                     NewOrganisationWithoutFinancialTrackRecord = true,
                     ParentCompanyGuarantee = true,
                     StartDate = DateTime.Now.AddDays(-100)
                 },
-                new RoatpProvider
+                new ProviderDocument
                 {
                     Ukprn = 99992103,
                     Name = "EAST BERKSHIRE COLLEGE 3",
-                    ProviderType = ProviderType.MainProvider,
+                    ProviderType = Esfa.Roatp.ApplicationServices.Models.Elastic.ProviderType.MainProvider,
                     ContractedForNonLeviedEmployers = false,
                     NewOrganisationWithoutFinancialTrackRecord = true,
                     ParentCompanyGuarantee = true,
                     StartDate = DateTime.Now.AddDays(-100)
                 },
-                new RoatpProvider
+                new ProviderDocument
                 {
                     Ukprn = 99992104,
                     Name = "EAST BERKSHIRE COLLEGE 4",
-                    ProviderType = ProviderType.MainProvider,
+                    ProviderType = Esfa.Roatp.ApplicationServices.Models.Elastic.ProviderType.MainProvider,
                     ContractedForNonLeviedEmployers = false,
                     NewOrganisationWithoutFinancialTrackRecord = true,
                     ParentCompanyGuarantee = true,
@@ -72,7 +73,7 @@ namespace sfa.Roatp.Register.ApiIntegrationTests.Infrastructure
                 }
             };
 
-            return roatpProviders.ToList();
+            return roatpProviderDocuments.ToList();
         }
     }
 }
