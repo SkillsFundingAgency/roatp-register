@@ -117,11 +117,11 @@ namespace sfa.Roatp.Register.ApiIntegrationTests.StepBindings
             Func<dynamic,DateTime?> convertString = d =>
              {
                  DateTime result;
-                 if (DateTime.TryParseExact(Convert.ChangeType(d, typeof(string)), "dd/MMM/yyyy", CultureInfo.InvariantCulture, DateTimeStyles.AssumeLocal, out result))
+                 if (DateTime.TryParseExact(Convert.ChangeType(d, typeof(string)), "dd-MMM-yyyy", CultureInfo.CurrentCulture, DateTimeStyles.AssumeLocal, out result))
                  {
                      return result;
                  }
-                 return null;
+                 return (d as string == "") ? null : d;
              };
 
             return new ProviderDocument
