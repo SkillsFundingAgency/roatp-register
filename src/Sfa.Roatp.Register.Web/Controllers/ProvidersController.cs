@@ -54,8 +54,7 @@ namespace Sfa.Roatp.Register.Web.Controllers
 
             if (response == null || !response.IsDateValid(DateTime.UtcNow))
             {
-                throw HttpResponseFactory.RaiseException(HttpStatusCode.NotFound,
-                    $"No provider with Ukprn {ukprn} found");
+                throw new HttpResponseException(HttpStatusCode.NotFound);
             }
 
             var provider = ApiProviderMapper.Map(response);
