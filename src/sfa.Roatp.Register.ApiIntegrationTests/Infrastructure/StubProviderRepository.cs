@@ -28,7 +28,7 @@ namespace sfa.Roatp.Register.ApiIntegrationTests.Infrastructure
             return roatpProviderDocuments.FirstOrDefault(x => x.Ukprn == ukprn);
         }
 
-        private List<ProviderDocument> AdddefaultRoatpData()
+        private List<ProviderDocument> AddDefaultRoatpData()
         {
             roatpProviderDocuments = new List<ProviderDocument>() { 
                 new ProviderDocument

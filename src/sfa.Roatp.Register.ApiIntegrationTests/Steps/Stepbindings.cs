@@ -45,9 +45,9 @@ namespace sfa.Roatp.Register.ApiIntegrationTests.StepBindings
             IEnumerable<Provider> result = sut.Get();
             _objectContainer.RegisterInstanceAs(result, "result");
         }
-
-        [When(@"I request for A provider with Ukprn as (.*)")]
-        public void WhenIRequestForAProviderWithUkprnAs(int ukprn)
+        
+        [When(@"I request for provider with Ukprn (.*)")]
+        public void WhenIRequestForProviderWithUkprn(int ukprn)
         {
             ScenarioContext.Current.Set(ukprn, "ukprn");
         }

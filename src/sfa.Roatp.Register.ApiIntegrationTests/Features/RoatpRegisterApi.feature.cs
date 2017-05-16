@@ -139,7 +139,7 @@ this.ScenarioSetup(scenarioInfo);
 #line 5
 this.FeatureBackground();
 #line 19
-testRunner.When("I request for A provider with Ukprn as 29992101", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+testRunner.When("I request for provider with Ukprn 29992101", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line 20
 testRunner.Then("I should get A provider", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
@@ -158,7 +158,7 @@ this.ScenarioSetup(scenarioInfo);
 #line 5
 this.FeatureBackground();
 #line 24
-testRunner.When("I request for A provider with Ukprn as 49992101", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+testRunner.When("I request for provider with Ukprn 49992101", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line 25
 testRunner.Then("I should get an exception when i request for a Provider which can not be found", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
@@ -177,7 +177,7 @@ this.ScenarioSetup(scenarioInfo);
 #line 5
 this.FeatureBackground();
 #line 29
-testRunner.When("I request for A provider with Ukprn as 29992101", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+testRunner.When("I request for provider with Ukprn 29992101", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line 30
 testRunner.Then("I should not get any exception when i request for an existence of Provider which " +
                     "can be found", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
@@ -197,7 +197,7 @@ this.ScenarioSetup(scenarioInfo);
 #line 5
 this.FeatureBackground();
 #line 34
-testRunner.When("I request for A provider with Ukprn as 49992101", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+testRunner.When("I request for provider with Ukprn 49992101", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line 35
 testRunner.Then("I should get an exception when i request for an existence of Provider which can n" +
                     "ot be found", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
