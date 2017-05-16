@@ -279,7 +279,6 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="FeatureToggles\RobotsAllowFeature.cs" />
-    <Compile Include="Helpers\HttpResponseFactory.cs" />
     <Compile Include="Logging\ApplicationInsightsInitializer.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\StructuremapMvc.cs" />
