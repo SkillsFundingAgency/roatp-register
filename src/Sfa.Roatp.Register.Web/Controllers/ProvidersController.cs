@@ -6,7 +6,6 @@ using System.Web.Http;
 using System.Web.Http.Description;
 using Esfa.Roatp.ApplicationServices.Services;
 using Sfa.Roatp.Register.Web.Attributes;
-using Sfa.Roatp.Register.Web.Helpers;
 using SFA.DAS.NLog.Logger;
 using SFA.Roatp.Api.Types;
 using Swashbuckle.Swagger.Annotations;
@@ -54,8 +53,7 @@ namespace Sfa.Roatp.Register.Web.Controllers
 
             if (response == null || !response.IsDateValid(DateTime.UtcNow))
             {
-                throw HttpResponseFactory.RaiseException(HttpStatusCode.NotFound,
-                    $"No provider with Ukprn {ukprn} found");
+                throw new HttpResponseException(HttpStatusCode.NotFound);
             }
 
             var provider = ApiProviderMapper.Map(response);
