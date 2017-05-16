@@ -15,7 +15,7 @@ using Esfa.Roatp.ApplicationServices.Models.Elastic;
 namespace sfa.Roatp.Register.ApiIntegrationTests.StepBindings
 {
     [Binding]
-    public class Stepbindings
+    public class Stepbindings : TechTalk.SpecFlow.Steps
     {
         private readonly IObjectContainer _objectContainer;
 
@@ -32,6 +32,30 @@ namespace sfa.Roatp.Register.ApiIntegrationTests.StepBindings
             var stubrepo = _objectContainer.Resolve<StubProviderRepository>("StubRepo");
             stubrepo.roatpProviderDocuments.AddRange(ToRoatpProviders(table));
             var availableroatpdata = stubrepo.roatpProviderDocuments;
+        }
+
+        [Given(@"A Roatp provider with future start date")]
+        public void GivenARoatpProviderWithFutureStartDate()
+        {
+            var table = GetTable(DateTime.Now.AddDays(5).ToShortDateString(),"");
+            Given(@"the following roatp providers are available", table);
+            When(string.Format("I request for provider with Ukprn {0}", table.Rows[0][0]));
+        }
+
+        [Given(@"A Roatp provider with past end date")]
+        public void GivenARoatpProviderWithPastEndDate()
+        {
+            var table = GetTable("20-Mar-2017", DateTime.Now.AddDays(-5).ToShortDateString());
+            Given(@"the following roatp providers are available", table);
+            When(string.Format("I request for provider with Ukprn {0}", table.Rows[0][0]));
+        }
+
+        [Given(@"A Roatp provider with future end date")]
+        public void GivenARoatpProviderWithFutureEndDate()
+        {
+            var table = GetTable("20-Mar-2017", DateTime.Now.AddDays(5).ToShortDateString());
+            Given(@"the following roatp providers are available", table);
+            When(string.Format("I request for provider with Ukprn {0}", table.Rows[0][0]));
         }
 
         #endregion
@@ -56,6 +80,18 @@ namespace sfa.Roatp.Register.ApiIntegrationTests.StepBindings
 
         #region Then
 
+        [Then(@"I should get an exception when i request for a Provider with past end date")]
+        public void ThenIShouldGetAnExceptionWhenIRequestForAProviderWithPastEndDate()
+        {
+            AssertThrowsHttpResponceException();
+        }
+
+        [Then(@"I should get an exception when i request for a Provider with future start date")]
+        public void ThenIShouldGetAnExceptionWhenIRequestForAProviderWithFutureStartDate()
+        {
+            AssertThrowsHttpResponceException();
+        }
+
         [Then(@"I should get All providers")]
         public void ThenIShouldGetAllProviders()
         {
@@ -75,30 +111,55 @@ namespace sfa.Roatp.Register.ApiIntegrationTests.StepBindings
         [Then(@"I should not get any exception when i request for an existence of Provider which can be found")]
         public void ThenIShouldNotGetAnyExceptionWhenIRequestForAnExistenceOfProviderWhichCanBeFound()
         {
-            var sut = _objectContainer.Resolve<ProvidersController>("sut");
-            var ukprn = ScenarioContext.Current.Get<int>("ukprn");
-            Assert.DoesNotThrow(() => sut.Head(ukprn));
+            AssertDoesNotThrowsHttpResponceException();
+        }
+
+        [Then(@"I should not get any exception when i request for a Provider with future end date")]
+        public void ThenIShouldNotGetAnyExceptionWhenIRequestForAProviderWithFutureEndDate()
+        {
+            AssertDoesNotThrowsHttpResponceException();
         }
 
         [Then(@"I should get an exception when i request for a Provider which can not be found")]
         public void ThenIShouldGetAnExceptionWhenIRequestForAProviderWhichCanNotBeFound()
         {
-            var sut = _objectContainer.Resolve<ProvidersController>("sut");
-            var ukprn = ScenarioContext.Current.Get<int>("ukprn");
-            Assert.Throws<HttpResponseException>(() => sut.Get(ukprn));
+            AssertThrowsHttpResponceException();
         }
 
         [Then(@"I should get an exception when i request for an existence of Provider which can not be found")]
         public void ThenIShouldGetAnExceptionWhenIRequestForAnExistenceOfProviderWhichCanNotBeFound()
+        {
+            AssertThrowsHttpResponceException();
+        }
+
+        #endregion
+
+        #region privatemethods
+
+        private Table GetTable(string startDate, string endDate)
+        {
+
+            string[] header = { "Ukprn", "Name", "ProviderType", "ContractedForNonLeviedEmployers", "NewOrganisationWithoutFinancialTrackRecord", "ParentCompanyGuarantee", "StartDate", "EndDate" };
+            string[] row1 = { "69992101", "MNO Institute", "MainProvider", "False", "True", "True", startDate, endDate };
+            var table = new Table(header);
+            table.AddRow(row1);
+            return table;
+        }
+
+        private void AssertDoesNotThrowsHttpResponceException()
+        {
+            var sut = _objectContainer.Resolve<ProvidersController>("sut");
+            var ukprn = ScenarioContext.Current.Get<int>("ukprn");
+            Assert.DoesNotThrow(() => sut.Head(ukprn));
+        }
+
+        private void AssertThrowsHttpResponceException()
         {
             var sut = _objectContainer.Resolve<ProvidersController>("sut");
             var ukprn = ScenarioContext.Current.Get<int>("ukprn");
             Assert.Throws<HttpResponseException>(() => sut.Head(ukprn));
         }
 
-        #endregion
-
-        #region privatemethods
 
         private List<ProviderDocument> ToRoatpProviders(Table table)
         {

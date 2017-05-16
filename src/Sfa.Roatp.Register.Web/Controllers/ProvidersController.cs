@@ -36,13 +36,7 @@ namespace Sfa.Roatp.Register.Web.Controllers
         [ExceptionHandling]
         public void Head(int ukprn)
         {
-            if (_providerRepo.GetProvider(ukprn) != null)
-            {
-                return;
-            }
-
-            throw HttpResponseFactory.RaiseException(HttpStatusCode.NotFound,
-                $"No provider with Ukprn {ukprn} found");
+            Get(ukprn);
         }
 
         /// <summary>
@@ -111,7 +105,7 @@ namespace Sfa.Roatp.Register.Web.Controllers
         [ExceptionHandling]
         public void Head()
         {
-            _providerRepo.GetAllProviders().Where(x => x.IsDateValid(DateTime.UtcNow)).Select(ApiProviderMapper.Map);
+            Get();
         }
 
         private string Resolve(long ukprn)
