@@ -6,7 +6,6 @@ using System.Web.Http;
 using System.Web.Http.Description;
 using Esfa.Roatp.ApplicationServices.Services;
 using Sfa.Roatp.Register.Web.Attributes;
-using Sfa.Roatp.Register.Web.Helpers;
 using SFA.DAS.NLog.Logger;
 using SFA.Roatp.Api.Types;
 using Swashbuckle.Swagger.Annotations;
