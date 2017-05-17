@@ -102,11 +102,11 @@ testRunner.Then("All links should be accessible", ((string)(null)), ((TechTalk.S
         public virtual void RoatpRegisterCsvFileShouldContainBelowColumns()
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Roatp Register csv file should contain below Columns", ((string[])(null)));
-#line 17
-this.ScenarioSetup(scenarioInfo);
 #line 18
-testRunner.Given("I can open roatp website", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+this.ScenarioSetup(scenarioInfo);
 #line 19
+testRunner.Given("I can open roatp website", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line 20
 testRunner.When("I request for SFA Roatp csv file", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
             TechTalk.SpecFlow.Table table1 = new TechTalk.SpecFlow.Table(new string[] {
@@ -123,7 +123,7 @@ testRunner.When("I request for SFA Roatp csv file", ((string)(null)), ((TechTalk
                         "NewOrganisationWithoutFinancialTrackRecord"});
             table1.AddRow(new string[] {
                         "StartDate"});
-#line 20
+#line 21
 testRunner.Then("I should have a csv file with below columns", ((string)(null)), table1, "Then ");
 #line hidden
             this.ScenarioCleanup();
@@ -134,17 +134,23 @@ testRunner.Then("I should have a csv file with below columns", ((string)(null)),
         public virtual void RoatpRegisterCsvFileShouldContainBelowUkprn()
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Roatp Register csv file should contain below Ukprn", ((string[])(null)));
-#line 31
-this.ScenarioSetup(scenarioInfo);
 #line 32
-testRunner.Given("I can open roatp website", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+this.ScenarioSetup(scenarioInfo);
 #line 33
-testRunner.When("I request for SFA Roatp csv file", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+testRunner.Given("I can open roatp website", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line 34
+testRunner.When("I request for SFA Roatp csv file", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 35
 testRunner.Then("I should have a csv file with more than 5 Kb contents", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             TechTalk.SpecFlow.Table table2 = new TechTalk.SpecFlow.Table(new string[] {
                         "UKPRN"});
+            table2.AddRow(new string[] {
+                        "10001446"});
+            table2.AddRow(new string[] {
+                        "10002107"});
+            table2.AddRow(new string[] {
+                        "10004736"});
             table2.AddRow(new string[] {
                         "10003231"});
             table2.AddRow(new string[] {
@@ -1209,7 +1215,7 @@ testRunner.Then("I should have a csv file with more than 5 Kb contents", ((strin
                         "10054860"});
             table2.AddRow(new string[] {
                         "10063530"});
-#line 35
+#line 36
 testRunner.And("csv file should contain following information", ((string)(null)), table2, "And ");
 #line hidden
             this.ScenarioCleanup();
@@ -1220,13 +1226,13 @@ testRunner.And("csv file should contain following information", ((string)(null))
         public virtual void RoatpRegisterCsvFileShouldNotContainBelowUkprn()
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Roatp Register csv file should not contain below Ukprn", ((string[])(null)));
-#line 572
-this.ScenarioSetup(scenarioInfo);
-#line 573
-testRunner.Given("I can open roatp website", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
-#line 574
-testRunner.When("I request for SFA Roatp csv file", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line 575
+this.ScenarioSetup(scenarioInfo);
+#line 576
+testRunner.Given("I can open roatp website", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line 577
+testRunner.When("I request for SFA Roatp csv file", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 578
 testRunner.Then("I should have a csv file with more than 5 Kb contents", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             TechTalk.SpecFlow.Table table3 = new TechTalk.SpecFlow.Table(new string[] {
@@ -1243,7 +1249,7 @@ testRunner.Then("I should have a csv file with more than 5 Kb contents", ((strin
                         "10005410"});
             table3.AddRow(new string[] {
                         "10001196"});
-#line 576
+#line 579
 testRunner.And("csv file should not contain following information", ((string)(null)), table3, "And ");
 #line hidden
             this.ScenarioCleanup();
@@ -1254,16 +1260,16 @@ testRunner.And("csv file should not contain following information", ((string)(nu
         public virtual void RoatpRegisterCsvFileShouldHaveRightNoOfProviders()
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Roatp Register csv file should have right no of Providers", ((string[])(null)));
-#line 587
-this.ScenarioSetup(scenarioInfo);
-#line 588
-testRunner.Given("I can open roatp website", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line 589
-testRunner.When("I request for SFA Roatp csv file", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+this.ScenarioSetup(scenarioInfo);
 #line 590
-testRunner.Then("I should have a csv file with more than 5 Kb contents", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+testRunner.Given("I can open roatp website", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line 591
-testRunner.And("I should have total 2212 Providers", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+testRunner.When("I request for SFA Roatp csv file", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 592
+testRunner.Then("I should have a csv file with more than 5 Kb contents", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line 593
+testRunner.And("I should have total 2215 Providers", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             this.ScenarioCleanup();
         }

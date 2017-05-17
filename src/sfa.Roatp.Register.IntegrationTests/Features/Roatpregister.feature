@@ -14,6 +14,7 @@ Scenario: All link on Roatp Register Page should be accessible
 Given I can open roatp website 
 Then All links should be accessible
 
+
 Scenario: Roatp Register csv file should contain below Columns
 Given I can open roatp website 
 When I request for SFA Roatp csv file 
@@ -34,6 +35,9 @@ When I request for SFA Roatp csv file
 Then I should have a csv file with more than 5 Kb contents
 And csv file should contain following information
 | UKPRN    |
+| 10001446 |
+| 10002107 |
+| 10004736 |
 | 10003231 |
 | 10022237 |
 | 10029699 |
@@ -567,7 +571,6 @@ And csv file should contain following information
 | 10054860 |
 | 10063530 |
 
-
 #17/05/2017 Temp test please remove it / update it for next csv deployment 
 Scenario: Roatp Register csv file should not contain below Ukprn
 Given I can open roatp website 
@@ -582,10 +585,9 @@ And csv file should not contain following information
 | 10005410 |
 | 10001196 |
 
-
 #Please update the number when we get a new spreadsheet (17/05/2017)
 Scenario: Roatp Register csv file should have right no of Providers
 Given I can open roatp website 
 When I request for SFA Roatp csv file 
 Then I should have a csv file with more than 5 Kb contents
-And I should have total 2212 Providers
+And I should have total 2215 Providers

@@ -69,6 +69,11 @@
     <Compile Include="Driver\Settings.cs" />
     <Compile Include="Driver\RoatpWebDriver.cs" />
     <Compile Include="Driver\WebDriverExtension.cs" />
+    <Compile Include="Features\RoatpApi.feature.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>RoatpApi.feature</DependentUpon>
+    </Compile>
     <Compile Include="Features\Roatpregister.feature.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -83,6 +88,10 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+    <None Include="Features\RoatpApi.feature">
+      <Generator>SpecFlowSingleFileGenerator</Generator>
+      <LastGenOutput>RoatpApi.feature.cs</LastGenOutput>
+    </None>
     <None Include="Features\Roatpregister.feature">
       <Generator>SpecFlowSingleFileGenerator</Generator>
       <LastGenOutput>Roatpregister.feature.cs</LastGenOutput>
@@ -105,6 +114,10 @@
     <WCFMetadata Include="Service References\" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\SFA.Roatp.Api.Client\SFA.Roatp.Api.Client.csproj">
+      <Project>{94c651ae-76da-47e7-aab4-149600dfeacb}</Project>
+      <Name>SFA.Roatp.Api.Client</Name>
+    </ProjectReference>
     <ProjectReference Include="..\SFA.Roatp.Api.Types\SFA.Roatp.Api.Types.csproj">
       <Project>{550f1317-a3f9-4426-86c8-c23804701724}</Project>
       <Name>SFA.Roatp.Api.Types</Name>
