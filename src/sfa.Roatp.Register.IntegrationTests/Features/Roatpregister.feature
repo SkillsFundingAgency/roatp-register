@@ -14,6 +14,19 @@ Scenario: All link on Roatp Register Page should be accessible
 Given I can open roatp website 
 Then All links should be accessible
 
+Scenario: Roatp Register csv file should contain below Columns
+Given I can open roatp website 
+When I request for SFA Roatp csv file 
+Then I should have a csv file with below columns
+| Columns                                    |
+| Ukprn                                      |
+| Name                                       |
+| ProviderType                               |
+| ParentCompanyGuarantee                     |
+| NewOrganisationWithoutFinancialTrackRecord |
+| StartDate                                  |
+
+
 #17/05/2017 Temp test please remove it / update it for next csv deployment 
 Scenario: Roatp Register csv file should contain below Ukprn
 Given I can open roatp website 
@@ -565,7 +578,6 @@ And csv file should not contain following information
 | 10001457 |
 | 10011332 |
 | 10058010 |
-| 10037375 |
 | 10007407 |
 | 10005410 |
 | 10001196 |
