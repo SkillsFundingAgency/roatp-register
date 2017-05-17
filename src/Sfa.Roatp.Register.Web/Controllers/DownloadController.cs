@@ -28,6 +28,7 @@ namespace Sfa.Roatp.Register.Web.Controllers
         public ActionResult Csv()
         {
             var providers = _getProviders.GetAllProviders().Where(x => x.IsDateValid(DateTime.UtcNow) && x.ProviderType != ProviderType.Unknown);
+            var date = _getProviders.GetDateOfProviderList();
             var result = providers.Select(CsvProviderMapper.Map);
 
             using (var memoryStream = new MemoryStream())
@@ -39,7 +40,7 @@ namespace Sfa.Roatp.Register.Web.Controllers
                         csvWriter.WriteRecords(result);
                         streamWriter.Flush();
                         memoryStream.Position = 0;
-                        return File(memoryStream.ToArray(), "text/csv", $"roatp-{DateTime.UtcNow.ToString("yyyy-MM-dd")}.csv");
+                        return File(memoryStream.ToArray(), "text/csv", $"roatp-{date.ToString("yyyy-MM-dd")}.csv");
                     }
                 }
             }

@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
 using System.Runtime.CompilerServices;
@@ -44,6 +45,15 @@ namespace Sfa.Roatp.Register.Infrastructure.Elasticsearch
             return result;
         }
 
+        public IEnumerable<string> GetIndicesPointingToAlias(string aliasName, [CallerMemberName] string callerName = "")
+        {
+            var client = _elasticsearchClientFactory.Create();
+            var timer = Stopwatch.StartNew();
+            var result = client.GetIndicesPointingToAlias(aliasName);
+            SendLog(null, $"Get Indices Pointing To Alias {aliasName}", timer.Elapsed);
+            return result;
+        }
+
         private void SendLog<T>(IResponse result, string identifier, TimeSpan clientRequestTime)
             where T : class
         {
@@ -72,6 +82,11 @@ namespace Sfa.Roatp.Register.Infrastructure.Elasticsearch
                 _logger.Debug("Elastic Search Requested", logEntry);
             }
 
+            SendLog(result, identifier, clientRequestTime);
+        }
+
+        private void SendLog(IResponse result, string identifier, TimeSpan clientRequestTime)
+        {
             var dependencyLogEntry = new DependencyLogEntry
             {
                 Identifier = identifier,
@@ -79,7 +94,7 @@ namespace Sfa.Roatp.Register.Infrastructure.Elasticsearch
                 ResponseTime = Math.Round(clientRequestTime.TotalMilliseconds, 2),
                 Url = result.ApiCall?.Uri?.AbsoluteUri
             };
-            
+
             _logger.Debug("Dependency Elasticsearch", dependencyLogEntry);
         }
     }

@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using Esfa.Roatp.ApplicationServices.Models;
 using Esfa.Roatp.ApplicationServices.Models.Elastic;
 
@@ -8,5 +9,6 @@ namespace Esfa.Roatp.ApplicationServices.Services
     {
         IEnumerable<ProviderDocument> GetAllProviders();
         ProviderDocument GetProvider(int ukprn);
+        DateTime GetDateOfProviderList();
     }
 }
