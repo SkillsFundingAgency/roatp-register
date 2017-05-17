@@ -47,7 +47,15 @@ namespace sfa.Roatp.Register.IntegrationTests.Steps
             StringAssert.AreEqualIgnoringCase("text/csv", responce.ContentType, "Content Type is not text/csv");
             Assert.Greater(responce.ContentLength, contentlength);
         }
-        
+
+        [Then(@"I should have a csv file with below columns")]
+        public void ThenIShouldHaveACsvFileWithBelowColumns(Table table)
+        {
+            var NotindownloadedCsv = CompareColumnsWithCsv(table);
+            Assert.IsTrue(!NotindownloadedCsv.Any(), $"{string.Join(Environment.NewLine, NotindownloadedCsv)} is/are not found in the downloadable csv");
+        }
+
+
         [Then(@"All links should be accessible")]
         public void ThenAllLinksShouldBeAccessible()
         {
@@ -89,6 +97,13 @@ namespace sfa.Roatp.Register.IntegrationTests.Steps
             List<string> content = roatpProviders.Select(x => x[0] as string).ToList();
             List<string> tableList = table.Rows.Select(x => x["UKPRN"] as string).ToList();
             return tableList.Except(content).ToList();
+        }
+
+        private List<string> CompareColumnsWithCsv(Table table)
+        {
+            List<string> csvHeaders = GetDtoFromCsv().First().ToList();
+            List<string> tableHeaders = table.Rows.Select(x=> x["Columns"] as string).ToList();
+            return tableHeaders.Except(csvHeaders).ToList();
         }
 
         private List<string[]> GetDtoFromCsv()
