@@ -47,6 +47,7 @@ namespace Sfa.Roatp.Register.Web.Controllers
         /// <returns></returns>
         [SwaggerOperation("Get")]
         [SwaggerResponse(HttpStatusCode.OK, "OK", typeof(Provider))]
+        [SwaggerResponse(HttpStatusCode.NotFound)]
         [SwaggerResponse(HttpStatusCode.BadRequest, "Invalid UKPRN (should be 8 numbers long)")]
         [Route("providers/{ukprn}")]
         [ExceptionHandling]
