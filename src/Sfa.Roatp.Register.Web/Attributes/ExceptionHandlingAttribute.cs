@@ -1,5 +1,6 @@
 using System.Web.Http.Filters;
 using System.Web.Mvc;
+using SFA.DAS.NLog.Logger;
 
 namespace Sfa.Roatp.Register.Web.Attributes
 {
@@ -7,9 +8,9 @@ namespace Sfa.Roatp.Register.Web.Attributes
     {
         public override void OnException(HttpActionExecutedContext context)
         {
-            //var logger = DependencyResolver.Current.GetService<ILog>();
+            var logger = DependencyResolver.Current.GetService<ILog>();
 
-            //logger.Error(context.Exception, $"App_Error {context.Request?.RequestUri}");
+            logger.Error(context.Exception, $"App_Error {context.Request?.RequestUri}");
         }
     }
 }
