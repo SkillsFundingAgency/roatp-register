@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Net;
+using System.Net.Http;
 using System.Web.Http;
 using System.Web.Http.Description;
 using Esfa.Roatp.ApplicationServices.Services;
@@ -17,7 +18,7 @@ namespace Sfa.Roatp.Register.Web.Controllers
     {
         private readonly IGetProviders _providerRepo;
         private readonly ILog _log;
-        
+
         public ProvidersController(IGetProviders providerRepo, ILog log)
         {
             _providerRepo = providerRepo;
@@ -31,6 +32,7 @@ namespace Sfa.Roatp.Register.Web.Controllers
         [SwaggerOperation("Head")]
         [SwaggerResponse(HttpStatusCode.NoContent)]
         [SwaggerResponse(HttpStatusCode.NotFound)]
+        [SwaggerResponse(HttpStatusCode.BadRequest, "Invalid UKPRN (should be 8 numbers long)")]
         [Route("providers/{ukprn}")]
         [ExceptionHandling]
         public void Head(int ukprn)
@@ -45,10 +47,16 @@ namespace Sfa.Roatp.Register.Web.Controllers
         /// <returns></returns>
         [SwaggerOperation("Get")]
         [SwaggerResponse(HttpStatusCode.OK, "OK", typeof(Provider))]
+        [SwaggerResponse(HttpStatusCode.BadRequest, "Invalid UKPRN (should be 8 numbers long)")]
         [Route("providers/{ukprn}")]
         [ExceptionHandling]
         public Provider Get(int ukprn)
         {
+            if (ukprn.ToString().Length != 8)
+            {
+                throw new HttpResponseException(HttpStatusCode.BadRequest);
+            }
+
             var response = _providerRepo.GetProvider(ukprn);
 
             if (response == null || !response.IsDateValid(DateTime.UtcNow))
