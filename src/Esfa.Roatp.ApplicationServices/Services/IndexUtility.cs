@@ -7,7 +7,7 @@ namespace Esfa.Roatp.ApplicationServices.Services
     {
         public static DateTime GetDateFromIndexNameAndDateExtension(string indexName, string aliasName, string dateFormat = "yyyy-MM-dd-HH-mm")
         {
-            var date = indexName.Replace(aliasName + "-", "");
+            var date = indexName.Replace(aliasName + "-", string.Empty);
             return DateTime.ParseExact(date, dateFormat, CultureInfo.InvariantCulture, DateTimeStyles.None);
         }
     }
