@@ -7,8 +7,8 @@
     <ProjectGuid>{7846C93F-26AE-437E-A508-2555159A92D5}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>sfa.Roatp.Register.IntegrationTests</RootNamespace>
-    <AssemblyName>sfa.Roatp.Register.IntegrationTests</AssemblyName>
+    <RootNamespace>Esfa.Roatp.Register.IntegrationTests</RootNamespace>
+    <AssemblyName>Esfa.Roatp.Register.IntegrationTests</AssemblyName>
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>

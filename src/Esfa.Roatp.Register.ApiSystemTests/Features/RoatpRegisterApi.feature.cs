@@ -10,7 +10,7 @@
 // ------------------------------------------------------------------------------
 #region Designer generated code
 #pragma warning disable
-namespace sfa.Roatp.Register.ApiIntegrationTests.Features
+namespace Esfa.Roatp.Register.ApiIntegrationTests.Features
 {
     using TechTalk.SpecFlow;
     
