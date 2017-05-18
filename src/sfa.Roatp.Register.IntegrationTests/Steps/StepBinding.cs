@@ -9,6 +9,8 @@ using NUnit.Framework;
 using System;
 using System.IO;
 using CsvHelper;
+using SFA.Roatp.Api.Types;
+using SFA.Roatp.Api.Client;
 
 namespace sfa.Roatp.Register.IntegrationTests.Steps
 {
@@ -36,14 +38,31 @@ namespace sfa.Roatp.Register.IntegrationTests.Steps
             var roatpUri = _objectContainer.Resolve<RoatpUri>();
             RoatpRegisterPage roatpregisterPage = new RoatpRegisterPage(roatpwebdriver);
             var responce = roatpregisterPage.ClickCSVLink(roatpUri.MainUrl);
-            _objectContainer.RegisterInstanceAs(responce);
+            _objectContainer.RegisterInstanceAs(responce, "csv");
+        }
 
+        [When(@"I request for SFA Roatp Get All providers Api end point")]
+        public void WhenIRequestForSFARoatpGetAllProvidersApiEndPoint()
+        {
+            var roatpUri = _objectContainer.Resolve<RoatpUri>();
+            var allproviders = GetAllProvidersFromApi(roatpUri.MainUrl);
+            _objectContainer.RegisterInstanceAs(allproviders, "allproviders");
+        }
+
+        [Then(@"they should expose same details")]
+        public void ThenTheyShouldExposeSameDetails()
+        {
+            List<string[]> roatpProviders = GetDtoFromCsv();
+            int noOfRoatpProvidersinCsv = roatpProviders.Count - 1; // Remove 1 for the header;
+            var allproviders = _objectContainer.Resolve<List<Provider>>("allproviders");
+            int noOfRoatpProvidersinApi = allproviders.Count();
+            Assert.AreEqual(noOfRoatpProvidersinApi, noOfRoatpProvidersinCsv, $"We have {noOfRoatpProvidersinCsv} in the downloadable csv, and {noOfRoatpProvidersinApi} in the api");
         }
 
         [Then(@"I should have a csv file with more than (.*) Kb contents")]
         public void ThenIShouldHaveACsvFileWithMoreThanKbContents(int contentlength)
         {
-            var responce = _objectContainer.Resolve<HttpWebResponse>();
+            var responce = _objectContainer.Resolve<HttpWebResponse>("csv");
             StringAssert.AreEqualIgnoringCase("text/csv", responce.ContentType, "Content Type is not text/csv");
             Assert.Greater(responce.ContentLength, contentlength);
         }
@@ -108,7 +127,7 @@ namespace sfa.Roatp.Register.IntegrationTests.Steps
 
         private List<string[]> GetDtoFromCsv()
         {
-            var responce = _objectContainer.Resolve<HttpWebResponse>();
+            var responce = _objectContainer.Resolve<HttpWebResponse>("csv");
 
             using (var webresponce = new StreamReader(responce.GetResponseStream()))
             {
@@ -126,6 +145,13 @@ namespace sfa.Roatp.Register.IntegrationTests.Steps
                     }
                 }
             }
+        }
+
+        private List<Provider> GetAllProvidersFromApi(string baseurl)
+        {
+            var roatpUri = _objectContainer.Resolve<RoatpUri>();
+            var roatpapiclient = new RoatpApiClient(baseurl);
+            return roatpapiclient.FindAll().ToList();
         }
     }
 }

@@ -7,7 +7,7 @@
             <dl class="meta">
                 <dt>From:</dt>
                 <dd>
-                    <a href="https://www.gov.uk/government/organisations/skills-funding-agency" target="_blank">Skills Funding Agency</a>
+                    <a href="https://www.gov.uk/government/organisations/education-and-skills-funding-agency" target="_blank">Education & Skills Funding Agency</a>
                 </dd>
                 <dt>Part of:</dt>
                 <dd>
@@ -28,11 +28,11 @@
             <div class="signed-agreement">
                 <section class="attachment embedded">
                     <div class="attachment-thumb">
-                        <a aria-hidden="true" class="thumbnail" href=""><img alt="" src="~/Content/dist/images/pub-cover-csv.png"></a>
+                        <a aria-hidden="true" class="thumbnail" href="@Url.Action("Csv", "Download", null, null)"><img alt="" src="~/Content/dist/images/pub-cover-csv.png"></a>
                     </div>
                     <div class="attachment-details">
                         <h2 class="title">
-                            SFA register of apprenticeship training providers
+                            ESFA register of apprenticeship training providers
                         </h2>
                         <span class="type">@Html.ActionLink("Download CSV", "Csv", "Download", null, null)</span>
 
@@ -46,7 +46,7 @@
 
             <h3 class="heading-medium">What is in the Register?</h3>
 
-            <p>The register lists the organisations that are approved to deliver apprenticeship training to employers using the apprenticeship service.</p>
+            <p>The register lists the organisations that are approved to deliver apprenticeship training to employers using the apprenticeship service. The list includes organisations that were successful in making an application at the first opening (October 2016) and second opening (March 2017).</p>
 
             <h3 class="heading-small">UKPRN</h3>
             <p>This is the organisation's UK Provider Reference Number (UKPRN). More information about the UKPRN can be found at <a href="https://www.ukrlp.co.uk" target="_blank">UKRLP</a>.
@@ -69,6 +69,9 @@
 
             <h3 class="heading-small">New Organisation Without Financial Track Record</h3>
             <p>If this field is set to 'TRUE', then the organisation has not been trading for a sufficient period to provide a fully complete set of financial statements as part of the RoATP application process. A financial health judgement was based on management accounts and forecasts (where applicable).</p>
+
+            <h3 class="heading-small">Start Date</h3>
+            <p>This is the date that the organisation was added to the register.</p>
 
             <p>For any further information see the <a href="https://www.gov.uk/government/collections/register-of-apprenticeship-training-providers" target="_blank">register of apprenticeship training providers</a> information on GOV.UK
             </p>
