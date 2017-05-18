@@ -1,6 +1,6 @@
 ﻿namespace sfa.Roatp.Register.IntegrationTests.Steps
 {
-    internal class RoatpUri
+    public class RoatpUri
     {
         public string MainUrl { get; set; }
     }
