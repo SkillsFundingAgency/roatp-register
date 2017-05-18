@@ -51,6 +51,7 @@
     <Compile Include="Models\Elastic\ProviderType.cs" />
     <Compile Include="Models\Elastic\ProviderDocument.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Services\IndexUtility.cs" />
     <Compile Include="Utility\Enumerations.cs" />
   </ItemGroup>
   <ItemGroup>

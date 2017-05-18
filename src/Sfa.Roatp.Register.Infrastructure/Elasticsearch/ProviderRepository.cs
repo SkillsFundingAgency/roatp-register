@@ -78,6 +78,12 @@ namespace Sfa.Roatp.Register.Infrastructure.Elasticsearch
             return results.Documents.FirstOrDefault();
         }
 
+        public DateTime GetDateOfProviderList()
+        {
+            var index = _elasticsearchCustomClient.GetIndicesPointingToAlias(_applicationSettings.RoatpProviderIndexAlias).FirstOrDefault();
+            return IndexUtility.GetDateFromIndexNameAndDateExtension(index, _applicationSettings.RoatpProviderIndexAlias);
+        }
+
         private int GetProvidersTotalAmount()
         {
             var results =

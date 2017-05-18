@@ -18,16 +18,20 @@ namespace Sfa.Roatp.Register.Web.Controllers
             _getProviders = getProviders;
         }
 
+        [OutputCache(Duration = 600)]
         // GET: Home
         public ActionResult Index()
         {
-            return View();
+            var date = _getProviders.GetDateOfProviderList();
+            var viewModel = new DownloadViewModel { Filename = GenerateFilename(date), LastUpdated = date };
+            return View(viewModel);
         }
 
         [OutputCache(Duration = 600)]
         public ActionResult Csv()
         {
             var providers = _getProviders.GetAllProviders().Where(x => x.IsDateValid(DateTime.UtcNow) && x.ProviderType != ProviderType.Unknown);
+            var date = _getProviders.GetDateOfProviderList();
             var result = providers.Select(CsvProviderMapper.Map);
 
             using (var memoryStream = new MemoryStream())
@@ -39,10 +43,15 @@ namespace Sfa.Roatp.Register.Web.Controllers
                         csvWriter.WriteRecords(result);
                         streamWriter.Flush();
                         memoryStream.Position = 0;
-                        return File(memoryStream.ToArray(), "text/csv", $"roatp-{DateTime.UtcNow.ToString("yyyy-MM-dd")}.csv");
+                        return File(memoryStream.ToArray(), "text/csv", GenerateFilename(date));
                     }
                 }
             }
+        }
+
+        private static string GenerateFilename(DateTime date)
+        {
+            return $"roatp-{date.ToString("yyyy-MM-dd")}.csv";
         }
     }
 }

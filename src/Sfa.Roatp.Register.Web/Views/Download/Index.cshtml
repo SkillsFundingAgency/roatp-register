@@ -1,4 +1,5 @@
-﻿<main id="content" role="main">
+﻿@model Sfa.Roatp.Register.Web.Models.DownloadViewModel
+<main id="content" role="main">
     <div class="grid-row">
         <div class="column-two-thirds">
             <h1 class="heading-xlarge">
@@ -28,16 +29,19 @@
             <div class="signed-agreement">
                 <section class="attachment embedded">
                     <div class="attachment-thumb">
-                        <a aria-hidden="true" class="thumbnail" href="@Url.Action("Csv", "Download", null, null)"><img alt="" src="~/Content/dist/images/pub-cover-csv.png"></a>
+                        <a aria-hidden="true" class="thumbnail" href="@Url.Action("Csv", "Download", new {filename = Model.Filename}, null)"><img alt="" src="~/Content/dist/images/pub-cover-csv.png"></a>
                     </div>
                     <div class="attachment-details">
                         <h2 class="title">
                             ESFA register of apprenticeship training providers
                         </h2>
-                        <span class="type">@Html.ActionLink("Download CSV", "Csv", "Download", null, null)</span>
-
+                        <span class="type">@Html.ActionLink("Download CSV", "Csv", "Download", new {filename = Model.Filename}, null)</span>
                     </div>
                 </section>
+                <dl class="meta">
+                    <dt>Last Updated:</dt>
+                    <dd>@Model.LastUpdated.ToShortDateString()</dd>
+                </dl>
             </div>
         </div>
     </div>
