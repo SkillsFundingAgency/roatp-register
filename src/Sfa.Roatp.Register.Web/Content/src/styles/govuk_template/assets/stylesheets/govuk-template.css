@@ -2,6 +2,9 @@
 @-ms-viewport {
   width: device-width; }
 
+@-o-viewport {
+  width: device-width; }
+
 @font-face {
   font-family: GDS-Logo;
   src: local("HelveticaNeue"), local("Helvetica Neue"), local("Arial"), local("Helvetica"); }
@@ -9,10 +12,19 @@
 @-ms-viewport {
   width: device-width; }
 
-@-ms-viewport {
+@-o-viewport {
   width: device-width; }
 
 @-ms-viewport {
+  width: device-width; }
+
+@-o-viewport {
+  width: device-width; }
+
+@-ms-viewport {
+  width: device-width; }
+
+@-o-viewport {
   width: device-width; }
 
 #global-header .header-wrapper:after, #global-header .header-wrapper .header-global:after, #global-header .header-wrapper .header-global .header-logo:after, #global-header .header-proposition #proposition-link:after,
@@ -34,6 +46,9 @@
 @-ms-viewport {
   width: device-width; }
 
+@-o-viewport {
+  width: device-width; }
+
 #global-header .header-wrapper:after, #global-header .header-wrapper .header-global:after, #global-header .header-wrapper .header-global .header-logo:after, #global-header .header-proposition #proposition-link:after,
 #global-header .header-proposition #proposition-links:after, #footer .footer-meta:after {
   content: "";
@@ -41,6 +56,9 @@
   clear: both; }
 
 @-ms-viewport {
+  width: device-width; }
+
+@-o-viewport {
   width: device-width; }
 
 /* local styleguide includes */
@@ -125,7 +143,7 @@ a:active {
 a[rel="external"]:after {
   background-image: url(external-links/external-link.png?0.18.2);
   background-repeat: no-repeat; }
-  @media only screen and (-webkit-min-device-pixel-ratio: 2), only screen and (min--moz-device-pixel-ratio: 2), only screen and (min-device-pixel-ratio: 2), only screen and (min-resolution: 192dpi), only screen and (min-resolution: 2dppx) {
+  @media only screen and (-webkit-min-device-pixel-ratio: 2), only screen and (min--moz-device-pixel-ratio: 2), only screen and (-o-min-device-pixel-ratio: 20 / 10), only screen and (min-device-pixel-ratio: 2), only screen and (min-resolution: 192dpi), only screen and (min-resolution: 2dppx) {
     a[rel="external"]:after {
       background-image: url(external-links/external-link-24x24.png?0.18.2);
       background-size: 12px 400px; } }
@@ -149,7 +167,7 @@ a[rel="external"]:hover:after {
 .external-link:after {
   background-image: url(external-links/external-link-black-12x12.png?0.18.2);
   background-repeat: no-repeat; }
-  @media only screen and (-webkit-min-device-pixel-ratio: 2), only screen and (min--moz-device-pixel-ratio: 2), only screen and (min-device-pixel-ratio: 2), only screen and (min-resolution: 192dpi), only screen and (min-resolution: 2dppx) {
+  @media only screen and (-webkit-min-device-pixel-ratio: 2), only screen and (min--moz-device-pixel-ratio: 2), only screen and (-o-min-device-pixel-ratio: 20 / 10), only screen and (min-device-pixel-ratio: 2), only screen and (min-resolution: 192dpi), only screen and (min-resolution: 2dppx) {
     .external-link:after {
       background-image: url(external-links/external-link-black-24x24.png?0.18.2);
       background-size: 12px 400px; } }
@@ -201,6 +219,8 @@ abbr[title] {
 input[type="search"] {
   -webkit-appearance: textfield;
   /* 1 */
+  -moz-box-sizing: content-box;
+  -webkit-box-sizing: content-box;
   /* 2 */
   box-sizing: content-box; }
 
@@ -300,6 +320,9 @@ button:focus,
 @-ms-viewport {
   width: device-width; }
 
+@-o-viewport {
+  width: device-width; }
+
 #global-header .header-wrapper:after, #global-header .header-wrapper .header-global:after, #global-header .header-wrapper .header-global .header-logo:after, #global-header .header-proposition #proposition-link:after,
 #global-header .header-proposition #proposition-links:after, #footer .footer-meta:after {
   content: "";
@@ -307,6 +330,9 @@ button:focus,
   clear: both; }
 
 @-ms-viewport {
+  width: device-width; }
+
+@-o-viewport {
   width: device-width; }
 
 #global-header {
@@ -624,7 +650,7 @@ button:focus,
             overflow: hidden;
             text-indent: -999em;
             background: url(images/open-government-licence.png?0.18.2) 0 0 no-repeat; }
-            @media only screen and (-webkit-min-device-pixel-ratio: 2), only screen and (min--moz-device-pixel-ratio: 2), only screen and (min-device-pixel-ratio: 2), only screen and (min-resolution: 192dpi), only screen and (min-resolution: 2dppx) {
+            @media only screen and (-webkit-min-device-pixel-ratio: 2), only screen and (min--moz-device-pixel-ratio: 2), only screen and (-o-min-device-pixel-ratio: 20 / 10), only screen and (min-device-pixel-ratio: 2), only screen and (min-resolution: 192dpi), only screen and (min-resolution: 2dppx) {
               #footer .footer-meta .footer-meta-inner .open-government-licence .logo a {
                 background-image: url(images/open-government-licence_2x.png?0.18.2);
                 background-size: 41px 17px; } }
@@ -671,7 +697,7 @@ button:focus,
         @media (min-width: 641px) {
           #footer .footer-meta .copyright a {
             background-position: 100% 0%; } }
-        @media only screen and (-webkit-min-device-pixel-ratio: 2), only screen and (min--moz-device-pixel-ratio: 2), only screen and (min-device-pixel-ratio: 2), only screen and (min-resolution: 192dpi), only screen and (min-resolution: 2dppx) {
+        @media only screen and (-webkit-min-device-pixel-ratio: 2), only screen and (min--moz-device-pixel-ratio: 2), only screen and (-o-min-device-pixel-ratio: 20 / 10), only screen and (min-device-pixel-ratio: 2), only screen and (min-resolution: 192dpi), only screen and (min-resolution: 2dppx) {
           #footer .footer-meta .copyright a {
             background-image: url(images/govuk-crest-2x.png?0.18.2);
             background-size: 125px 102px; } }

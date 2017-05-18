@@ -12,6 +12,10 @@ module.exports = function (grunt) {
         sass: {
             dist: {
                 options: {
+					includePaths: [
+						'src/styles/govuk_template/assets/stylesheets',
+						'src/styles/govuk_frontend_toolkit/stylesheets'
+					  ],
                     outputStyle: 'compressed',
                     noCache: true,
                     sourceMap: false,
@@ -19,10 +23,10 @@ module.exports = function (grunt) {
                 },
                 files: [{
                     expand: true,
-                    cwd: 'src/styles/',
+                    cwd: 'src/styles/sass/',
                     src: '*.scss',
                     dest: 'dist/css/',
-                    ext: '.min.css'
+                    ext: '.css'
                 }]
             }
         },
