@@ -121,7 +121,7 @@
       <Project>{fce4db1c-be42-48ac-8015-b3d07babf010}</Project>
       <Name>Sfa.Roatp.Register.Core</Name>
     </ProjectReference>
-    <ProjectReference Include="..\sfa.Roatp.Register.IntegrationTests\Esfa.Roatp.Register.IntegrationTests.csproj">
+    <ProjectReference Include="..\Esfa.Roatp.Register.IntegrationTests\Esfa.Roatp.Register.IntegrationTests.csproj">
       <Project>{7846c93f-26ae-437e-a508-2555159a92d5}</Project>
       <Name>Esfa.Roatp.Register.IntegrationTests</Name>
     </ProjectReference>
