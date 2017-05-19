@@ -90,9 +90,9 @@ namespace Sfa.Roatp.Register.Infrastructure.Elasticsearch
             var dependencyLogEntry = new DependencyLogEntry
             {
                 Identifier = identifier,
-                ResponseCode = result.ApiCall?.HttpStatusCode,
+                ResponseCode = result?.ApiCall?.HttpStatusCode,
                 ResponseTime = Math.Round(clientRequestTime.TotalMilliseconds, 2),
-                Url = result.ApiCall?.Uri?.AbsoluteUri
+                Url = result?.ApiCall?.Uri?.AbsoluteUri
             };
 
             _logger.Debug("Dependency Elasticsearch", dependencyLogEntry);
