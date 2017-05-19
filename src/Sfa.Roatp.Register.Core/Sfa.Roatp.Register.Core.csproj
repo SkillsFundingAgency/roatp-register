@@ -42,6 +42,7 @@
   <ItemGroup>
     <Compile Include="Configuration\IConfigurationSettings.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Utility\DateTimeExtensions.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\SFA.Roatp.Api.Types\SFA.Roatp.Api.Types.csproj">

@@ -1,4 +1,5 @@
-﻿@model Sfa.Roatp.Register.Web.Models.DownloadViewModel
+﻿@using Sfa.Roatp.Register.Core.Utility
+@model Sfa.Roatp.Register.Web.Models.DownloadViewModel
 <main id="content" role="main">
     <div class="grid-row">
         <div class="column-two-thirds">
@@ -40,7 +41,7 @@
                 </section>
                 <dl class="meta">
                     <dt>Last Updated:</dt>
-                    <dd>@Model.LastUpdated.ToShortDateString()</dd>
+                    <dd>@Model.LastUpdated.ToGdsFormat()</dd>
                 </dl>
             </div>
         </div>
