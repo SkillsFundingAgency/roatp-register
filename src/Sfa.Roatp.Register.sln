@@ -31,7 +31,9 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Esfa.Roatp.ApplicationServi
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Esfa.Roatp.Register.ApiSystemTests", "Esfa.Roatp.Register.ApiSystemTests\Esfa.Roatp.Register.ApiSystemTests.csproj", "{15B0264B-3AA5-4F81-B070-A5D7786B8805}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Esfa.Roatp.Register.IntegrationTests", "Esfa.Roatp.Register.IntegrationTests\Esfa.Roatp.Register.IntegrationTests.csproj", "{7846C93F-26AE-437E-A508-2555159A92D5}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "DeploymentTests", "DeploymentTests", "{C0B5B3ED-C3FB-4501-9541-D8310719853E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Esfa.Roatp.Register.DeploymentTests", "Esfa.Roatp.Register.DeploymentTests\Esfa.Roatp.Register.DeploymentTests.csproj", "{7846C93F-26AE-437E-A508-2555159A92D5}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -93,6 +95,6 @@ Global
 		{3AAE3727-FB7E-4F2A-854C-E95BAC1FAE1A} = {8B2D4C24-488F-4A0B-B95A-7A0A41FABF3E}
 		{89A51F7A-5C18-4B64-91AC-2ACE445508FE} = {C27080AB-E18A-4A91-9B1E-948476EE8F60}
 		{15B0264B-3AA5-4F81-B070-A5D7786B8805} = {F05ED0D6-CE7B-4CD7-A44B-08AA8580D05D}
-		{7846C93F-26AE-437E-A508-2555159A92D5} = {F05ED0D6-CE7B-4CD7-A44B-08AA8580D05D}
+		{7846C93F-26AE-437E-A508-2555159A92D5} = {C0B5B3ED-C3FB-4501-9541-D8310719853E}
 	EndGlobalSection
 EndGlobal

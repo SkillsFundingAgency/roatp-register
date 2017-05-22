@@ -110,6 +110,15 @@ namespace sfa.Roatp.Register.IntegrationTests.Steps
             Assert.AreEqual(totalprovider, noOfRoatpProviders, $"We expect {totalprovider} in the downloadable csv but it is {noOfRoatpProviders}");
         }
 
+        [Then(@"I should have atleast (.*) Providers")]
+        public void ThenIShouldHaveAtleastProviders(int totalprovider)
+        {
+            List<string[]> roatpProviders = GetDtoFromCsv();
+            int noOfRoatpProviders = roatpProviders.Count - 1; // Remove 1 for the header;
+            Assert.GreaterOrEqual(noOfRoatpProviders, totalprovider, $"We expect atleast {totalprovider} in the downloadable csv but it is {noOfRoatpProviders}");
+        }
+
+
         private List<string> CompareUkprnwithCsv(Table table)
         {
             List<string[]> roatpProviders = GetDtoFromCsv();

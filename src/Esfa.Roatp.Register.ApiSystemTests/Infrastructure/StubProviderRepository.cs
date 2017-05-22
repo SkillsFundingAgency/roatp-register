@@ -75,5 +75,10 @@ namespace sfa.Roatp.Register.ApiIntegrationTests.Infrastructure
 
             return roatpProviderDocuments.ToList();
         }
+
+        public DateTime GetDateOfProviderList()
+        {
+            return DateTime.UtcNow;
+        }
     }
 }

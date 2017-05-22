@@ -7,8 +7,8 @@
     <ProjectGuid>{15B0264B-3AA5-4F81-B070-A5D7786B8805}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Esfa.Roatp.Register.ApiIntegrationTests</RootNamespace>
-    <AssemblyName>Esfa.Roatp.Register.ApiIntegrationTests</AssemblyName>
+    <RootNamespace>Esfa.Roatp.Register.ApiSystemTests</RootNamespace>
+    <AssemblyName>Esfa.Roatp.Register.ApiSystemTests</AssemblyName>
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
@@ -120,10 +120,6 @@
     <ProjectReference Include="..\Sfa.Roatp.Register.Core\Sfa.Roatp.Register.Core.csproj">
       <Project>{fce4db1c-be42-48ac-8015-b3d07babf010}</Project>
       <Name>Sfa.Roatp.Register.Core</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\Esfa.Roatp.Register.IntegrationTests\Esfa.Roatp.Register.IntegrationTests.csproj">
-      <Project>{7846c93f-26ae-437e-a508-2555159a92d5}</Project>
-      <Name>Esfa.Roatp.Register.IntegrationTests</Name>
     </ProjectReference>
     <ProjectReference Include="..\Sfa.Roatp.Register.Web\Sfa.Roatp.Register.Web.csproj">
       <Project>{496B0F28-936C-4FBE-BB63-B848B5569F65}</Project>

@@ -7,8 +7,8 @@
     <ProjectGuid>{7846C93F-26AE-437E-A508-2555159A92D5}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Esfa.Roatp.Register.IntegrationTests</RootNamespace>
-    <AssemblyName>Esfa.Roatp.Register.IntegrationTests</AssemblyName>
+    <RootNamespace>Esfa.Roatp.Register.DeploymentTests</RootNamespace>
+    <AssemblyName>Esfa.Roatp.Register.DeploymentTests</AssemblyName>
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
@@ -34,8 +34,20 @@
       <HintPath>..\packages\CsvHelper.2.16.3.0\lib\net45\CsvHelper.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="Newtonsoft.Json, Version=9.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.9.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="nunit.framework, Version=3.6.1.0, Culture=neutral, PublicKeyToken=2638cd05610744eb, processorArchitecture=MSIL">
       <HintPath>..\packages\NUnit.3.6.1\lib\net45\nunit.framework.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="SFA.Roatp.Api.Client, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\SFA.Roatp.Api.Client.0.1.68\lib\net45\SFA.Roatp.Api.Client.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="SFA.Roatp.Api.Types, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\SFA.Roatp.Api.Types.0.1.68\lib\net45\SFA.Roatp.Api.Types.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="System" />
@@ -69,15 +81,15 @@
     <Compile Include="Driver\Settings.cs" />
     <Compile Include="Driver\RoatpWebDriver.cs" />
     <Compile Include="Driver\WebDriverExtension.cs" />
-    <Compile Include="Features\RoatpApi.feature.cs">
+    <Compile Include="Features\RoatpRegisterCsv.feature.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>RoatpApi.feature</DependentUpon>
+      <DependentUpon>RoatpRegisterCsv.feature</DependentUpon>
     </Compile>
-    <Compile Include="Features\Roatpregister.feature.cs">
+    <Compile Include="Features\RoatpRegisterDeployment.feature.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>Roatpregister.feature</DependentUpon>
+      <DependentUpon>RoatpRegisterDeployment.feature</DependentUpon>
     </Compile>
     <Compile Include="Pages\PageBase.cs" />
     <Compile Include="Pages\RoatpRegisterPage.cs" />
@@ -88,13 +100,13 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
-    <None Include="Features\RoatpApi.feature">
+    <None Include="Features\RoatpRegisterCsv.feature">
       <Generator>SpecFlowSingleFileGenerator</Generator>
-      <LastGenOutput>RoatpApi.feature.cs</LastGenOutput>
+      <LastGenOutput>RoatpRegisterCsv.feature.cs</LastGenOutput>
     </None>
-    <None Include="Features\Roatpregister.feature">
+    <None Include="Features\RoatpRegisterDeployment.feature">
       <Generator>SpecFlowSingleFileGenerator</Generator>
-      <LastGenOutput>Roatpregister.feature.cs</LastGenOutput>
+      <LastGenOutput>RoatpRegisterDeployment.feature.cs</LastGenOutput>
     </None>
     <None Include="packages.config" />
   </ItemGroup>
@@ -112,16 +124,6 @@
   </ItemGroup>
   <ItemGroup>
     <WCFMetadata Include="Service References\" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\SFA.Roatp.Api.Client\SFA.Roatp.Api.Client.csproj">
-      <Project>{94c651ae-76da-47e7-aab4-149600dfeacb}</Project>
-      <Name>SFA.Roatp.Api.Client</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\SFA.Roatp.Api.Types\SFA.Roatp.Api.Types.csproj">
-      <Project>{550f1317-a3f9-4426-86c8-c23804701724}</Project>
-      <Name>SFA.Roatp.Api.Types</Name>
-    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

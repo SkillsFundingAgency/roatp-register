@@ -10,7 +10,7 @@
 // ------------------------------------------------------------------------------
 #region Designer generated code
 #pragma warning disable
-namespace Esfa.Roatp.Register.IntegrationTests.Features
+namespace Esfa.Roatp.Register.DeploymentTests.Features
 {
     using TechTalk.SpecFlow;
     
@@ -18,21 +18,23 @@ namespace Esfa.Roatp.Register.IntegrationTests.Features
     [System.CodeDom.Compiler.GeneratedCodeAttribute("TechTalk.SpecFlow", "2.1.0.0")]
     [System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
     [NUnit.Framework.TestFixtureAttribute()]
-    [NUnit.Framework.DescriptionAttribute("RoatpApi")]
-    public partial class RoatpApiFeature
+    [NUnit.Framework.DescriptionAttribute("RoatpRegisterDeployment")]
+    [NUnit.Framework.CategoryAttribute("RoatpRegisterDeploymentTests")]
+    public partial class RoatpRegisterDeploymentFeature
     {
         
         private TechTalk.SpecFlow.ITestRunner testRunner;
         
-#line 1 "RoatpApi.feature"
+#line 1 "RoatpRegisterDeployment.feature"
 #line hidden
         
         [NUnit.Framework.TestFixtureSetUpAttribute()]
         public virtual void FeatureSetup()
         {
             testRunner = TechTalk.SpecFlow.TestRunnerManager.GetTestRunner();
-            TechTalk.SpecFlow.FeatureInfo featureInfo = new TechTalk.SpecFlow.FeatureInfo(new System.Globalization.CultureInfo("en-US"), "RoatpApi", "\tAs a user\r\n\tI would like to use roatp api to collect informaion about roatp regi" +
-                    "ster", ProgrammingLanguage.CSharp, ((string[])(null)));
+            TechTalk.SpecFlow.FeatureInfo featureInfo = new TechTalk.SpecFlow.FeatureInfo(new System.Globalization.CultureInfo("en-US"), "RoatpRegisterDeployment", "\tIn order to avoid production bug\r\n\tAs a Test Analyst\r\n\tI want to be told the Roa" +
+                    "tp Register features are working", ProgrammingLanguage.CSharp, new string[] {
+                        "RoatpRegisterDeploymentTests"});
             testRunner.OnFeatureStart(featureInfo);
         }
         
@@ -65,19 +67,49 @@ namespace Esfa.Roatp.Register.IntegrationTests.Features
         }
         
         [NUnit.Framework.TestAttribute()]
-        [NUnit.Framework.DescriptionAttribute("Roatp Register csv file should be in sync with Get All providers Api end point")]
-        public virtual void RoatpRegisterCsvFileShouldBeInSyncWithGetAllProvidersApiEndPoint()
+        [NUnit.Framework.DescriptionAttribute("Can open Roatp Register website")]
+        public virtual void CanOpenRoatpRegisterWebsite()
         {
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Roatp Register csv file should be in sync with Get All providers Api end point", ((string[])(null)));
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Can open Roatp Register website", ((string[])(null)));
 #line 7
 this.ScenarioSetup(scenarioInfo);
 #line 8
 testRunner.Given("I can open roatp website", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
-#line 9
-testRunner.When("I request for SFA Roatp csv file", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line hidden
+            this.ScenarioCleanup();
+        }
+        
+        [NUnit.Framework.TestAttribute()]
+        [NUnit.Framework.DescriptionAttribute("Roatp Register csv file should have atleast 500 Providers")]
+        public virtual void RoatpRegisterCsvFileShouldHaveAtleast500Providers()
+        {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Roatp Register csv file should have atleast 500 Providers", ((string[])(null)));
 #line 10
-testRunner.And("I request for SFA Roatp Get All providers Api end point", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+this.ScenarioSetup(scenarioInfo);
 #line 11
+testRunner.Given("I can open roatp website", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line 12
+testRunner.When("I request for SFA Roatp csv file", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 13
+testRunner.Then("I should have atleast 500 Providers", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line hidden
+            this.ScenarioCleanup();
+        }
+        
+        [NUnit.Framework.TestAttribute()]
+        [NUnit.Framework.DescriptionAttribute("Roatp Register csv file should be in sync with Get All providers Api end point")]
+        public virtual void RoatpRegisterCsvFileShouldBeInSyncWithGetAllProvidersApiEndPoint()
+        {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Roatp Register csv file should be in sync with Get All providers Api end point", ((string[])(null)));
+#line 15
+this.ScenarioSetup(scenarioInfo);
+#line 16
+testRunner.Given("I can open roatp website", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line 17
+testRunner.When("I request for SFA Roatp csv file", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 18
+testRunner.And("I request for SFA Roatp Get All providers Api end point", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 19
 testRunner.Then("they should expose same details", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             this.ScenarioCleanup();

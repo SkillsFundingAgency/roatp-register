@@ -1,11 +1,7 @@
-﻿Feature: Roatpregister
+﻿@RoatpRegisterCsvTests
+Feature: RoatpRegisterCsv
 	As a user
 	I would like to download a roatp register in csv format
-
-Scenario: Can download Roatp Register csv file
-Given I can open roatp website 
-When I request for SFA Roatp csv file 
-Then I should have a csv file with more than 5 Kb contents
 
 #Ignored the scenario as the web request are timing out causing the test to fail
 #TODO : implement asyc request and responce.
@@ -14,7 +10,7 @@ Scenario: All link on Roatp Register Page should be accessible
 Given I can open roatp website 
 Then All links should be accessible
 
-
+#17/05/2017 Temp test please remove it / update it for next csv deployment 
 Scenario: Roatp Register csv file should contain below Columns
 Given I can open roatp website 
 When I request for SFA Roatp csv file 
@@ -26,7 +22,6 @@ Then I should have a csv file with below columns
 | ParentCompanyGuarantee                     |
 | NewOrganisationWithoutFinancialTrackRecord |
 | StartDate                                  |
-
 
 #17/05/2017 Temp test please remove it / update it for next csv deployment 
 Scenario: Roatp Register csv file should contain below Ukprn
@@ -585,7 +580,7 @@ And csv file should not contain following information
 | 10005410 |
 | 10001196 |
 
-#Please update the number when we get a new spreadsheet (17/05/2017)
+#Please update the number when we get a new spreadsheet (Last Updated : 17 May 2017)
 Scenario: Roatp Register csv file should have right no of Providers
 Given I can open roatp website 
 When I request for SFA Roatp csv file 

@@ -6,11 +6,11 @@ using NUnit.Framework;
 // General Information about an assembly is controlled through the following 
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("sfa.Roatp.Register.IntegrationTests")]
+[assembly: AssemblyTitle("Esfa.Roatp.Register.DeploymentTests")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("sfa.Roatp.Register.IntegrationTests")]
+[assembly: AssemblyProduct("Esfa.Roatp.Register.DeploymentTests")]
 [assembly: AssemblyCopyright("Copyright ©  2017")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
