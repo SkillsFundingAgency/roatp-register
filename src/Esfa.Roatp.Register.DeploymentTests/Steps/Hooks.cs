@@ -1,20 +1,16 @@
-﻿using System;
-using TechTalk.SpecFlow;
+﻿using TechTalk.SpecFlow;
 using BoDi;
-using sfa.Roatp.Register.IntegrationTests.Driver;
-using System.Reflection;
-using System.IO;
+using sfa.Roatp.Register.IntegrationTests.Steps;
+using System.Configuration;
+using Esfa.Roatp.Register.DeploymentTests.Pages;
 
-namespace sfa.Roatp.Register.IntegrationTests.Steps
+namespace Esfa.Roatp.Register.DeploymentTests.Steps
 {
     [Binding]
     public class Hooks
     {
         private readonly IObjectContainer _objectContainer;
-        private string _assemblyFolder = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location);
         private static string _url;
-        public static string _RemoteDriverUri;
-        public static int _defaultTimeoutinSec;
 
         public Hooks(IObjectContainer objectContainer)
         {
@@ -24,23 +20,15 @@ namespace sfa.Roatp.Register.IntegrationTests.Steps
         [BeforeTestRun]
         public static void BeforeTestRun()
         {
-            _url = Settings.AutUrl;
-            _RemoteDriverUri = Settings.BrowserStackUri;
-            _defaultTimeoutinSec = Settings.DefaultTimeoutinSec;
+            _url = (ConfigurationManager.AppSettings["AUT.URL"]).TrimEnd('/');
         }
 
         [BeforeScenario]
         public void BeforeScenario()
         {
-            var roatpWebDriver = new PhantomJSRoatpWebDriver(_assemblyFolder, _defaultTimeoutinSec);
-            _objectContainer.RegisterInstanceAs<IRoatpWebDriver>(roatpWebDriver);
-            _objectContainer.RegisterInstanceAs(new RoatpUri { MainUrl = _url });
-        }
-
-        [AfterScenario]
-        public void AferScenario()
-        {
-
+            var roatpUri = new RoatpUri { MainUrl = _url };
+            RoatpRegisterPage roatpregisterPage = new RoatpRegisterPage(roatpUri.MainUrl);
+            _objectContainer.RegisterInstanceAs(roatpregisterPage);
         }
     }
 }

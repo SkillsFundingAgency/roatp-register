@@ -1,12 +1,7 @@
 ﻿using OpenQA.Selenium;
-using OpenQA.Selenium.Remote;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
-namespace sfa.Roatp.Register.IntegrationTests.Driver
+namespace Esfa.Roatp.Register.UserAcceptanceTests.Driver
 {
 
     public static class WebDriverExtension

@@ -1,6 +1,6 @@
 ﻿using OpenQA.Selenium.PhantomJS;
 
-namespace sfa.Roatp.Register.IntegrationTests.Driver
+namespace Esfa.Roatp.Register.UserAcceptanceTests.Driver
 {
     public sealed class PhantomJSRoatpWebDriver : RoatpWebDriver
     {

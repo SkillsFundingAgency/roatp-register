@@ -67,30 +67,15 @@ namespace Esfa.Roatp.Register.DeploymentTests.Features
         }
         
         [NUnit.Framework.TestAttribute()]
-        [NUnit.Framework.DescriptionAttribute("Can open Roatp Register website")]
-        public virtual void CanOpenRoatpRegisterWebsite()
-        {
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Can open Roatp Register website", ((string[])(null)));
-#line 7
-this.ScenarioSetup(scenarioInfo);
-#line 8
-testRunner.Given("I can open roatp website", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
-#line hidden
-            this.ScenarioCleanup();
-        }
-        
-        [NUnit.Framework.TestAttribute()]
         [NUnit.Framework.DescriptionAttribute("Roatp Register csv file should have atleast 500 Providers")]
         public virtual void RoatpRegisterCsvFileShouldHaveAtleast500Providers()
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Roatp Register csv file should have atleast 500 Providers", ((string[])(null)));
-#line 10
+#line 7
 this.ScenarioSetup(scenarioInfo);
-#line 11
-testRunner.Given("I can open roatp website", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
-#line 12
-testRunner.When("I request for SFA Roatp csv file", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line 13
+#line 8
+testRunner.Given("I request for SFA Roatp csv file", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line 9
 testRunner.Then("I should have atleast 500 Providers", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             this.ScenarioCleanup();
@@ -101,15 +86,13 @@ testRunner.Then("I should have atleast 500 Providers", ((string)(null)), ((TechT
         public virtual void RoatpRegisterCsvFileShouldBeInSyncWithGetAllProvidersApiEndPoint()
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Roatp Register csv file should be in sync with Get All providers Api end point", ((string[])(null)));
-#line 15
+#line 11
 this.ScenarioSetup(scenarioInfo);
-#line 16
-testRunner.Given("I can open roatp website", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
-#line 17
-testRunner.When("I request for SFA Roatp csv file", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line 18
+#line 12
+testRunner.Given("I request for SFA Roatp csv file", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line 13
 testRunner.And("I request for SFA Roatp Get All providers Api end point", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 19
+#line 14
 testRunner.Then("they should expose same details", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             this.ScenarioCleanup();

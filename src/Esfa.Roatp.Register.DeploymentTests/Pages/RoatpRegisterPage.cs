@@ -1,27 +1,23 @@
-﻿using sfa.Roatp.Register.IntegrationTests.Driver;
+﻿using SFA.Roatp.Api.Client;
+using SFA.Roatp.Api.Types;
 using System;
-using System.Net;
-using OpenQA.Selenium.Support.PageObjects;
-using OpenQA.Selenium;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net;
 
-namespace sfa.Roatp.Register.IntegrationTests.Pages
+namespace Esfa.Roatp.Register.DeploymentTests.Pages
 {
-    public sealed class RoatpRegisterPage : PageBase
+    public sealed class RoatpRegisterPage
     {
-
-        public RoatpRegisterPage(IRoatpWebDriver driver) : base(driver)
+        private readonly string _uri;
+        public RoatpRegisterPage(string uri)
         {
+            _uri = uri;
         }
-
-        [FindsBy(How = How.CssSelector, Using ="a")]
-        private IList<IWebElement> links { get; set; }
-
-
-        public HttpWebResponse ClickCSVLink(string uri)
+        
+        public HttpWebResponse ClickCSVLink()
         {
-            var csvuri = new Uri(uri + "/download/csv");
+            var csvuri = new Uri(_uri + "/download/csv");
          
             // Create a HttpWebrequest object to the desired URL.
             HttpWebRequest csvHttpWebRequest = (HttpWebRequest)WebRequest.Create(csvuri);
@@ -29,23 +25,10 @@ namespace sfa.Roatp.Register.IntegrationTests.Pages
             return (HttpWebResponse)csvHttpWebRequest.GetResponse();
         }
 
-        public List<string> ArePageLinksWorking()
+        public List<Provider> GetAllProvidersFromApi()
         {
-            var hrefs = links.Where(x => !string.IsNullOrEmpty(x.GetAttribute("href"))).Select(y => y.GetAttribute("href")).ToList();
-            var brokenHrefs = new List<string>();
-
-            foreach (var href in hrefs)
-            {
-                var webReq = (HttpWebRequest)WebRequest.Create(new Uri(href));
-                var webResponse = (HttpWebResponse)webReq.GetResponse();
-
-                if (webResponse.StatusCode != HttpStatusCode.OK)
-                {
-                    brokenHrefs.Add(href);
-                }
-            }
-
-            return brokenHrefs;
+            var roatpapiclient = new RoatpApiClient(_uri);
+            return roatpapiclient.FindAll().ToList();
         }
     }
 }

@@ -1,6 +1,6 @@
 ﻿using System.Configuration;
 
-namespace sfa.Roatp.Register.IntegrationTests.Driver
+namespace Esfa.Roatp.Register.UserAcceptanceTests.Driver
 {
     /// <summary>
     /// Resolves application setting configuration items

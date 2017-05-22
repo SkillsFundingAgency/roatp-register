@@ -1,7 +1,7 @@
 ﻿using OpenQA.Selenium.Support.PageObjects;
-using sfa.Roatp.Register.IntegrationTests.Driver;
+using Esfa.Roatp.Register.UserAcceptanceTests.Driver;
 
-namespace sfa.Roatp.Register.IntegrationTests.Pages
+namespace Esfa.Roatp.Register.UserAcceptanceTests.Pages
 {
     public abstract class PageBase
     {
