@@ -33,9 +33,11 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Esfa.Roatp.Register.ApiSyst
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "DeploymentTests", "DeploymentTests", "{C0B5B3ED-C3FB-4501-9541-D8310719853E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Esfa.Roatp.Register.DeploymentTests", "Esfa.Roatp.Register.DeploymentTests\Esfa.Roatp.Register.DeploymentTests.csproj", "{7846C93F-26AE-437E-A508-2555159A92D5}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Esfa.Roatp.Register.DeploymentTests2", "Esfa.Roatp.Register.DeploymentTests2\Esfa.Roatp.Register.DeploymentTests2.csproj", "{7846C93F-26AE-437E-A508-2555159A92D5}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Esfa.Roatp.Register.UserAcceptanceTests", "Esfa.Roatp.Register.UserAcceptanceTests\Esfa.Roatp.Register.UserAcceptanceTests.csproj", "{C2602374-0970-46E5-AD71-9FD803A30449}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Esfa.Roatp.Register.DeploymentTests", "Esfa.Roatp.Register.DeploymentTests\Esfa.Roatp.Register.DeploymentTests.csproj", "{18A8AC63-B703-4856-B071-432FBEAEB4CD}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -87,6 +89,10 @@ Global
 		{C2602374-0970-46E5-AD71-9FD803A30449}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C2602374-0970-46E5-AD71-9FD803A30449}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C2602374-0970-46E5-AD71-9FD803A30449}.Release|Any CPU.Build.0 = Release|Any CPU
+		{18A8AC63-B703-4856-B071-432FBEAEB4CD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{18A8AC63-B703-4856-B071-432FBEAEB4CD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{18A8AC63-B703-4856-B071-432FBEAEB4CD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{18A8AC63-B703-4856-B071-432FBEAEB4CD}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -103,5 +109,6 @@ Global
 		{15B0264B-3AA5-4F81-B070-A5D7786B8805} = {F05ED0D6-CE7B-4CD7-A44B-08AA8580D05D}
 		{7846C93F-26AE-437E-A508-2555159A92D5} = {C0B5B3ED-C3FB-4501-9541-D8310719853E}
 		{C2602374-0970-46E5-AD71-9FD803A30449} = {F05ED0D6-CE7B-4CD7-A44B-08AA8580D05D}
+		{18A8AC63-B703-4856-B071-432FBEAEB4CD} = {C0B5B3ED-C3FB-4501-9541-D8310719853E}
 	EndGlobalSection
 EndGlobal
