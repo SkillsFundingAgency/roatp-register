@@ -3,11 +3,11 @@ using System.Net;
 using System.Linq;
 using System.Collections.Generic;
 using TechTalk.SpecFlow;
-using NUnit.Framework;
 using System.IO;
 using CsvHelper;
 using SFA.Roatp.Api.Types;
 using Esfa.Roatp.Register.DeploymentTests.Pages;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace sfa.Roatp.Register.IntegrationTests.Steps
 {
@@ -51,7 +51,7 @@ namespace sfa.Roatp.Register.IntegrationTests.Steps
         {
             List<string[]> roatpProviders = GetDtoFromCsv();
             int noOfRoatpProviders = roatpProviders.Count - 1; // Remove 1 for the header;
-            Assert.GreaterOrEqual(noOfRoatpProviders, totalprovider, $"We expect atleast {totalprovider} in the downloadable csv but it is {noOfRoatpProviders}");
+            Assert.IsTrue(noOfRoatpProviders >= totalprovider, $"We expect atleast {totalprovider} in the downloadable csv but it is {noOfRoatpProviders}");
         }
 
         private List<string[]> GetDtoFromCsv()
