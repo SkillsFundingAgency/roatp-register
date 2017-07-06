@@ -50,9 +50,16 @@ namespace Sfa.Roatp.Registry.Web
         {
             Exception ex = Server.GetLastError().GetBaseException();
             var logger = DependencyResolver.Current.GetService<ILog>();
-            
-            logger.Error(ex, "App_Error");
-        }
 
+            var exception = ex as HttpException;
+            if (exception == null || (exception.GetHttpCode() != 404 && exception.GetHttpCode() != 400))
+            {
+                logger.Error(ex, "App_Error");
+            }
+            else
+            {
+                logger.Warn(ex, "App_Warn");
+            }
+        }
     }
 }
