@@ -12,6 +12,7 @@ using SFA.Roatp.Api.Types;
 
 namespace Sfa.Roatp.Register.UnitTests.Infrastructure.ElasticSearch
 {
+    [TestFixture]
     public class ProviderRepositoryTests
     {
         private Mock<IElasticsearchCustomClient> _elasticClient;
