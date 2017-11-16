@@ -21,6 +21,7 @@ namespace Sfa.Roatp.Register.Infrastructure.Elasticsearch
                 settings.DisableDirectStreaming();
                 settings.MapDefaultTypeNames(d => d.Add(typeof(Provider), "roatpproviderdocument"));
 
+                settings.BasicAuthentication(_applicationSettings.ElasticsearchUsername, _applicationSettings.ElasticsearchPassword);
                 return new ElasticClient(settings);
             }
         }

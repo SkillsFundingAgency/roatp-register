@@ -11,6 +11,9 @@ namespace Sfa.Roatp.Register.Core.Configuration
 
         string EnvironmentName { get; }
 
-        string ApplicationName { get; }
+
+        string ElasticsearchUsername { get; }
+
+        string ElasticsearchPassword { get;}
     }
 }

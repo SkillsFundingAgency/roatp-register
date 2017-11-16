@@ -10,6 +10,8 @@
       <Setting name="FeatureToggle.RobotsAllowFeature" value="__RobotsAllowFeature__" />
       <Setting name="InstrumentationKey"  value="__InstrumentationKey__"/>
       <Setting name="LoggingRedisConnectionString" value="__LoggingRedisConnectionString__"/>
+      <Setting name="ElasticSearch.Username" value="__ElasticSearch.Username__" />
+      <Setting name="ElasticSearch.Password" value="__ElasticSearch.Password__" />
     </ConfigurationSettings>
     <Certificates>
       <Certificate name="WebSslCert" thumbprint="70D3D5B34CF61D744353145A04B9C6F6FBA724B3" thumbprintAlgorithm="sha1" />

@@ -15,7 +15,9 @@ namespace Sfa.Roatp.Register.Infrastructure.Settings
 
         public string EnvironmentName => CloudConfigurationManager.GetSetting("EnvironmentName");
 
-        public string ApplicationName => CloudConfigurationManager.GetSetting("ApplicationName");
+        public string ElasticsearchUsername => ConfigurationManager.AppSettings["ElasticSearch.Username"];
+
+        public string ElasticsearchPassword => ConfigurationManager.AppSettings["ElasticSearch.Password"];
 
         private IEnumerable<Uri> GetElasticSearchIps()
         {
