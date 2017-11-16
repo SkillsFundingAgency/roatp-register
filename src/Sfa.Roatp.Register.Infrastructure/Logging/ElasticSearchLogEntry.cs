@@ -12,7 +12,7 @@ namespace Sfa.Roatp.Register.Infrastructure.Logging
 
         public bool? Successful { get; set; }
 
-        public int SearchTime { get; set; }
+        public long SearchTime { get; set; }
 
         public double RequestTime { get; set; }
 
