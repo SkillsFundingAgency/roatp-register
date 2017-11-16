@@ -43,7 +43,7 @@ namespace Sfa.Roatp.Register.Infrastructure.Elasticsearch
 
             if (results.ApiCall.HttpStatusCode != 200)
             {
-                _log.Warn($"httpStatusCode was {results.ApiCall.HttpStatusCode}");
+                _log.Warn(results.ApiCall.OriginalException, $"httpStatusCode was {results.ApiCall.HttpStatusCode}");
                 throw new ApplicationException("Failed query all providers");
             }
 
