@@ -12,6 +12,7 @@
       <Setting name="LoggingRedisConnectionString" value="__LoggingRedisConnectionString__"/>
       <Setting name="ElasticSearch.Username" value="__ElasticSearch.Username__" />
       <Setting name="ElasticSearch.Password" value="__ElasticSearch.Password__" />
+      <Setting name="EnableES5" value="__Enable_ES_5__" />
     </ConfigurationSettings>
     <Certificates>
       <Certificate name="WebSslCert" thumbprint="E280E23D933FE3A62AF335BE9768A2C9D65CCC9A" thumbprintAlgorithm="sha1" />

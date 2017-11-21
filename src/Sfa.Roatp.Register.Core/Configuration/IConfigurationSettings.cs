@@ -15,5 +15,7 @@ namespace Sfa.Roatp.Register.Core.Configuration
         string ElasticsearchUsername { get; }
 
         string ElasticsearchPassword { get;}
+
+        bool EnableES5 { get; }
     }
 }

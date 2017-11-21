@@ -1,6 +1,8 @@
 ﻿using Elasticsearch.Net;
 using Nest;
+
 using Sfa.Roatp.Register.Core.Configuration;
+
 using SFA.Roatp.Api.Types;
 
 namespace Sfa.Roatp.Register.Infrastructure.Elasticsearch
@@ -21,7 +23,10 @@ namespace Sfa.Roatp.Register.Infrastructure.Elasticsearch
                 settings.DisableDirectStreaming();
                 settings.MapDefaultTypeNames(d => d.Add(typeof(Provider), "roatpproviderdocument"));
 
-                settings.BasicAuthentication(_applicationSettings.ElasticsearchUsername, _applicationSettings.ElasticsearchPassword);
+                if (_applicationSettings.EnableES5)
+                {
+                    settings.BasicAuthentication(_applicationSettings.ElasticsearchUsername, _applicationSettings.ElasticsearchPassword);
+                }
                 return new ElasticClient(settings);
             }
         }

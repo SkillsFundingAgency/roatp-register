@@ -18,6 +18,7 @@
       <Setting name="LoggingRedisConnectionString" />
       <Setting name="ElasticSearch.Username" />
       <Setting name="ElasticSearch.Password" />
+      <Setting name="EnableES5" />
     </ConfigurationSettings>
     <Endpoints>
       <InputEndpoint name="Endpoint1" protocol="http" port="80" />
