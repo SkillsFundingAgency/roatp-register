@@ -84,6 +84,7 @@ namespace Sfa.Roatp.Register.Infrastructure.Elasticsearch
         public DateTime GetDateOfProviderList()
         {
             var index = _elasticsearchCustomClient.GetIndicesPointingToAlias(_applicationSettings.RoatpProviderIndexAlias).FirstOrDefault();
+            _log.Info($"Trying to get date for index: {index} with alias: {_applicationSettings.RoatpProviderIndexAlias}");
             return IndexUtility.GetDateFromIndexNameAndDateExtension(index, _applicationSettings.RoatpProviderIndexAlias);
         }
 

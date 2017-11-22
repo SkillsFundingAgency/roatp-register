@@ -21,6 +21,8 @@ namespace Sfa.Roatp.Register.Infrastructure.Settings
 
         public bool EnableES5 => CloudConfigurationManager.GetSetting("EnableES5") == "true";
 
+        public bool IgnoreSslCertificateEnabled => CloudConfigurationManager.GetSetting("FeatureToggle.IgnoreSslCertificateFeature") == "true";
+
         private IEnumerable<Uri> GetElasticSearchIps()
         {
             var urlStrings = CloudConfigurationManager.GetSetting("ElasticServerUrls").Split(',');

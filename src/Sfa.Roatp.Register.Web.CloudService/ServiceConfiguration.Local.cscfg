@@ -13,6 +13,7 @@
       <Setting name="ElasticSearch.Username" value="" />
       <Setting name="ElasticSearch.Password" value="" />
       <Setting name="EnableES5" value="true" />
+      <Setting name="FeatureToggle.IgnoreSslCertificateFeature" value="true" />
     </ConfigurationSettings>
     <Certificates>
       <Certificate name="WebSslCert" thumbprint="AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA1A" thumbprintAlgorithm="sha1" />
