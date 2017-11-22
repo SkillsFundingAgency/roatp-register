@@ -10,6 +10,9 @@
       <Setting name="FeatureToggle.RobotsAllowFeature" value="true" />
       <Setting name="InstrumentationKey"  value="AAA"/>
       <Setting name="LoggingRedisConnectionString" value=""/>
+      <Setting name="ElasticSearch.Username" value="" />
+      <Setting name="ElasticSearch.Password" value="" />
+      <Setting name="EnableES5" value="true" />
     </ConfigurationSettings>
     <Certificates>
       <Certificate name="WebSslCert" thumbprint="AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA1A" thumbprintAlgorithm="sha1" />

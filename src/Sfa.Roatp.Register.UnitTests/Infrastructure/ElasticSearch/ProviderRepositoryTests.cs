@@ -48,7 +48,7 @@ namespace Sfa.Roatp.Register.UnitTests.Infrastructure.ElasticSearch
 
             Assert.Throws<ApplicationException>(() => repo.GetAllProviders());
 
-            _log.Verify(x => x.Warn(It.IsAny<string>()), Times.Once);
+            _log.Verify(x => x.Warn(It.IsAny<Exception>(), It.IsAny<string>()), Times.Once);
         }
 
         [Test]

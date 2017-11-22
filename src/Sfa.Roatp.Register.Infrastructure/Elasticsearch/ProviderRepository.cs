@@ -33,17 +33,18 @@ namespace Sfa.Roatp.Register.Infrastructure.Elasticsearch
             var take = GetProvidersTotalAmount();
             var results =
                 _elasticsearchCustomClient.Search<ProviderDocument>(
-                    s =>
-                    s.Index(_applicationSettings.RoatpProviderIndexAlias)
-                        .Type(Types.Parse(ProviderDocumentType))
-                        .From(0)
-                        .Sort(sort => sort.Ascending(f => f.Ukprn))
-                        .Take(take)
-                        .MatchAll());
+                    s => s
+                    .Index(_applicationSettings.RoatpProviderIndexAlias)
+                    .Type(Types.Parse(ProviderDocumentType))
+                    .From(0)
+                    .Sort(sort => sort.Ascending(f => f.Ukprn))
+                    .Take(take)
+                    .MatchAll()
+                    );
 
             if (results.ApiCall.HttpStatusCode != 200)
             {
-                _log.Warn($"httpStatusCode was {results.ApiCall.HttpStatusCode}");
+                _log.Warn(results.ApiCall.OriginalException, $"httpStatusCode was {results.ApiCall.HttpStatusCode}");
                 throw new ApplicationException("Failed query all providers");
             }
 
