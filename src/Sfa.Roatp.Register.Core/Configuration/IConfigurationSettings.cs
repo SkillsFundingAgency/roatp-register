@@ -17,5 +17,7 @@ namespace Sfa.Roatp.Register.Core.Configuration
         string ElasticsearchPassword { get;}
 
         bool EnableES5 { get; }
+
+        bool IgnoreSslCertificateEnabled { get; }
     }
 }

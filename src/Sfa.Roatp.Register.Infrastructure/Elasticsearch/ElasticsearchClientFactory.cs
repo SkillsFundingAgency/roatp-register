@@ -1,7 +1,10 @@
-﻿using Elasticsearch.Net;
+﻿using System.Security.Cryptography.X509Certificates;
+
+using Elasticsearch.Net;
 using Nest;
 
 using Sfa.Roatp.Register.Core.Configuration;
+using Sfa.Roatp.Register.Infrastructure.Extensions;
 
 using SFA.Roatp.Api.Types;
 
@@ -18,15 +21,26 @@ namespace Sfa.Roatp.Register.Infrastructure.Elasticsearch
 
         public IElasticClient Create()
         {
-            using (var settings = new ConnectionSettings(new StaticConnectionPool(_applicationSettings.ElasticServerUrls)))
+            ConnectionSettings settings;
+            if (_applicationSettings.IgnoreSslCertificateEnabled)
             {
-                settings.DisableDirectStreaming();
-                settings.MapDefaultTypeNames(d => d.Add(typeof(Provider), "roatpproviderdocument"));
+                settings = new ConnectionSettings(new StaticConnectionPool(_applicationSettings.ElasticServerUrls), new MyCertificateIgnoringHttpConnection());
+            }
+            else
+            {
+                settings = new ConnectionSettings(new StaticConnectionPool(_applicationSettings.ElasticServerUrls));
+            }
 
-                if (_applicationSettings.EnableES5)
-                {
-                    settings.BasicAuthentication(_applicationSettings.ElasticsearchUsername, _applicationSettings.ElasticsearchPassword);
-                }
+            settings.DisableDirectStreaming();
+            settings.MapDefaultTypeNames(d => d.Add(typeof(Provider), "roatpproviderdocument"));
+
+            if (_applicationSettings.EnableES5)
+            {
+                settings.BasicAuthentication(_applicationSettings.ElasticsearchUsername, _applicationSettings.ElasticsearchPassword);
+            }
+
+            using (settings)
+            {
                 return new ElasticClient(settings);
             }
         }

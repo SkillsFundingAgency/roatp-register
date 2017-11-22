@@ -129,6 +129,7 @@
     <Compile Include="Elasticsearch\IElasticsearchClientFactory.cs" />
     <Compile Include="Elasticsearch\ElasticsearchCustomClient.cs" />
     <Compile Include="Elasticsearch\IElasticsearchCustomClient.cs" />
+    <Compile Include="Extensions\MyCertificateIgnoringHttpConnection.cs" />
     <Compile Include="Elasticsearch\ProviderRepository.cs" />
     <Compile Include="Logging\DependencyLogEntry.cs" />
     <Compile Include="Logging\ElasticSearchLogEntry.cs" />
