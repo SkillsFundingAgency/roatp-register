@@ -95,7 +95,7 @@ namespace Sfa.Roatp.Register.Infrastructure.Elasticsearch
                 Url = result?.ApiCall?.Uri?.AbsoluteUri
             };
 
-            _logger.Debug("Dependency Elasticsearch", dependencyLogEntry);
+            _logger.Debug("Elastic Search Requested", dependencyLogEntry);
         }
     }
 }
