@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using Esfa.Roatp.ApplicationServices.Models;
 using Esfa.Roatp.ApplicationServices.Models.Elastic;
 using Esfa.Roatp.ApplicationServices.Services;
 using Nest;
@@ -44,8 +43,7 @@ namespace Sfa.Roatp.Register.Infrastructure.Elasticsearch
 
             if (results.ApiCall.HttpStatusCode != 200)
             {
-                _log.Warn(results.ApiCall.OriginalException, $"httpStatusCode was {results.ApiCall.HttpStatusCode}");
-                throw new ApplicationException("Failed query all providers");
+                throw new ApplicationException($"Failed query all providers httpStatusCode was {results.ApiCall.HttpStatusCode}", results.ApiCall.OriginalException);
             }
 
             return results.Documents;
@@ -69,13 +67,12 @@ namespace Sfa.Roatp.Register.Infrastructure.Elasticsearch
 
             if (results.ApiCall.HttpStatusCode != 200)
             {
-                _log.Warn($"httpStatusCode was {results.ApiCall.HttpStatusCode}");
-                throw new ApplicationException($"Failed query provider with ukprn: {ukprn}");
+                throw new ApplicationException($"Failed query provider with ukprn: {ukprn}, httpStatusCode was {results.ApiCall.HttpStatusCode}", results.OriginalException);
             }
 
             if (results.Documents.Count() > 1)
             {
-                _log.Warn($"found {results.Documents.Count()} providers for the ukprn {ukprn}");
+                _log.Warn($"found {results.Documents.Count} providers for the ukprn {ukprn}");
             }
 
             return results.Documents.FirstOrDefault();
