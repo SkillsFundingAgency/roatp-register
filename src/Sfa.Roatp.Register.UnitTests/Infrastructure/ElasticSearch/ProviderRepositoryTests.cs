@@ -28,7 +28,7 @@ namespace Sfa.Roatp.Register.UnitTests.Infrastructure.ElasticSearch
         }
 
         [Test]
-        public void GetAllProvidersShouldLogWhenInvalidStatusCode()
+        public void GetAllProvidersThrowExceptionInvalidStatusCode()
         {
             var searchResponse = new Mock<ISearchResponse<ProviderDocument>>();
             var apiCall = new Mock<IApiCallDetails>();
@@ -47,8 +47,6 @@ namespace Sfa.Roatp.Register.UnitTests.Infrastructure.ElasticSearch
             _elasticClient.Setup(x => x.Count(It.IsAny<Func<CountDescriptor<Provider>, ICountRequest>>(), It.IsAny<string>())).Returns(countResponse.Object);
 
             Assert.Throws<ApplicationException>(() => repo.GetAllProviders());
-
-            _log.Verify(x => x.Warn(It.IsAny<Exception>(), It.IsAny<string>()), Times.Once);
         }
 
         [Test]
@@ -71,8 +69,6 @@ namespace Sfa.Roatp.Register.UnitTests.Infrastructure.ElasticSearch
             _elasticClient.Setup(x => x.Count(It.IsAny<Func<CountDescriptor<Provider>, ICountRequest>>(), It.IsAny<string>())).Returns(countResponse.Object);
 
             Assert.Throws<ApplicationException>(() => repo.GetProvider(123));
-
-            _log.Verify(x => x.Warn(It.IsAny<string>()), Times.Once);
         }
     }
 }
