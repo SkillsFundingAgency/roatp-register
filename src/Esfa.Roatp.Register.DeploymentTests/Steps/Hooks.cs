@@ -20,14 +20,13 @@ namespace Esfa.Roatp.Register.DeploymentTests.Steps
         [BeforeTestRun]
         public static void BeforeTestRun()
         {
-            _url = (ConfigurationManager.AppSettings["AUT.URL"]).TrimEnd('/');
+            _url = ConfigurationManager.AppSettings["AUT.URL"].TrimEnd('/');
         }
 
         [BeforeScenario]
         public void BeforeScenario()
         {
-            var roatpUri = new RoatpUri { MainUrl = _url };
-            RoatpRegisterPage roatpregisterPage = new RoatpRegisterPage(roatpUri.MainUrl);
+            var roatpregisterPage = new RoatpRegisterPage(_url);
             _objectContainer.RegisterInstanceAs(roatpregisterPage);
         }
     }

@@ -21,6 +21,7 @@ namespace Esfa.Roatp.Register.UserAcceptanceTests.Pages
 
         public HttpWebResponse ClickCSVLink(string uri)
         {
+            Console.WriteLine($"CSV Link URL: {uri}");
             var csvuri = new Uri(uri + "/download/csv");
          
             // Create a HttpWebrequest object to the desired URL.
