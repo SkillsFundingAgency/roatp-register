@@ -73,7 +73,6 @@
       <DesignTime>True</DesignTime>
     </Compile>
     <Compile Include="Pages\RoatpRegisterPage.cs" />
-    <Compile Include="Steps\RoatpUri.cs" />
     <Compile Include="Steps\StepBinding.cs" />
   </ItemGroup>
   <ItemGroup>
