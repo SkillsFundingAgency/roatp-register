@@ -1,4 +1,7 @@
-﻿using System.Security.Cryptography.X509Certificates;
+﻿using System.Diagnostics;
+using System.Linq;
+using System.Net;
+using System.Security.Cryptography.X509Certificates;
 
 using Elasticsearch.Net;
 using Nest;
@@ -24,19 +27,25 @@ namespace Sfa.Roatp.Register.Infrastructure.Elasticsearch
             ConnectionSettings settings;
             if (_applicationSettings.IgnoreSslCertificateEnabled)
             {
-                settings = new ConnectionSettings(new StaticConnectionPool(_applicationSettings.ElasticServerUrls), new MyCertificateIgnoringHttpConnection());
+                settings = new ConnectionSettings(new SingleNodeConnectionPool(_applicationSettings.ElasticServerUrls.FirstOrDefault()), new MyCertificateIgnoringHttpConnection());
             }
             else
             {
-                settings = new ConnectionSettings(new StaticConnectionPool(_applicationSettings.ElasticServerUrls));
+                settings = new ConnectionSettings(new SingleNodeConnectionPool(_applicationSettings.ElasticServerUrls.FirstOrDefault()));
             }
 
             settings.DisableDirectStreaming();
-            settings.MapDefaultTypeNames(d => d.Add(typeof(Provider), "roatpproviderdocument"));
+            settings.DefaultMappingFor<Provider>(m => m
+                .IndexName("roatpproviderdocument"));// MapDefaultTypeNames(d => d.Add(typeof(Provider), "roatpproviderdocument"));
 
             if (_applicationSettings.EnableES5)
             {
                 settings.BasicAuthentication(_applicationSettings.ElasticsearchUsername, _applicationSettings.ElasticsearchPassword);
+            }
+
+            if (Debugger.IsAttached)
+            {
+                ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls12;
             }
 
             using (settings)
