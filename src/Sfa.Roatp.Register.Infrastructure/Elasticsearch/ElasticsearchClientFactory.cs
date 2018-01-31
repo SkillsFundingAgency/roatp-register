@@ -36,7 +36,7 @@ namespace Sfa.Roatp.Register.Infrastructure.Elasticsearch
 
             settings.DisableDirectStreaming();
             settings.DefaultMappingFor<Provider>(m => m
-                .IndexName("roatpproviderdocument"));// MapDefaultTypeNames(d => d.Add(typeof(Provider), "roatpproviderdocument"));
+                .IndexName("roatpproviderdocument"));
 
             if (_applicationSettings.EnableES5)
             {
