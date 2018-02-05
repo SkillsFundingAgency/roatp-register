@@ -16,7 +16,7 @@
       <Setting name="FeatureToggle.IgnoreSslCertificateFeature" value="__FeatureToggle.IgnoreSslCertificateFeature__" />
     </ConfigurationSettings>
     <Certificates>
-      <Certificate name="WebSslCert" thumbprint="70D3D5B34CF61D744353145A04B9C6F6FBA724B3" thumbprintAlgorithm="sha1" />
+      <Certificate name="WebSslCert" thumbprint="E3CE450CE3D4F96FA78F9192B158745EA0CCE0DA" thumbprintAlgorithm="sha1" />
     </Certificates>
   </Role>
   <NetworkConfiguration>
@@ -36,7 +36,7 @@
     </AddressAssignments>
     <LoadBalancers>
       <LoadBalancer name="__ilbname__">
-        <FrontendIPConfiguration type="private" subnet="__subnet__" staticVirtualNetworkIPAddress="10.78.124.14" />
+        <FrontendIPConfiguration type="private" subnet="__subnet__" staticVirtualNetworkIPAddress="10.78.125.14" />
       </LoadBalancer>
     </LoadBalancers>
   </NetworkConfiguration>
