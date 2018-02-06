@@ -43,10 +43,7 @@ namespace Sfa.Roatp.Register.Infrastructure.Elasticsearch
                 settings.BasicAuthentication(_applicationSettings.ElasticsearchUsername, _applicationSettings.ElasticsearchPassword);
             }
 
-            if (Debugger.IsAttached)
-            {
-                ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls12;
-            }
+            ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls12;
 
             using (settings)
             {
