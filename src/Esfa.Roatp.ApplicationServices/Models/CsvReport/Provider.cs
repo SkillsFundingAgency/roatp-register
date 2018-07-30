@@ -11,6 +11,9 @@
         public bool ParentCompanyGuarantee { get; set; }
 
         public bool NewOrganisationWithoutFinancialTrackRecord { get; set; }
+
         public string StartDate { get; set; }
+
+        public string ProviderNotCurrentlyStartingNewApprentices { get; set; }
     }
 }
