@@ -38,7 +38,7 @@ namespace Sfa.Roatp.Register.Infrastructure.Elasticsearch
             settings.DefaultMappingFor<Provider>(m => m
                 .IndexName("roatpproviderdocument"));
 
-            if (_applicationSettings.EnableES5)
+            if (!Debugger.IsAttached)
             {
                 settings.BasicAuthentication(_applicationSettings.ElasticsearchUsername, _applicationSettings.ElasticsearchPassword);
             }

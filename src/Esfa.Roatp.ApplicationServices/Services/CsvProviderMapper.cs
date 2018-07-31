@@ -18,7 +18,8 @@ namespace Sfa.Roatp.Register.Web.Models
                 ProviderType = Enumerations.GetEnumDescription(providerDocument.ProviderType),
                 NewOrganisationWithoutFinancialTrackRecord = providerDocument.NewOrganisationWithoutFinancialTrackRecord,
                 ParentCompanyGuarantee = providerDocument.ParentCompanyGuarantee,
-                StartDate = FormatDate(providerDocument.StartDate)
+                StartDate = FormatDate(providerDocument.StartDate),
+                ProviderNotCurrentlyStartingNewApprentices = providerDocument.CurrentlyNotStartingNewApprentices ? "TRUE" : string.Empty
             };
 
             return csvProvider;
