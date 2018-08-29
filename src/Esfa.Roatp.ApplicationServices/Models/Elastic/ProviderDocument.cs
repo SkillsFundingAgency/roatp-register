@@ -8,7 +8,7 @@ namespace Esfa.Roatp.ApplicationServices.Models.Elastic
     {
         public long Ukprn { get; set; }
 
-        [Obsolete("This value shouldn't be trusted as it should come from UKRLP")]
+        //[Obsolete("This value shouldn't be trusted as it should come from UKRLP")]
         public string Name { get; set; }
 
         [JsonConverter(typeof(StringEnumConverter))]

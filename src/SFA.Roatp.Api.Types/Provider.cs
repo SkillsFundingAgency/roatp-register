@@ -12,7 +12,10 @@ namespace SFA.Roatp.Api.Types
         /// </summary>
         [Required]
         public long Ukprn { get; set; }
-
+        /// <summary>
+        /// The name of the provider
+        /// </summary>
+        public string Name { get; set; }
         /// <summary>
         /// The Uri to this resource
         /// </summary>
