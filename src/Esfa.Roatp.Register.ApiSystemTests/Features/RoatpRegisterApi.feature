@@ -12,7 +12,7 @@ Given the following roatp providers are available
 
 Scenario: Roatp Register API should return all providers
 When I request for All providers
-Then I should get All providers
+Then I get all provider information
 And returns All Providers UKPRN field
 And returns All Providers Name field
 And returns All Providers NewOrganisationWithoutFinancialTrackRecord field
@@ -22,7 +22,7 @@ And returns All Providers StartDate field
 
 Scenario: Roatp Register API should return a provider
 When I request for provider with Ukprn 29992101
-Then I should get A provider
+Then I get a single providers information
 And returns UKPRN field
 And returns Name field
 And returns NewOrganisationWithoutFinancialTrackRecord field

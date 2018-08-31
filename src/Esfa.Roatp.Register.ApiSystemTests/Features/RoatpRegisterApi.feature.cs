@@ -129,7 +129,7 @@ this.FeatureBackground();
 #line 14
 testRunner.When("I request for All providers", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line 15
-testRunner.Then("I should get All providers", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+testRunner.Then("I get all provider information", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line 16
 testRunner.And("returns All Providers UKPRN field", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 17
@@ -159,7 +159,7 @@ this.FeatureBackground();
 #line 24
 testRunner.When("I request for provider with Ukprn 29992101", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line 25
-testRunner.Then("I should get A provider", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+testRunner.Then("I get a single providers information", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line 26
 testRunner.And("returns UKPRN field", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 27

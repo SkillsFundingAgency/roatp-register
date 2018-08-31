@@ -93,14 +93,14 @@ namespace sfa.Roatp.Register.ApiIntegrationTests.StepBindings
             AssertThrowsHttpResponceException();
         }
 
-        [Then(@"I should get All providers")]
+        [Then(@"I get all provider information")]
         public void ThenIShouldGetAllProviders()
         {
             var result = _objectContainer.Resolve<IEnumerable<Provider>>("result");
             Assert.IsTrue(result.Count() == 3);
         }
 
-        [Then(@"I should get A provider")]
+        [Then(@"I get a single providers information")]
         public void ThenIShouldGetAProvider()
         {
             var sut = _objectContainer.Resolve<ProvidersController>("sut");
