@@ -11,6 +11,7 @@ using sfa.Roatp.Register.ApiIntegrationTests.Infrastructure;
 using SFA.Roatp.Api.Types;
 using System.Web.Http;
 using Esfa.Roatp.ApplicationServices.Models.Elastic;
+using Esfa.Roatp.Register.ApiSystemTests.Infrastructure;
 
 namespace sfa.Roatp.Register.ApiIntegrationTests.StepBindings
 {
@@ -92,14 +93,14 @@ namespace sfa.Roatp.Register.ApiIntegrationTests.StepBindings
             AssertThrowsHttpResponceException();
         }
 
-        [Then(@"I should get All providers")]
+        [Then(@"I get all provider information")]
         public void ThenIShouldGetAllProviders()
         {
             var result = _objectContainer.Resolve<IEnumerable<Provider>>("result");
             Assert.IsTrue(result.Count() == 3);
         }
 
-        [Then(@"I should get A provider")]
+        [Then(@"I get a single providers information")]
         public void ThenIShouldGetAProvider()
         {
             var sut = _objectContainer.Resolve<ProvidersController>("sut");
@@ -131,6 +132,126 @@ namespace sfa.Roatp.Register.ApiIntegrationTests.StepBindings
         {
             AssertThrowsHttpResponceException();
         }
+        [Then(@"returns All Providers UKPRN field")]
+        public void ThenReturnsAllProvidersUKPRNField()
+        {
+            var result = _objectContainer.Resolve<IEnumerable<Provider>>("result");
+
+            var firstResult = result.FirstOrDefault();
+
+            Assert.IsTrue(firstResult.HasProperty("Ukprn"));
+        }
+
+        [Then(@"returns All Providers Name field")]
+        public void ThenReturnsAllProvidersNameField()
+        {
+            var result = _objectContainer.Resolve<IEnumerable<Provider>>("result");
+
+            var firstResult = result.FirstOrDefault();
+
+            Assert.IsTrue(firstResult.HasProperty("Name"));
+        }
+
+        [Then(@"returns All Providers NewOrganisationWithoutFinancialTrackRecord field")]
+        public void ThenReturnsAllProvidersNewOrganisationWithoutFinancialTrackRecordField()
+        {
+            var result = _objectContainer.Resolve<IEnumerable<Provider>>("result");
+
+            var firstResult = result.FirstOrDefault();
+
+            Assert.IsTrue(firstResult.HasProperty("NewOrganisationWithoutFinancialTrackRecord"));
+        }
+
+        [Then(@"returns All Providers ParentCompanyGuarantee field")]
+        public void ThenReturnsAllProvidersParentCompanyGuaranteeField()
+        {
+            var result = _objectContainer.Resolve<IEnumerable<Provider>>("result");
+
+            var firstResult = result.FirstOrDefault();
+
+            Assert.IsTrue(firstResult.HasProperty("ParentCompanyGuarantee"));
+        }
+
+        [Then(@"returns All Providers ProviderType field")]
+        public void ThenReturnsAllProvidersProviderTypeNameField()
+        {
+            var result = _objectContainer.Resolve<IEnumerable<Provider>>("result");
+
+            var firstResult = result.FirstOrDefault();
+
+            Assert.IsTrue(firstResult.HasProperty("ProviderType"));
+        }
+
+        [Then(@"returns All Providers StartDate field")]
+        public void ThenReturnsAllProvidersStartDateField()
+        {
+            var result = _objectContainer.Resolve<IEnumerable<Provider>>("result");
+
+            var firstResult = result.FirstOrDefault();
+
+            Assert.IsTrue(firstResult.HasProperty("StartDate"));
+        }
+
+        [Then(@"returns UKPRN field")]
+        public void ThenReturnsUKPRNField()
+        {
+            var sut = _objectContainer.Resolve<ProvidersController>("sut");
+            var ukprn = ScenarioContext.Current.Get<int>("ukprn");
+            var result = sut.Get(ukprn);
+
+            Assert.IsTrue(result.HasProperty("Ukprn"));
+        }
+
+        [Then(@"returns Name field")]
+        public void ThenReturnsNameField()
+        {
+            var sut = _objectContainer.Resolve<ProvidersController>("sut");
+            var ukprn = ScenarioContext.Current.Get<int>("ukprn");
+            var result = sut.Get(ukprn);
+
+            Assert.IsTrue(result.HasProperty("Name"));
+        }
+
+        [Then(@"returns NewOrganisationWithoutFinancialTrackRecord field")]
+        public void ThenReturnsNewOrganisationWithoutFinancialTrackRecordField()
+        {
+            var sut = _objectContainer.Resolve<ProvidersController>("sut");
+            var ukprn = ScenarioContext.Current.Get<int>("ukprn");
+            var result = sut.Get(ukprn);
+
+            Assert.IsTrue(result.HasProperty("NewOrganisationWithoutFinancialTrackRecord"));
+        }
+
+        [Then(@"returns ParentCompanyGuarantee field")]
+        public void ThenReturnsParentCompanyGuaranteeField()
+        {
+            var sut = _objectContainer.Resolve<ProvidersController>("sut");
+            var ukprn = ScenarioContext.Current.Get<int>("ukprn");
+            var result = sut.Get(ukprn);
+
+            Assert.IsTrue(result.HasProperty("ParentCompanyGuarantee"));
+        }
+
+        [Then(@"returns ProviderType field")]
+        public void ThenReturnsProviderTypeNameField()
+        {
+            var sut = _objectContainer.Resolve<ProvidersController>("sut");
+            var ukprn = ScenarioContext.Current.Get<int>("ukprn");
+            var result = sut.Get(ukprn);
+
+            Assert.IsTrue(result.HasProperty("ProviderType"));
+        }
+
+        [Then(@"returns StartDate field")]
+        public void ThenReturnsStartDateField()
+        {
+            var sut = _objectContainer.Resolve<ProvidersController>("sut");
+            var ukprn = ScenarioContext.Current.Get<int>("ukprn");
+            var result = sut.Get(ukprn);
+
+            Assert.IsTrue(result.HasProperty("Ukprn"));
+        }
+
 
         #endregion
 
