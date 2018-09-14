@@ -47,7 +47,12 @@ namespace SFA.Roatp.Api.Types
         /// </summary>
         public DateTime? StartDate { get; set; }
 
-        /// <summary>
+	    /// <summary>
+	    /// Indicates if the provider is not starting new apprentices at the moment
+	    /// </summary>
+		public bool CurrentlyNotStartingNewApprentices { get; set; }
+
+	    /// <summary>
         /// 
         /// </summary>
         /// <param name="currentDate">This is usually now</param>
