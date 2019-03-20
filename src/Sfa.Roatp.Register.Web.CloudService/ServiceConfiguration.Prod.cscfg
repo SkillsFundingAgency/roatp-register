@@ -16,7 +16,7 @@
       <Setting name="FeatureToggle.IgnoreSslCertificateFeature" value="__FeatureToggle.IgnoreSslCertificateFeature__" />
     </ConfigurationSettings>
     <Certificates>
-      <Certificate name="WebSslCert" thumbprint="F0F695BF95888F7DD7BCA2F5844FD6E28849FE79" thumbprintAlgorithm="sha1" />
+      <Certificate name="WebSslCert" thumbprint="9C72BEC4D9A823E64E14882209691B8AF44C039E" thumbprintAlgorithm="sha1" />
     </Certificates>
   </Role>
   <NetworkConfiguration>
