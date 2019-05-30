@@ -15,5 +15,6 @@
         public string StartDate { get; set; }
 
         public string ProviderNotCurrentlyStartingNewApprentices { get; set; }
+        public string RefreshDate { get; set; }
     }
 }

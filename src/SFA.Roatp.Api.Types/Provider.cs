@@ -47,6 +47,7 @@ namespace SFA.Roatp.Api.Types
         /// </summary>
         public DateTime? StartDate { get; set; }
 
+        public DateTime? RefreshDate { get; set; }
 	    /// <summary>
 	    /// Indicates if the provider is not starting new apprentices at the moment
 	    /// </summary>
