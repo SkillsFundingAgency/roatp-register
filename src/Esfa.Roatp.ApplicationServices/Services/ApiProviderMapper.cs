@@ -18,6 +18,7 @@ namespace Esfa.Roatp.ApplicationServices.Services
                 ParentCompanyGuarantee = source.ParentCompanyGuarantee,
                 ProviderType = (ApiType) source.ProviderType,
                 StartDate = source.StartDate,
+                ApplicationDeterminedDate = source.ApplicationDeterminedDate,
                 Name = source.Name,
 	            CurrentlyNotStartingNewApprentices = source.CurrentlyNotStartingNewApprentices
             };

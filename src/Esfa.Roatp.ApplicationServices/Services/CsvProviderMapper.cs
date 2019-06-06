@@ -19,7 +19,8 @@ namespace Sfa.Roatp.Register.Web.Models
                 NewOrganisationWithoutFinancialTrackRecord = providerDocument.NewOrganisationWithoutFinancialTrackRecord,
                 ParentCompanyGuarantee = providerDocument.ParentCompanyGuarantee,
                 StartDate = FormatDate(providerDocument.StartDate),
-                ProviderNotCurrentlyStartingNewApprentices = providerDocument.CurrentlyNotStartingNewApprentices ? "TRUE" : string.Empty
+                ProviderNotCurrentlyStartingNewApprentices = providerDocument.CurrentlyNotStartingNewApprentices ? "TRUE" : string.Empty,
+                ApplicationDeterminedDate = FormatDate(providerDocument.ApplicationDeterminedDate)
             };
 
             return csvProvider;
