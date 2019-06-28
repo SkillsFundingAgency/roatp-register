@@ -69,7 +69,8 @@ namespace sfa.Roatp.Register.ApiIntegrationTests.Infrastructure
                     ContractedForNonLeviedEmployers = false,
                     NewOrganisationWithoutFinancialTrackRecord = true,
                     ParentCompanyGuarantee = true,
-                    StartDate = DateTime.Now.AddDays(-100)
+                    StartDate = DateTime.Now.AddDays(-100),
+                    ApplicationDeterminedDate = DateTime.Now.AddDays(-10)
                 }
             };
 
