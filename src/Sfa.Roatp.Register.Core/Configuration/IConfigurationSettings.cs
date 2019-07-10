@@ -18,6 +18,8 @@ namespace Sfa.Roatp.Register.Core.Configuration
 
         bool EnableES5 { get; }
 
+        string RoatpApiBaseUrl { get; }
+
         bool IgnoreSslCertificateEnabled { get; }
     }
 }

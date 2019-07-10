@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 14
-VisualStudioVersion = 14.0.25420.1
+# Visual Studio 15
+VisualStudioVersion = 15.0.28307.136
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Core", "Core", "{2CCA15D3-1DB8-4080-9A2C-60AF8F8CF1A2}"
 EndProject
@@ -23,7 +23,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SFA.Roatp.Api.Client", "SFA
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SFA.Roatp.Api.Types", "SFA.Roatp.Api.Types\SFA.Roatp.Api.Types.csproj", "{550F1317-A3F9-4426-86C8-C23804701724}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sfa.Roatp.Register.Core", "Sfa.Roatp.Register.Core\Sfa.Roatp.Register.Core.csproj", "{FCE4DB1C-BE42-48AC-8015-B3D07BABF010}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SFA.Roatp.Register.Core", "Sfa.Roatp.Register.Core\SFA.Roatp.Register.Core.csproj", "{FCE4DB1C-BE42-48AC-8015-B3D07BABF010}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sfa.Roatp.Register.Infrastructure", "Sfa.Roatp.Register.Infrastructure\Sfa.Roatp.Register.Infrastructure.csproj", "{3AAE3727-FB7E-4F2A-854C-E95BAC1FAE1A}"
 EndProject
@@ -103,5 +103,8 @@ Global
 		{15B0264B-3AA5-4F81-B070-A5D7786B8805} = {F05ED0D6-CE7B-4CD7-A44B-08AA8580D05D}
 		{C2602374-0970-46E5-AD71-9FD803A30449} = {F05ED0D6-CE7B-4CD7-A44B-08AA8580D05D}
 		{18A8AC63-B703-4856-B071-432FBEAEB4CD} = {C0B5B3ED-C3FB-4501-9541-D8310719853E}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {C189E14B-06B1-4403-BFBE-643EB1E556D7}
 	EndGlobalSection
 EndGlobal
