@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Configuration;
 using System.Diagnostics;
 using System.Reflection;
 using Esfa.Roatp.ApplicationServices.Services;
@@ -6,6 +7,7 @@ using Sfa.Roatp.Register.Core.Configuration;
 using Sfa.Roatp.Register.Infrastructure.Elasticsearch;
 using Sfa.Roatp.Register.Infrastructure.Settings;
 using SFA.DAS.NLog.Logger;
+using SFA.Roatp.Api.Client;
 using StructureMap;
 
 namespace Sfa.Roatp.Register.Infrastructure.DependencyResolution
@@ -20,6 +22,9 @@ namespace Sfa.Roatp.Register.Infrastructure.DependencyResolution
                 GetProperties())).AlwaysUnique();
             For<IConfigurationSettings>().Use<ApplicationSettings>();
             For<IGetProviders>().Use<ProviderRepository>();
+            
+            For<IRoatpServiceApiClient>().Use<RoatpServiceApiClient>();
+            //For<IRoatpApiClient>().Use<RoatpApiClient>();  // http://localhost:37951/
             For<IElasticsearchClientFactory>().Use<ElasticsearchClientFactory>();
             For<IElasticsearchCustomClient>().Use<ElasticsearchCustomClient>();
         }

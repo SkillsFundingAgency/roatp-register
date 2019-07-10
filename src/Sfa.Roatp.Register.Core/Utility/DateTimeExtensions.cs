@@ -42,5 +42,9 @@ namespace Sfa.Roatp.Register.Core.Utility
             return date.ToString("MMMM yyyy");
         }
 
+        public static string ToGdsFormatWithSeconds(this DateTime date)
+        {
+            return date.ToString("d MMM yyyy HH:mm:ss");
+        }
     }
 }

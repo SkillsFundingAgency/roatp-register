@@ -6,24 +6,31 @@ using CsvHelper;
 using Esfa.Roatp.ApplicationServices.Models.Elastic;
 using Esfa.Roatp.ApplicationServices.Services;
 using Sfa.Roatp.Register.Web.Models;
+using SFA.Roatp.Api.Client;
 
 namespace Sfa.Roatp.Register.Web.Controllers
 {
     public class DownloadController : Controller
     {
         private readonly IGetProviders _getProviders;
+       private readonly IRoatpServiceApiClient _roatpApiClient;
 
-        public DownloadController(IGetProviders getProviders)
+        public DownloadController(IGetProviders getProviders, IRoatpServiceApiClient roatpApiClient)
         {
             _getProviders = getProviders;
+            _roatpApiClient = roatpApiClient;
         }
+
+      
 
         [OutputCache(Duration = 600)]
         // GET: Home
         public ActionResult Index()
         {
-            var date = _getProviders.GetDateOfProviderList();
-            var viewModel = new DownloadViewModel { Filename = GenerateFilename(date), LastUpdated = date };
+
+            var date = _roatpApiClient.GetLatestNonOnboardingOrganisationChangeDate().Result;
+
+            var viewModel = new DownloadViewModel { Filename = GenerateFilename(date.Value), LastUpdated = date.Value };
             return View(viewModel);
         }
 
@@ -32,7 +39,9 @@ namespace Sfa.Roatp.Register.Web.Controllers
         {
             var providers = _getProviders.GetAllProviders().Where(x => x.IsDateValid(DateTime.UtcNow) && x.ProviderType != ProviderType.Unknown);
             var date = _getProviders.GetDateOfProviderList();
-            var result = providers.Select(CsvProviderMapper.Map);
+         
+
+        var result = providers.Select(CsvProviderMapper.Map);
 
             using (var memoryStream = new MemoryStream())
             {
@@ -51,7 +60,7 @@ namespace Sfa.Roatp.Register.Web.Controllers
 
         private static string GenerateFilename(DateTime date)
         {
-            return $"roatp-{date.ToString("yyyy-MM-dd")}.csv";
+            return $"roatp-{date.ToString("yyyy-MM-dd HH-mm-ss")}.csv";
         }
     }
 }

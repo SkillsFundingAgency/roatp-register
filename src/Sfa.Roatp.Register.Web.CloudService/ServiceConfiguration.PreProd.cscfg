@@ -13,6 +13,7 @@
       <Setting name="ElasticSearch.Username" value="__ElasticSearch.Username__" />
       <Setting name="ElasticSearch.Password" value="__ElasticSearch.Password__" />
       <Setting name="EnableES5" value="__EnableES5__" />
+      <Setting name="RoatpApiBaseUrl" value="__RoatpApiBaseUrl__" />
       <Setting name="FeatureToggle.IgnoreSslCertificateFeature" value="__FeatureToggle.IgnoreSslCertificateFeature__" />
     </ConfigurationSettings>
     <Certificates>

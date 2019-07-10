@@ -15,7 +15,7 @@ namespace SFA.Roatp.Api.Client
         /// The constructor to optional set the api url for testing
         /// </summary>
         /// <param name="baseUri">ie: https://roatp.apprenticeships.sfa.bis.gov.uk</param>
-        [Obsolete("This is constructor used for testing upcoming versions of the API")]
+        //[Obsolete("This is constructor used for testing upcoming versions of the API")]
         public RoatpApiClient(string baseUri) : base(baseUri)
         {
         }
@@ -26,6 +26,7 @@ namespace SFA.Roatp.Api.Client
         public RoatpApiClient() : base("https://roatp.apprenticeships.sfa.bis.gov.uk")
         {
         }
+
 
         /// <summary>
         /// Get a provider details

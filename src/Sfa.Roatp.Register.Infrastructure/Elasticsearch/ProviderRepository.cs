@@ -85,6 +85,11 @@ namespace Sfa.Roatp.Register.Infrastructure.Elasticsearch
             return IndexUtility.GetDateFromIndexNameAndDateExtension(index, _applicationSettings.RoatpProviderIndexAlias);
         }
 
+        public DateTime GetDateOfProviderList2()
+        {
+            return DateTime.Now;
+        }
+
         private int GetProvidersTotalAmount()
         {
             var results =

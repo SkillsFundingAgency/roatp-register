@@ -142,6 +142,10 @@
       <Project>{89a51f7a-5c18-4b64-91ac-2ace445508fe}</Project>
       <Name>Esfa.Roatp.ApplicationServices</Name>
     </ProjectReference>
+    <ProjectReference Include="..\SFA.Roatp.Api.Client\SFA.Roatp.Api.Client.csproj">
+      <Project>{94C651AE-76DA-47E7-AAB4-149600DFEACB}</Project>
+      <Name>SFA.Roatp.Api.Client</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Sfa.Roatp.Register.Core\Sfa.Roatp.Register.Core.csproj">
       <Project>{fce4db1c-be42-48ac-8015-b3d07babf010}</Project>
       <Name>Sfa.Roatp.Register.Core</Name>

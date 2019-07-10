@@ -23,6 +23,8 @@ namespace Sfa.Roatp.Register.Infrastructure.Settings
 
         public bool IgnoreSslCertificateEnabled => CloudConfigurationManager.GetSetting("FeatureToggle.IgnoreSslCertificateFeature") == "true";
 
+        public string RoatpApiBaseUrl => CloudConfigurationManager.GetSetting("RoatpApiBaseUrl");
+
         private IEnumerable<Uri> GetElasticSearchIps()
         {
             var urlStrings = CloudConfigurationManager.GetSetting("ElasticServerUrls").Split(',');
