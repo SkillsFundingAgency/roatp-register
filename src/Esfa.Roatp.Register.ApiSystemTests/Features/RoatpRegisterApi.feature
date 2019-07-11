@@ -31,9 +31,9 @@ And returns ParentCompanyGuarantee field
 And returns ProviderType field
 And returns StartDate field
 
---Scenario: Roatp Register API should throw error when provider start date is in future
---Given A Roatp provider with future start date
---Then I should get an exception when i request for a Provider with future start date
+Scenario: Roatp Register API should throw error when provider start date is in future
+Given A Roatp provider with future start date
+Then I should get an exception when i request for a Provider with future start date
 
 Scenario: Roatp Register API should throw error when provider end date is in past
 Given A Roatp provider with past end date
