@@ -21,9 +21,10 @@ namespace Sfa.Roatp.Register.Infrastructure.DependencyResolution
                 x.GetInstance<IRequestContext>(),
                 GetProperties())).AlwaysUnique();
             For<IConfigurationSettings>().Use<ApplicationSettings>();
-            For<IGetProviders>().Use<ProviderRepository>();
+            //For<IGetProviders>().Use<ProviderRepository>();
             
             For<IRoatpServiceApiClient>().Use<RoatpServiceApiClient>();
+
             //For<IRoatpApiClient>().Use<RoatpApiClient>();  // http://localhost:37951/
             For<IElasticsearchClientFactory>().Use<ElasticsearchClientFactory>();
             For<IElasticsearchCustomClient>().Use<ElasticsearchCustomClient>();

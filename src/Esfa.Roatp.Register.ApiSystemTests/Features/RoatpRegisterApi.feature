@@ -10,6 +10,7 @@ Given the following roatp providers are available
 | 29992101 | DEF Institute | MainProvider | False                           | True                                       | True                   | 20-Mar-2017 |         |
 | 39992101 | GHI Institute | MainProvider | False                           | True                                       | True                   | 20-Mar-2017 |         |
 
+
 Scenario: Roatp Register API should return all providers
 When I request for All providers
 Then I get all provider information
@@ -30,9 +31,9 @@ And returns ParentCompanyGuarantee field
 And returns ProviderType field
 And returns StartDate field
 
-Scenario: Roatp Register API should throw error when provider start date is in future
-Given A Roatp provider with future start date
-Then I should get an exception when i request for a Provider with future start date
+--Scenario: Roatp Register API should throw error when provider start date is in future
+--Given A Roatp provider with future start date
+--Then I should get an exception when i request for a Provider with future start date
 
 Scenario: Roatp Register API should throw error when provider end date is in past
 Given A Roatp provider with past end date

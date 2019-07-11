@@ -12,12 +12,12 @@ namespace Sfa.Roatp.Register.Web.Controllers
 {
     public class DownloadController : Controller
     {
-        private readonly IGetProviders _getProviders;
+      //  private readonly IGetProviders _getProviders;
        private readonly IRoatpServiceApiClient _roatpApiClient;
 
-        public DownloadController(IGetProviders getProviders, IRoatpServiceApiClient roatpApiClient)
+        public DownloadController(IRoatpServiceApiClient roatpApiClient) //,IGetProviders getProviders, )
         {
-            _getProviders = getProviders;
+            //_getProviders = getProviders;
             _roatpApiClient = roatpApiClient;
         }
 
@@ -37,11 +37,15 @@ namespace Sfa.Roatp.Register.Web.Controllers
         [OutputCache(Duration = 600)]
         public ActionResult Csv()
         {
-            var providers = _getProviders.GetAllProviders().Where(x => x.IsDateValid(DateTime.UtcNow) && x.ProviderType != ProviderType.Unknown);
-            var date = _getProviders.GetDateOfProviderList();
-         
+            //var providers = _getProviders.GetAllProviders().Where(x => x.IsDateValid(DateTime.UtcNow) && x.ProviderType != ProviderType.Unknown);
+            //var date = _getProviders.GetDateOfProviderList();
 
-        var result = providers.Select(CsvProviderMapper.Map);
+            var providers = _roatpApiClient.GetRoatpSummary().Result.Where(x => x.IsDateValid(DateTime.Now));
+            var date = _roatpApiClient.GetLatestNonOnboardingOrganisationChangeDate().Result;
+            if (date == null)
+                date = DateTime.Now;
+
+        //var result = providers.Select(CsvProviderMapper.Map);
 
             using (var memoryStream = new MemoryStream())
             {
@@ -49,10 +53,10 @@ namespace Sfa.Roatp.Register.Web.Controllers
                 {
                     using (var csvWriter = new CsvWriter(streamWriter))
                     {
-                        csvWriter.WriteRecords(result);
+                        csvWriter.WriteRecords(providers);
                         streamWriter.Flush();
                         memoryStream.Position = 0;
-                        return File(memoryStream.ToArray(), "text/csv", GenerateFilename(date));
+                        return File(memoryStream.ToArray(), "text/csv", GenerateFilename(date.Value));
                     }
                 }
             }

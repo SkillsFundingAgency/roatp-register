@@ -1,86 +1,116 @@
-﻿using System;
+﻿
+using System;
 using System.Collections.Generic;
-using System.Configuration;
-using System.Linq;
-using System.Net;
-using System.Net.Http;
-using System.Text;
 using System.Threading.Tasks;
-using Newtonsoft.Json;
+using Esfa.Roatp.ApplicationServices.Models.Elastic;
+using Sfa.Roatp.Register.Core.Configuration;
 using SFA.Roatp.Api.Types;
+using ProviderType = SFA.Roatp.Api.Types.ProviderType;
 
 namespace SFA.Roatp.Api.Client
 {
-    public class RoatpServiceApiClient : ApiClientBase, IRoatpServiceApiClient
-    {
-       // private readonly IConfigurationSettings _applicationSettings;
+    public class RoatpServiceApiClient : IRoatpServiceApiClient //ApiClientBase
 
-        public RoatpServiceApiClient(): base("http://localhost:37951") // MFCMFC base("https://roatp.apprenticeships.sfa.bis.gov.uk")
+    { 
+        // private readonly IConfigurationSettings _applicationSettings;
+
+        //public RoatpServiceApiClient(IConfigurationSettings applicationSettings): base("https://roatp.apprenticeships.sfa.bis.gov.uk")
+        //{
+        //    _applicationSettings = applicationSettings;
+
+        //    _httpClient.BaseAddress = new Uri(_applicationSettings.RoatpApiBaseUrl) ;
+        //    // _applicationSettings = applicationSettings;
+        //    //_applicationSettings = applicationSettings;
+        //    // private ConfigurationSettings _applicationSettings;
+        //}
+
+        public async Task<List<Provider>> GetRoatpSummary()
         {
-           // _applicationSettings = applicationSettings;
-            //_applicationSettings = applicationSettings;
-            // private ConfigurationSettings _applicationSettings;
+            var providers = new List<Provider>
+            {
+                new Provider
+                {
+                    Ukprn = 10061462,
+                    Name = "AAA TRAINING SOLUTIONS LIMITED",
+                    ProviderType = ProviderType.MainProvider,
+                    ParentCompanyGuarantee = false,
+                    NewOrganisationWithoutFinancialTrackRecord = false,
+                    StartDate = new DateTime(2017, 05, 17),
+                    ApplicationDeterminedDate = null
+                },
+                new Provider
+                {
+                    Ukprn = 10046498,
+                    Name = "1ST CARE TRAINING LIMITED",
+                    ProviderType = ProviderType.MainProvider,
+                    ParentCompanyGuarantee = false,
+                    NewOrganisationWithoutFinancialTrackRecord = true,
+                    StartDate = new DateTime(2017, 03, 13),
+                    ApplicationDeterminedDate = new DateTime(2019, 06, 01)
+                }
+                ,
+                new Provider
+                {
+                    Ukprn = 10001236,
+                    Name = "CBT SOLUTIONS LIMITED. T/A ewfwer",
+                    ProviderType = ProviderType.EmployerProvider,
+                    ParentCompanyGuarantee = false,
+                    NewOrganisationWithoutFinancialTrackRecord = true,
+                    StartDate = new DateTime(2017, 03, 13),
+                    ApplicationDeterminedDate = new DateTime(2019, 06, 01)
+                }
+            };
+
+
+
+
+            return providers;
         }
 
-        public Task<IEnumerable<IDictionary<string, object>>> GetRoatpSummary()
+        public async Task<Provider> GetRoatpSummaryUkprn(int ukprn)
         {
-            throw new NotImplementedException();
+
+            var provider = new Provider
+            {
+                Ukprn = ukprn,
+                Name = "AAA TRAINING SOLUTIONS LIMITED",
+                ProviderType = ProviderType.MainProvider,
+                ParentCompanyGuarantee = true,
+                NewOrganisationWithoutFinancialTrackRecord = false,
+                StartDate = new DateTime(2017, 05, 17),
+                ApplicationDeterminedDate = null
+            };
+            return provider;
+
         }
 
-        public Task<IEnumerable<IDictionary<string, object>>> GetRoatpSummaryUkprn(int ukprn)
+        public async Task<DateTime?> GetLatestNonOnboardingOrganisationChangeDate()
         {
-            //using (var request = new HttpRequestMessage(HttpMethod.Get, $"/api/providers/{ukprn}"))
+            return DateTime.Now;
+
+            //using (var request = new HttpRequestMessage(HttpMethod.Get, $"/api/v1/download/roatp-summary/most-recent"))
             //{
             //    request.Headers.Add("Accept", "application/json");
 
             //    using (var response = _httpClient.SendAsync(request))
             //    {
             //        var result = response.Result;
-            //        if (result.StatusCode == HttpStatusCode.OK)
+            //        switch (result.StatusCode)
             //        {
-            //            return JsonConvert.DeserializeObject<Provider>(result.Content.ReadAsStringAsync().Result,
-            //                _jsonSettings);
-            //        }
-            //        if (result.StatusCode == HttpStatusCode.NotFound)
-            //        {
-            //            RaiseResponseError($"The provider {ukprn} could not be found", request, result);
+            //            case HttpStatusCode.OK:
+            //                return JsonConvert.DeserializeObject<DateTime?>(result.Content.ReadAsStringAsync().Result,
+            //                    _jsonSettings);
+            //            case HttpStatusCode.NotFound:
+            //                RaiseResponseError($"The most recent organisation update could not be found", request, result);
+            //                break;
             //        }
 
             //        RaiseResponseError(request, result);
             //    }
 
             //    return null;
-            //}
-
-            throw new NotImplementedException();
-        }
-
-        public async Task<DateTime?> GetLatestNonOnboardingOrganisationChangeDate()
-        {
-            //return DateTime.Now;
-
-            using (var request = new HttpRequestMessage(HttpMethod.Get, $"/api/v1/download/roatp-summary/most-recent"))
-            {
-                request.Headers.Add("Accept", "application/json");
-
-                using (var response = _httpClient.SendAsync(request))
-                {
-                    var result = response.Result;
-                    switch (result.StatusCode)
-                    {
-                        case HttpStatusCode.OK:
-                            return JsonConvert.DeserializeObject<DateTime?>(result.Content.ReadAsStringAsync().Result,
-                                _jsonSettings);
-                        case HttpStatusCode.NotFound:
-                            RaiseResponseError($"The most recent organisation update could not be found", request, result);
-                            break;
-                    }
-
-                    RaiseResponseError(request, result);
-                }
-
-                return null;
             }
-        }
+
+       
     }
-}
+    }

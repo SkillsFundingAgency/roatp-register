@@ -11,8 +11,6 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Infrastructure", "Infrastru
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{F05ED0D6-CE7B-4CD7-A44B-08AA8580D05D}"
 EndProject
-Project("{CC5FD16D-436D-48AD-A40C-5A424C6E3E79}") = "Sfa.Roatp.Register.Web.CloudService", "Sfa.Roatp.Register.Web.CloudService\Sfa.Roatp.Register.Web.CloudService.ccproj", "{D54C2FE6-0E89-4DB6-BB31-D62067389F04}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sfa.Roatp.Register.Web", "Sfa.Roatp.Register.Web\Sfa.Roatp.Register.Web.csproj", "{496B0F28-936C-4FBE-BB63-B848B5569F65}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sfa.Roatp.Register.UnitTests", "Sfa.Roatp.Register.UnitTests\Sfa.Roatp.Register.UnitTests.csproj", "{2072094D-1326-4A1F-8821-40ABA5A07BA5}"
@@ -23,7 +21,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SFA.Roatp.Api.Client", "SFA
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SFA.Roatp.Api.Types", "SFA.Roatp.Api.Types\SFA.Roatp.Api.Types.csproj", "{550F1317-A3F9-4426-86C8-C23804701724}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SFA.Roatp.Register.Core", "Sfa.Roatp.Register.Core\SFA.Roatp.Register.Core.csproj", "{FCE4DB1C-BE42-48AC-8015-B3D07BABF010}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sfa.Roatp.Register.Core", "Sfa.Roatp.Register.Core\Sfa.Roatp.Register.Core.csproj", "{FCE4DB1C-BE42-48AC-8015-B3D07BABF010}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sfa.Roatp.Register.Infrastructure", "Sfa.Roatp.Register.Infrastructure\Sfa.Roatp.Register.Infrastructure.csproj", "{3AAE3727-FB7E-4F2A-854C-E95BAC1FAE1A}"
 EndProject
@@ -37,16 +35,14 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Esfa.Roatp.Register.UserAcc
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Esfa.Roatp.Register.DeploymentTests", "Esfa.Roatp.Register.DeploymentTests\Esfa.Roatp.Register.DeploymentTests.csproj", "{18A8AC63-B703-4856-B071-432FBEAEB4CD}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SFA.DAS.DownloadService.Settings", "SFA.DAS.DownloadService.Settings\SFA.DAS.DownloadService.Settings.csproj", "{F525D1AA-09A8-42C0-B039-9B58BE1311F0}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{D54C2FE6-0E89-4DB6-BB31-D62067389F04}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{D54C2FE6-0E89-4DB6-BB31-D62067389F04}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{D54C2FE6-0E89-4DB6-BB31-D62067389F04}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{D54C2FE6-0E89-4DB6-BB31-D62067389F04}.Release|Any CPU.Build.0 = Release|Any CPU
 		{496B0F28-936C-4FBE-BB63-B848B5569F65}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{496B0F28-936C-4FBE-BB63-B848B5569F65}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{496B0F28-936C-4FBE-BB63-B848B5569F65}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -87,12 +83,15 @@ Global
 		{18A8AC63-B703-4856-B071-432FBEAEB4CD}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{18A8AC63-B703-4856-B071-432FBEAEB4CD}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{18A8AC63-B703-4856-B071-432FBEAEB4CD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F525D1AA-09A8-42C0-B039-9B58BE1311F0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F525D1AA-09A8-42C0-B039-9B58BE1311F0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F525D1AA-09A8-42C0-B039-9B58BE1311F0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F525D1AA-09A8-42C0-B039-9B58BE1311F0}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
-		{D54C2FE6-0E89-4DB6-BB31-D62067389F04} = {8B2D4C24-488F-4A0B-B95A-7A0A41FABF3E}
 		{496B0F28-936C-4FBE-BB63-B848B5569F65} = {8B2D4C24-488F-4A0B-B95A-7A0A41FABF3E}
 		{2072094D-1326-4A1F-8821-40ABA5A07BA5} = {F05ED0D6-CE7B-4CD7-A44B-08AA8580D05D}
 		{94C651AE-76DA-47E7-AAB4-149600DFEACB} = {74F4B9AD-BC27-4025-9929-3098CA4051A8}
@@ -103,6 +102,7 @@ Global
 		{15B0264B-3AA5-4F81-B070-A5D7786B8805} = {F05ED0D6-CE7B-4CD7-A44B-08AA8580D05D}
 		{C2602374-0970-46E5-AD71-9FD803A30449} = {F05ED0D6-CE7B-4CD7-A44B-08AA8580D05D}
 		{18A8AC63-B703-4856-B071-432FBEAEB4CD} = {C0B5B3ED-C3FB-4501-9541-D8310719853E}
+		{F525D1AA-09A8-42C0-B039-9B58BE1311F0} = {8B2D4C24-488F-4A0B-B95A-7A0A41FABF3E}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {C189E14B-06B1-4403-BFBE-643EB1E556D7}

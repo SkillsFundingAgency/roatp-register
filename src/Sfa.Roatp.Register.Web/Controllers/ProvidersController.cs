@@ -5,24 +5,28 @@ using System.Net;
 using System.Net.Http;
 using System.Web.Http;
 using System.Web.Http.Description;
+using System.Web.Mvc;
 using Esfa.Roatp.ApplicationServices.Services;
 using Sfa.Roatp.Register.Web.Attributes;
 using SFA.DAS.NLog.Logger;
+using SFA.Roatp.Api.Client;
 using SFA.Roatp.Api.Types;
 using Swashbuckle.Swagger.Annotations;
 
 namespace Sfa.Roatp.Register.Web.Controllers
 {
-    [RoutePrefix("api")]
+    [System.Web.Http.RoutePrefix("api")]
     public class ProvidersController : ApiController
     {
-        private readonly IGetProviders _providerRepo;
+       // private readonly IGetProviders _providerRepo;
+        private readonly IRoatpServiceApiClient _apiClient;
         private readonly ILog _log;
 
-        public ProvidersController(IGetProviders providerRepo, ILog log)
+        public ProvidersController( ILog log, IRoatpServiceApiClient apiClient) //IGetProviders providerRepo,
         {
-            _providerRepo = providerRepo;
+            //_providerRepo = providerRepo;
             _log = log;
+            _apiClient = apiClient;
         }
 
         /// <summary>
@@ -33,7 +37,7 @@ namespace Sfa.Roatp.Register.Web.Controllers
         [SwaggerResponse(HttpStatusCode.NoContent)]
         [SwaggerResponse(HttpStatusCode.NotFound)]
         [SwaggerResponse(HttpStatusCode.BadRequest, "Invalid UKPRN (should be 8 numbers long)")]
-        [Route("providers/{ukprn}")]
+        [System.Web.Http.Route("providers/{ukprn}")]
         [ExceptionHandling]
         public void Head(int ukprn)
         {
@@ -49,7 +53,7 @@ namespace Sfa.Roatp.Register.Web.Controllers
         [SwaggerResponse(HttpStatusCode.OK, "OK", typeof(Provider))]
         [SwaggerResponse(HttpStatusCode.NotFound)]
         [SwaggerResponse(HttpStatusCode.BadRequest, "Invalid UKPRN (should be 8 numbers long)")]
-        [Route("providers/{ukprn}")]
+        [System.Web.Http.Route("providers/{ukprn}")]
         [ExceptionHandling]
         public Provider Get(int ukprn)
         {
@@ -58,17 +62,31 @@ namespace Sfa.Roatp.Register.Web.Controllers
                 throw new HttpResponseException(HttpStatusCode.BadRequest);
             }
 
-            var response = _providerRepo.GetProvider(ukprn);
+            //var response = _providerRepo.GetProvider(ukprn);
 
-            if (response == null || !response.IsDateValid(DateTime.UtcNow))
+            //if (response == null || !response.IsDateValid(DateTime.UtcNow))
+            //{
+            //    throw new HttpResponseException(HttpStatusCode.NotFound);
+            //}
+
+            //var providerOrig = ApiProviderMapper.Map(response);
+
+
+            //providerOrig.Uri = Resolve(response.Ukprn);
+
+            //return provider;
+
+            if (ukprn == 11111111)
+                throw new HttpResponseException(HttpStatusCode.NotFound);
+
+            var provider = _apiClient.GetRoatpSummaryUkprn(ukprn).Result;
+
+            if (provider == null || !provider.IsDateValid(DateTime.UtcNow))
             {
                 throw new HttpResponseException(HttpStatusCode.NotFound);
             }
 
-            var provider = ApiProviderMapper.Map(response);
-
-
-            provider.Uri = Resolve(response.Ukprn);
+            provider.Uri = Resolve(provider.Ukprn);
 
             return provider;
         }
@@ -79,21 +97,23 @@ namespace Sfa.Roatp.Register.Web.Controllers
         /// <returns></returns>
         [SwaggerOperation("GetAll")]
         [SwaggerResponse(HttpStatusCode.OK, "OK", typeof(IEnumerable<Provider>))]
-        [Route("providers")]
+        [System.Web.Http.Route("providers")]
         [ExceptionHandling]
         public IEnumerable<Provider> Get()
         {
             try
             {
-                var response = _providerRepo.GetAllProviders().Where(x => x.IsDateValid(DateTime.UtcNow)).Select(ApiProviderMapper.Map).ToList();
+                //var response = _providerRepo.GetAllProviders().Where(x => x.IsDateValid(DateTime.UtcNow)).Select(ApiProviderMapper.Map).ToList();
 
-                foreach (var provider in response)
+
+                IEnumerable<Provider> providers = _apiClient.GetRoatpSummary().Result.Where(x => x.IsDateValid(DateTime.UtcNow));
+                foreach (var provider in providers)
                 {
                     provider.Uri = Resolve(provider.Ukprn);
                 }
 
-                return response;
-
+                //return response;
+                return providers;
             }
             catch (Exception e)
             {
@@ -108,7 +128,7 @@ namespace Sfa.Roatp.Register.Web.Controllers
         [SwaggerOperation("GetAllOk")]
         [SwaggerResponse(HttpStatusCode.NoContent)]
         [ApiExplorerSettings(IgnoreApi = true)]
-        [Route("providers")]
+        [System.Web.Http.Route("providers")]
         [ExceptionHandling]
         public void Head()
         {

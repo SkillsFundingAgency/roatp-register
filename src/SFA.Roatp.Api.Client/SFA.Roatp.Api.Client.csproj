@@ -9,7 +9,7 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>SFA.Roatp.Api.Client</RootNamespace>
     <AssemblyName>SFA.Roatp.Api.Client</AssemblyName>
-    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <TargetFrameworkProfile />
   </PropertyGroup>
@@ -53,6 +53,10 @@
     <Compile Include="RoatpServiceApiClient.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Esfa.Roatp.ApplicationServices\Esfa.Roatp.ApplicationServices.csproj">
+      <Project>{89A51F7A-5C18-4B64-91AC-2ACE445508FE}</Project>
+      <Name>Esfa.Roatp.ApplicationServices</Name>
+    </ProjectReference>
     <ProjectReference Include="..\SFA.Roatp.Api.Types\SFA.Roatp.Api.Types.csproj">
       <Project>{550f1317-a3f9-4426-86c8-c23804701724}</Project>
       <Name>SFA.Roatp.Api.Types</Name>
@@ -64,6 +68,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Connected Services\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="Publish" DependsOnTargets="Build">
