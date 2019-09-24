@@ -43,10 +43,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Configuration\" />
-    <Folder Include="Sfa.Roatp.Register.WebContent" />
-  </ItemGroup>
-  <ItemGroup>
-    <DiagnosticsConfiguration Include="Sfa.Roatp.Register.WebContent\diagnostics.wadcfgx" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Sfa.Roatp.Register.Web\Sfa.Roatp.Register.Web.csproj">
